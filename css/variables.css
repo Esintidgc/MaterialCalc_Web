@@ -1,0 +1,165 @@
+/* ==========================================================================
+   MaterialCalc - CSS Variables / CSS Değişkenleri
+   ========================================================================== */
+
+/* --- 1. GLOBAL VARIABLES / KÜRESEL DEĞİŞKENLER --- */
+:root {
+    /* Base Colors / Temel Renkler */
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-dark: #141113;
+    --color-dark-muted: #1c1c1e;
+    --color-dark-alt: #2c2c2e;
+    --color-gray-100: #fafafa;
+    --color-gray-200: #f8f9fa;
+    --color-gray-300: #f5f5f7;
+    --color-gray-400: #e8e8ed;
+    --color-gray-500: #e5e5ea;
+    --color-gray-600: #eaeaea;
+    --color-gray-700: #D1D1D1;
+
+    /* Semantic Text Colors / Anlamsal Metin Renkleri */
+    --text-primary: var(--color-dark);
+    --text-secondary: #58575A;
+    --text-muted: #6F7075;
+    --text-light-gray: #8e8e93;
+    --text-light-999: #999;
+    --text-white: var(--color-white);
+    --text-white-dim: rgba(255, 255, 255, 0.9);
+    --text-white-muted: rgba(255, 255, 255, 0.6);
+    --text-white-ghost: rgba(255, 255, 255, 0.5);
+    
+    /* Typography / Tipografi */
+    --line-height-base: 1.6;
+    --line-height-tight: 1.2;
+    --line-height-heading: 1.1;
+
+    /* Spacing / Boşluklar */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
+    
+    --spacing-1: 4px;
+    --spacing-1-5: 6px;
+    --spacing-2: 8px;
+    --spacing-2-5: 10px;
+    --spacing-3: 12px;
+    --spacing-3-5: 14px;
+    --spacing-4: 16px;
+    --spacing-4-5: 18px;
+    --spacing-5: 20px;
+    --spacing-6: 24px;
+    --spacing-7: 28px;
+    --spacing-7-5: 30px;
+    --spacing-8: 32px;
+    --spacing-9: 36px;
+    --spacing-10: 40px;
+    --spacing-11: 45px;
+    --spacing-12: 48px;
+    --spacing-12-5: 50px;
+    --spacing-15: 60px;
+    --spacing-15-5: 62px;
+    --spacing-16: 64px;
+    --spacing-17-5: 70px;
+    --spacing-20: 80px;
+    --spacing-24: 96px;
+    --spacing-25: 100px;
+    --spacing-30: 120px;
+    --spacing-35: 140px;
+    --spacing-50: 200px;
+
+    /* Semantic Backgrounds / Anlamsal Arka Planlar */
+    --bg-main: var(--color-white);
+    --bg-surface: rgba(53, 50, 50, 0.4);
+    --bg-surface-hover: rgba(88, 87, 90, 0.4);
+    
+    /* Overlay Backgrounds / Kaplama Arka Planları */
+    --overlay-black-03: rgba(0, 0, 0, 0.03);
+    --overlay-black-05: rgba(0, 0, 0, 0.05);
+    --overlay-black-08: rgba(0, 0, 0, 0.08);
+    --overlay-black-10: rgba(0, 0, 0, 0.1);
+    --overlay-black-20: rgba(0, 0, 0, 0.2);
+    --overlay-black-30: rgba(0, 0, 0, 0.3);
+    --overlay-black-40: rgba(0, 0, 0, 0.4);
+    --overlay-black-50: rgba(0, 0, 0, 0.5);
+    --overlay-black-60: rgba(0, 0, 0, 0.6);
+    --overlay-black-70: rgba(0, 0, 0, 0.7);
+    --overlay-black-80: rgba(0, 0, 0, 0.8);
+    --overlay-black-85: rgba(0, 0, 0, 0.85);
+
+    --overlay-white-05: rgba(255, 255, 255, 0.05);
+    --overlay-white-10: rgba(255, 255, 255, 0.1);
+    --overlay-white-15: rgba(255, 255, 255, 0.15);
+    --overlay-white-20: rgba(255, 255, 255, 0.2);
+    --overlay-white-30: rgba(255, 255, 255, 0.3);
+
+    /* Accents & Brand / Vurgular & Marka */
+    --accent-solid: #7E7160;
+    --accent-solid-light: rgba(126, 113, 96, 0.2);
+    --accent-solid-shadow: rgba(126, 113, 96, 0.4);
+    --accent-solid-shadow-hover: rgba(93, 82, 63, 0.5);
+    
+    --accent-purple: #D946EF;
+    --accent-purple-bg: rgba(139, 92, 246, 0.1);
+    --accent-purple-border: rgba(139, 92, 246, 0.2);
+
+    /* Gradients / Geçişli Renkler */
+    --accent-gradient: linear-gradient(135deg, #7E7160, #5D523F);
+    --accent-gradient-hover: linear-gradient(135deg, #5D523F, #38311E);
+    --gradient-hero: linear-gradient(to top, var(--overlay-black-85), var(--overlay-black-50) 70%, transparent);
+    --gradient-glass: linear-gradient(135deg, var(--overlay-white-20), rgba(255, 255, 255, 0));
+
+    /* Borders / Kenarlıklar */
+    --border-glass: var(--overlay-black-10);
+    --border-glass-light: var(--overlay-white-20);
+    --border-light: var(--color-gray-600);
+
+    /* Shadows / Gölgeler */
+    --shadow-sm: 0 4px 15px var(--overlay-black-10);
+    --shadow-md: 0 10px 20px var(--overlay-black-20);
+    --shadow-lg: 0 18px 36px var(--overlay-black-08);
+    --shadow-inset-lg: inset 0 30px 45px var(--overlay-black-05);
+    --shadow-inset-sm: inset 0 6px 18px var(--overlay-black-03);
+    --shadow-white-glow: 0 4px 15px var(--overlay-white-20);
+
+    /* Layout & Utilities / Düzen & Araçlar */
+    --container-width: 1200px;
+    --pill-radius: 100px;
+    --card-radius: 24px;
+    
+    /* Animations / Animasyonlar */
+    --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- 2. COMPONENT VARIABLES / BİLEŞEN DEĞİŞKENLERİ --- */
+:root {
+    /* Navbar / Gezinme Çubuğu */
+    --navbar-height: 56px;
+    --navbar-scrolled-bg: var(--color-white);
+    --navbar-glass-bg: var(--overlay-white-05);
+    
+    /* Footer / Alt Bilgi */
+    --footer-bg: var(--color-white);
+    
+    /* Buttons / Butonlar */
+    --btn-primary-height: 40px;
+}
+
+/* --- 3. PAGE SPECIFIC VARIABLES / SAYFAYA ÖZEL DEĞİŞKENLER --- */
+
+/* Home Page / Anasayfa */
+:root {
+    --bg-main: #0e0c0d;
+    --bg-island: #1a1618; /* Combined background for Hero and Brands / Hero ve Brands'in birleşik arka planı */
+    --hero-min-height: calc(100vh - 48px);
+}
+
+/* Calculator Pages / Hesaplayıcı Sayfaları */
+:root {
+    --calc-page-bg: #141113;
+}

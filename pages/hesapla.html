@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hesaplayıcılar - MaterialCalc</title>
+    <meta name="description"
+        content="Mimarlar ve ustalar için profesyonel malzeme hesaplama aracı. Seramik, parke, boya ihtiyaçlarınızı doğru ve hızlı şekilde hesaplayın.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/variables.css?v=14.0">
+    <link rel="stylesheet" href="../css/style.css?v=14.0">
+    <link rel="stylesheet" href="../css/components.css?v=14.0">
+    <link rel="stylesheet" href="../css/calculator.css?v=14.0">
+    <link rel="stylesheet" href="../css/mobile.css?v=14.0">
+</head>
+
+<body class="calc-page">
+
+    <!-- FLOATING NAVBAR -->
+    <header class="floating-header scrolled">
+        <div class="header-pill logo-pill" data-aos="fade-down">
+            <a href="anasayfa.html" class="logo">Material<span>Calc</span></a>
+        </div>
+
+        <div class="header-pill nav-pill" data-aos="fade-down" data-aos-delay="100">
+            <nav class="main-nav">
+                <a href="#" class="nav-link active" data-i18n="nav.calculators">Hesaplayıcılar</a>
+                <a href="anasayfa.html#howItWorks" class="nav-link" data-i18n="nav.howItWorks">Nasıl Çalışır?</a>
+                <a href="usta-hesabi.html" class="nav-link" data-i18n="nav.ustaHesabi">Usta Hesabı</a>
+                <a href="anasayfa.html#faq" class="nav-link" data-i18n="nav.faq">S.S.S</a>
+                <a href="#contact" class="nav-link" data-i18n="nav.contact">İletişim</a>
+            </nav>
+        </div>
+
+        <div class="header-pill action-pill" data-aos="fade-down" data-aos-delay="200">
+            <div class="lang-switch-wrapper">
+                <input type="checkbox" id="langToggleCheckbox" class="lang-checkbox">
+                <label for="langToggleCheckbox" class="lang-slider">
+                    <span class="lang-label tr-label">TR</span>
+                    <span class="lang-label en-label">EN</span>
+                    <div class="slider-thumb"></div>
+                </label>
+            </div>
+            <a href="#calculatorGrid" class="btn-pill-primary header-cta-btn" data-i18n="nav.start">Hemen Başla</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menüyü Aç/Kapat">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- FULL-SCREEN APPLE OVERLAY MENU -->
+    <div class="mobile-menu-overlay" id="mobileMenuDrawer">
+        <div class="mobile-overlay-inner">
+            <nav class="mobile-overlay-nav">
+                <a href="anasayfa.html#calculatorGrid" class="overlay-link" data-i18n="nav.calculators">Hesaplayıcılar</a>
+                <a href="anasayfa.html#howItWorks" class="overlay-link" data-i18n="nav.howItWorks">Nasıl Çalışır?</a>
+                <a href="usta-hesabi.html" class="overlay-link" data-i18n="nav.ustaHesabi">Usta Hesabı</a>
+                <a href="anasayfa.html#faq" class="overlay-link" data-i18n="nav.faq">S.S.S</a>
+                <a href="#contact" class="overlay-link" data-i18n="nav.contact">İletişim</a>
+            </nav>
+
+            <div class="mobile-overlay-footer">
+                <a href="#calculatorGrid" class="btn-solid-white overlay-cta" data-i18n="nav.start">Hemen Başla</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT START -->
+    <main class="calc-main-wrapper">
+        <div class="calc-spa-container">
+            <!-- SIDEBAR NAVIGATION -->
+            <aside class="calc-sidebar" data-aos="fade-right">
+                <h2 data-i18n="calc.sidebar.title">Kategoriler</h2>
+                <nav class="calc-nav-list">
+                    <button class="calc-nav-btn active" data-target="ceramic">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M3 12h18M12 3v18" /></svg>
+                        <span data-i18n="calc.ceramic.title">Seramik</span>
+                    </button>
+                    <button class="calc-nav-btn" data-target="parquet">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4zM4 12h16M12 4v16" /></svg>
+                        <span data-i18n="calc.parquet.title">Parke</span>
+                    </button>
+                    <button class="calc-nav-btn" data-target="paint">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" /></svg>
+                        <span data-i18n="calc.paint.title">Boya</span>
+                    </button>
+                    <button class="calc-nav-btn" data-target="wallpaper">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" /><path d="M4 12h16" /></svg>
+                        <span data-i18n="calc.wallpaper.title">Duvar Kağıdı</span>
+                    </button>
+                    <button class="calc-nav-btn" data-target="baseboard">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h16M4 20L4 20M20 20L20 4" /></svg>
+                        <span data-i18n="calc.baseboard.title">Süpürgelik</span>
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- CALCULATOR PANELS -->
+            <section class="calc-content-area" data-aos="fade-left" data-aos-delay="100">
+                
+                <!-- CERAMIC PANEL -->
+                <div class="calc-panel active" id="panel-ceramic">
+                    <div class="calc-header-block">
+                        <h1 data-i18n="calc.ceramic.fullTitle">Seramik Hesaplama</h1>
+                        <p data-i18n="calc.ceramic.desc">Zemin ve duvar uygulamalarınız için gerekli seramik kutu miktarını fire oranlarıyla bulun.</p>
+                    </div>
+                    
+                    <div class="minimal-calc-grid">
+                        <div class="calc-mode-switch-wrapper">
+                            <input type="checkbox" id="cer-mode-toggle" class="calc-mode-checkbox">
+                            <label for="cer-mode-toggle" class="calc-mode-slider">
+                                <span class="calc-mode-label dim-label" data-i18n="calc.form.modeDim">En × Boy</span>
+                                <span class="calc-mode-label area-label" data-i18n="calc.form.modeArea">Toplam Alan</span>
+                                <div class="calc-slider-thumb"></div>
+                            </label>
+                        </div>
+
+                        <div class="minimal-inputs">
+                            <!-- Dimensions Mode Inputs -->
+                            <div class="min-form-group dim-input">
+                                <label data-i18n="calc.form.width">Uygulama Alanı Eni (m)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="cer-width" step="0.01" min="0" placeholder="Örn: 4.5" data-i18n-placeholder="calc.form.width.ph">
+                                </div>
+                            </div>
+                            <div class="min-form-group dim-input">
+                                <label data-i18n="calc.form.length">Uygulama Alanı Boyu (m)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="cer-length" step="0.01" min="0" placeholder="Örn: 5.2" data-i18n-placeholder="calc.form.length.ph">
+                                </div>
+                            </div>
+
+                            <!-- Area Mode Input (Initially Hidden via CSS) -->
+                            <div class="min-form-group area-input" style="display: none;">
+                                <label data-i18n="calc.form.totalAreaInput">Toplam Alan (m²)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="cer-total-area" step="0.01" min="0" placeholder="Örn: 23.4" data-i18n-placeholder="calc.form.totalAreaInput.ph">
+                                </div>
+                            </div>
+                            <div class="min-form-group">
+                                <label data-i18n="calc.form.boxArea">1 Kutu Seramik Alanı (m²)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="cer-box-area" step="0.01" min="0" value="1.44">
+                                </div>
+                            </div>
+                            <div class="min-form-group force-new-line">
+                                <label data-i18n="calc.form.waste">Fire Oranı (%)</label>
+                                <div class="min-waste-selector">
+                                    <input type="range" id="cer-waste" min="0" max="20" value="10" step="5">
+                                    <span class="min-waste-val" id="cer-waste-val">%10</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calc-results-wrapper">
+                            <div class="min-info-card">
+                                <div class="min-result-item">
+                                    <h3 data-i18n="calc.result.totalArea">Toplam Net Alan</h3>
+                                    <div class="min-res-value" id="cer-res-area">0.00 <small>m²</small></div>
+                                </div>
+                                <div class="min-result-item">
+                                    <h3 data-i18n="calc.result.grossArea">Fireli Toplam Alan</h3>
+                                    <div class="min-res-value" id="cer-res-gross">0.00 <small>m²</small></div>
+                                </div>
+                            </div>
+                            <div class="min-final-card">
+                                <h3 data-i18n="calc.result.totalBoxes">İhtiyaç Duyulan Kutu</h3>
+                                <div class="min-res-value highlight" id="cer-res-boxes">0 <small>Kutu</small></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- PARQUET PANEL -->
+                <div class="calc-panel" id="panel-parquet">
+                    <div class="calc-header-block">
+                        <h1 data-i18n="calc.parquet.fullTitle">Parke Hesaplama</h1>
+                        <p data-i18n="calc.parquet.desc">Laminant veya lamine parke uygulamanız için ihtiyacınız olan paket miktarını çıkarın.</p>
+                    </div>
+                    
+                    <div class="minimal-calc-grid">
+                        <div class="calc-mode-switch-wrapper">
+                            <input type="checkbox" id="parq-mode-toggle" class="calc-mode-checkbox">
+                            <label for="parq-mode-toggle" class="calc-mode-slider">
+                                <span class="calc-mode-label dim-label" data-i18n="calc.form.modeDim">En × Boy</span>
+                                <span class="calc-mode-label area-label" data-i18n="calc.form.modeArea">Toplam Alan</span>
+                                <div class="calc-slider-thumb"></div>
+                            </label>
+                        </div>
+
+                        <div class="minimal-inputs">
+                            <!-- Dimensions Mode Inputs -->
+                            <div class="min-form-group parq-dim-input">
+                                <label data-i18n="calc.form.width">Uygulama Alanı Eni (m)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="parq-width" step="0.01" min="0" placeholder="Örn: 4.5" data-i18n-placeholder="calc.form.width.ph">
+                                </div>
+                            </div>
+                            <div class="min-form-group parq-dim-input">
+                                <label data-i18n="calc.form.length">Uygulama Alanı Boyu (m)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="parq-length" step="0.01" min="0" placeholder="Örn: 5.2" data-i18n-placeholder="calc.form.length.ph">
+                                </div>
+                            </div>
+
+                            <!-- Area Mode Input -->
+                            <div class="min-form-group parq-area-input" style="display: none;">
+                                <label data-i18n="calc.form.totalAreaInput">Toplam Alan (m²)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="parq-total-area" step="0.01" min="0" placeholder="Örn: 23.4" data-i18n-placeholder="calc.form.totalAreaInput.ph">
+                                </div>
+                            </div>
+                            
+                            <div class="min-form-group">
+                                <label data-i18n="calc.form.parquetBoxArea">1 Paket Parke Alanı (m²)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="parq-box-area" step="0.01" min="0" value="1.84">
+                                </div>
+                            </div>
+                            
+                            <div class="min-form-group force-new-line">
+                                <label data-i18n="calc.form.waste">Fire Oranı (%)</label>
+                                <div class="min-waste-selector">
+                                    <input type="range" id="parq-waste" min="0" max="20" value="5" step="5">
+                                    <span class="min-waste-val" id="parq-waste-val">%5</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calc-results-wrapper">
+                            <div class="min-info-card">
+                                <div class="min-result-item">
+                                    <h3 data-i18n="calc.result.totalArea">Toplam Net Alan</h3>
+                                    <div class="min-res-value" id="parq-res-area">0.00 <small>m²</small></div>
+                                </div>
+                                <div class="min-result-item">
+                                    <h3 data-i18n="calc.result.grossArea">Fireli Toplam Alan</h3>
+                                    <div class="min-res-value" id="parq-res-gross">0.00 <small>m²</small></div>
+                                </div>
+                            </div>
+                            <div class="min-final-card">
+                                <h3 data-i18n="calc.result.totalPackages">İhtiyaç Duyulan Paket</h3>
+                                <div class="min-res-value highlight" id="parq-res-boxes">0 <small data-i18n="calc.result.packageLabel">Paket</small></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAINT PANEL -->
+                <div class="calc-panel" id="panel-paint">
+                    <div class="calc-header-block">
+                        <h1 data-i18n="calc.paint.fullTitle">Boya Hesaplama</h1>
+                        <p data-i18n="calc.paint.desc">Oda ölçülerinizi girin, boyamanız gereken alan için kaç litre boya gerektiğini öğrenin.</p>
+                    </div>
+                    
+                    <div class="minimal-calc-grid">
+                        <div class="calc-mode-switch-wrapper">
+                            <input type="checkbox" id="paint-mode-toggle" class="calc-mode-checkbox">
+                            <label for="paint-mode-toggle" class="calc-mode-slider">
+                                <span class="calc-mode-label dim-label" data-i18n="calc.form.modeDim">En × Boy</span>
+                                <span class="calc-mode-label area-label" data-i18n="calc.form.modeArea">Toplam Alan</span>
+                                <div class="calc-slider-thumb"></div>
+                            </label>
+                        </div>
+
+                        <div class="minimal-inputs">
+                            <!-- Dimensions Mode Inputs -->
+                            <div class="min-form-group paint-dim-input">
+                                <label data-i18n="calc.form.width">Uygulama Alanı Eni (m)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="paint-width" step="0.01" min="0" placeholder="Örn: 4.5" data-i18n-placeholder="calc.form.width.ph">
+                                </div>
+                            </div>
+                            <div class="min-form-group paint-dim-input">
+                                <label data-i18n="calc.form.length">Uygulama Alanı Boyu (m)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="paint-length" step="0.01" min="0" placeholder="Örn: 5.2" data-i18n-placeholder="calc.form.length.ph">
+                                </div>
+                            </div>
+
+                            <!-- Area Mode Input -->
+                            <div class="min-form-group paint-area-input" style="display: none;">
+                                <label data-i18n="calc.form.totalAreaInput">Toplam Alan (m²)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="paint-total-area" step="0.01" min="0" placeholder="Örn: 23.4" data-i18n-placeholder="calc.form.totalAreaInput.ph">
+                                </div>
+                            </div>
+                            
+                            <div class="min-form-group">
+                                <label data-i18n="calc.form.paintCoverage">Boya Sarfiyatı (m²/Litre)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="paint-coverage" step="0.01" min="0" value="10" placeholder="Örn: 10" data-i18n-placeholder="calc.form.paintCoverage.ph">
+                                </div>
+                            </div>
+
+                            <div class="min-form-group">
+                                <label data-i18n="calc.form.coats">Kat Sayısı</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="paint-coats" step="1" min="1" value="2" placeholder="Örn: 2" data-i18n-placeholder="calc.form.coats.ph">
+                                </div>
+                            </div>
+                            
+                            <div class="min-form-group force-new-line">
+                                <label data-i18n="calc.form.waste">Fire Oranı (%)</label>
+                                <div class="min-waste-selector">
+                                    <input type="range" id="paint-waste" min="0" max="20" value="10" step="5">
+                                    <span class="min-waste-val" id="paint-waste-val">%10</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calc-results-wrapper">
+                            <div class="min-info-card">
+                                <div class="min-result-item">
+                                    <h3 data-i18n="calc.result.totalArea">Toplam Net Alan</h3>
+                                    <div class="min-res-value" id="paint-res-area">0.00 <small>m²</small></div>
+                                </div>
+                                <div class="min-result-item">
+                                    <h3 data-i18n="calc.result.grossArea">Fireli Toplam Alan</h3>
+                                    <div class="min-res-value" id="paint-res-gross">0.00 <small>m²</small></div>
+                                </div>
+                            </div>
+                            <div class="min-final-card">
+                                <h3 data-i18n="calc.result.totalLiters">İhtiyaç Duyulan Boya</h3>
+                                <div class="min-res-value highlight" id="paint-res-liters">0 <small data-i18n="calc.result.literLabel">Litre</small></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- WALLPAPER PANEL -->
+                <div class="calc-panel" id="panel-wallpaper">
+                    <div class="calc-header-block">
+                        <h1 data-i18n="calc.wallpaper.fullTitle">Duvar Kağıdı Hesaplama</h1>
+                        <p data-i18n="calc.wallpaper.desc">Rulo ebatları ve duvar ölçülerinize göre net olarak kaç rulo gerektiğini hesaplayın.</p>
+                    </div>
+                    
+                    <div class="minimal-calc-grid">
+                        <div class="minimal-inputs">
+                            <div class="min-form-group">
+                                <label data-i18n="calc.form.wallWidth">Toplam Duvar Genişliği (m)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="wall-width" step="0.01" min="0" placeholder="Örn: 12" data-i18n-placeholder="calc.form.wallWidth.ph">
+                                </div>
+                            </div>
+                            <div class="min-form-group">
+                                <label data-i18n="calc.form.wallHeight">Duvar Yüksekliği (m)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="wall-height" step="0.01" min="0" placeholder="Örn: 2.8" data-i18n-placeholder="calc.form.wallHeight.ph">
+                                </div>
+                            </div>
+
+                            <div class="min-form-group">
+                                <label data-i18n="calc.form.rollWidth">Rulo Eni (m)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="roll-width" step="0.01" min="0" value="0.53" placeholder="Örn: 0.53" data-i18n-placeholder="calc.form.rollWidth.ph">
+                                </div>
+                            </div>
+                            
+                            <div class="min-form-group">
+                                <label data-i18n="calc.form.rollLength">Rulo Boyu (m)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="roll-length" step="0.01" min="0" value="10" placeholder="Örn: 10" data-i18n-placeholder="calc.form.rollLength.ph">
+                                </div>
+                            </div>
+
+                            <div class="min-form-group force-new-line">
+                                <label data-i18n="calc.form.waste">Fire Oranı (%)</label>
+                                <div class="min-waste-selector">
+                                    <input type="range" id="wall-waste" min="0" max="20" value="10" step="5">
+                                    <span class="min-waste-val" id="wall-waste-val">%10</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calc-results-wrapper">
+                            <div class="min-info-card">
+                                <div class="min-result-item">
+                                    <h3 data-i18n="calc.result.totalArea">Toplam Net Alan</h3>
+                                    <div class="min-res-value" id="wall-res-area">0.00 <small>m²</small></div>
+                                </div>
+                                <div class="min-result-item">
+                                    <h3 data-i18n="calc.result.grossArea">Fireli Toplam Alan</h3>
+                                    <div class="min-res-value" id="wall-res-gross">0.00 <small>m²</small></div>
+                                </div>
+                            </div>
+                            <div class="min-final-card">
+                                <h3 data-i18n="calc.result.totalRolls">İhtiyaç Duyulan Rulo</h3>
+                                <div class="min-res-value highlight" id="wall-res-rolls">0 <small data-i18n="calc.result.rollLabel">Rulo</small></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BASEBOARD PANEL -->
+                <div class="calc-panel" id="panel-baseboard">
+                    <div class="calc-header-block">
+                        <h1 data-i18n="calc.baseboard.fullTitle">Süpürgelik Hesaplama</h1>
+                        <p data-i18n="calc.baseboard.desc">Oda çevresi ve kapı boşluklarını girerek gerekli süpürgelik uzunluğunu (mt) bulun.</p>
+                    </div>
+                    
+                    <div class="minimal-calc-grid">
+                        <div class="calc-mode-switch-wrapper" style="width: 280px;">
+                            <input type="checkbox" id="base-mode-toggle" class="calc-mode-checkbox">
+                            <label for="base-mode-toggle" class="calc-mode-slider">
+                                <span class="calc-mode-label dim-label" data-i18n="calc.form.modeDim">En × Boy</span>
+                                <span class="calc-mode-label area-label" data-i18n="calc.form.modePerimeter">Toplam Çevre</span>
+                                <div class="calc-slider-thumb"></div>
+                            </label>
+                        </div>
+
+                        <div class="minimal-inputs">
+                            <!-- Dimensions Mode Inputs -->
+                            <div class="min-form-group base-dim-input">
+                                <label data-i18n="calc.form.roomWidth">Oda Eni (m)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="base-width" step="0.01" min="0" placeholder="Örn: 4.5" data-i18n-placeholder="calc.form.roomWidth.ph">
+                                </div>
+                            </div>
+                            <div class="min-form-group base-dim-input">
+                                <label data-i18n="calc.form.roomLength">Oda Boyu (m)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="base-length" step="0.01" min="0" placeholder="Örn: 5.2" data-i18n-placeholder="calc.form.roomLength.ph">
+                                </div>
+                            </div>
+
+                            <!-- Perimeter Mode Input -->
+                            <div class="min-form-group base-area-input" style="display: none;">
+                                <label data-i18n="calc.form.totalPerimeterInput">Toplam Çevre (m)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="base-total-perim" step="0.01" min="0" placeholder="Örn: 15" data-i18n-placeholder="calc.form.totalPerimeterInput.ph">
+                                </div>
+                            </div>
+                            
+                            <div class="min-form-group">
+                                <label data-i18n="calc.form.doors">Kapı Sayısı</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="base-doors" step="1" min="0" value="1" placeholder="Örn: 1" data-i18n-placeholder="calc.form.doors.ph">
+                                </div>
+                            </div>
+
+                            <div class="min-form-group">
+                                <label data-i18n="calc.form.baseboardLength">1 Süpürgelik Uzunluğu (m)</label>
+                                <div class="min-input-wrapper">
+                                    <input type="number" id="base-length-item" step="0.01" min="0" value="2.4" placeholder="Örn: 2.4" data-i18n-placeholder="calc.form.baseboardLength.ph">
+                                </div>
+                            </div>
+
+                            <div class="min-form-group force-new-line">
+                                <label data-i18n="calc.form.waste">Fire Oranı (%)</label>
+                                <div class="min-waste-selector">
+                                    <input type="range" id="base-waste" min="0" max="20" value="10" step="5">
+                                    <span class="min-waste-val" id="base-waste-val">%10</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calc-results-wrapper">
+                            <div class="min-info-card">
+                                <div class="min-result-item">
+                                    <h3 data-i18n="calc.result.totalPerimeter">Toplam Net Çevre</h3>
+                                    <div class="min-res-value" id="base-res-net">0.00 <small>m</small></div>
+                                </div>
+                                <div class="min-result-item">
+                                    <h3 data-i18n="calc.result.grossPerimeter">Fireli Toplam Çevre</h3>
+                                    <div class="min-res-value" id="base-res-gross">0.00 <small>m</small></div>
+                                </div>
+                            </div>
+                            <div class="min-final-card">
+                                <h3 data-i18n="calc.result.totalPieces">İhtiyaç Duyulan Adet</h3>
+                                <div class="min-res-value highlight" id="base-res-pieces">0 <small data-i18n="calc.result.pieceLabel">Adet</small></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER / ALT BİLGİ -->
+    <footer id="contact" class="site-footer">
+        <div class="container">
+            <div class="footer-top" data-aos="fade-up">
+                <div class="footer-brand">
+                    <div class="footer-logo">MATERIALCALC</div>
+                    <p class="footer-slogan" data-i18n="footer.slogan">Projeleriniz için en doğru hesaplamalar.</p>
+
+                    <form class="footer-subscribe" onsubmit="event.preventDefault()">
+                        <input type="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="you@email.com" required>
+                        <button type="submit" class="join-btn" data-i18n="footer.join">Join</button>
+                    </form>
+
+                    <div class="footer-lang">
+                        <span>🇹🇷 TR</span>
+                        <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2"
+                            fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4 data-i18n="footer.explore">Keşfet</h4>
+                        <a href="anasayfa.html#howItWorks" data-i18n="footer.howItWorks">Nasıl Çalışır</a>
+                        <a href="usta-hesabi.html" data-i18n="nav.ustaHesabi">Usta Hesabı</a>
+                        <a href="#" data-i18n="footer.features">Özellikler</a>
+                        <a href="#" data-i18n="footer.about">Hakkımızda</a>
+                        <a href="anasayfa.html#faq" data-i18n="footer.faq">SSS</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="footer.calculators">Hesaplayıcılar</h4>
+                        <a href="hesapla.html?type=ceramic" data-i18n="calc.ceramic.title">Seramik</a>
+                        <a href="hesapla.html?type=parquet" data-i18n="calc.parquet.title">Parke</a>
+                        <a href="hesapla.html?type=paint" data-i18n="calc.paint.title">Boya</a>
+                        <a href="hesapla.html?type=wallpaper" data-i18n="calc.wallpaper.title">Duvar Kağıdı</a>
+                        <a href="hesapla.html?type=baseboard" data-i18n="calc.baseboard.title">Süpürgelik</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="footer.contact">İletişim</h4>
+                        <a href="#" data-i18n="footer.support">Destek</a>
+                        <a href="#">Email</a>
+                        <a href="#">Instagram</a>
+                        <a href="#">X</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom" data-aos="fade-up" data-aos-delay="200">
+                <div class="footer-copyright" data-i18n="footer.rights">
+                    © 2026 MaterialCalc. Tüm hakları saklıdır.
+                </div>
+                <div class="footer-legal">
+                    <a href="#" data-i18n="footer.privacy">Gizlilik</a>
+                    <a href="#" data-i18n="footer.terms">Şartlar & İade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING DOCK -->
+    <aside class="floating-dock scrolled" aria-label="Hızlı Hesaplama Araçları">
+        <a href="anasayfa.html" class="dock-item" data-i18n-tooltip="nav.home" data-tooltip="Ana Sayfa">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+        </a>
+        <a href="hesapla.html?type=ceramic" class="dock-item" data-i18n-tooltip="dock.ceramic" data-tooltip="Seramik" aria-label="Seramik Hesaplama">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M3 12h18M12 3v18" />
+            </svg>
+        </a>
+        <a href="hesapla.html?type=parquet" class="dock-item" data-i18n-tooltip="dock.parquet" data-tooltip="Parke" aria-label="Parke Hesaplama">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M4 4h16v16H4zM4 12h16M12 4v16" />
+            </svg>
+        </a>
+        <a href="hesapla.html?type=paint" class="dock-item" data-i18n-tooltip="dock.paint" data-tooltip="Boya" aria-label="Boya Hesaplama">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+        </a>
+        <a href="hesapla.html?type=wallpaper" class="dock-item" data-i18n-tooltip="dock.wallpaper" data-tooltip="Duvar Kağıdı"
+            aria-label="Duvar Kağıdı Hesaplama">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="2" />
+                <path d="M4 12h16" />
+            </svg>
+        </a>
+        <a href="hesapla.html?type=baseboard" class="dock-item" data-i18n-tooltip="dock.baseboard" data-tooltip="Süpürgelik"
+            aria-label="Süpürgelik Hesaplama">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M4 20h16M4 20L4 20M20 20L20 4" />
+            </svg>
+        </a>
+    </aside>
+
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/translations.js"></script>
+    <script src="../js/lang.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/calculator.js"></script>
+</body>
+</html>

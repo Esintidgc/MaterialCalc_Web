@@ -1,0 +1,623 @@
+/* COMPONENTS.CSS - Common structural components / Ortak yapısal bileşenler */
+/* 4. FLOATING HEADER (DYNAMIC ISLAND) / YÜZEN GEZİNME ÇUBUĞU (DİNAMİK ADA) */
+.floating-header {
+    position: fixed;
+    top: var(--spacing-12);
+    /* Moved down inside the hero image / Hero resminin içine doğru aşağı kaydırıldı */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: var(--container-width);
+    padding: 0 var(--spacing-lg);
+    z-index: 1000;
+    transition: var(--transition-smooth);
+}
+
+.floating-header.scrolled {
+    top: var(--spacing-6);
+}
+
+/* Scrolled State for Navbar Pills / Kaydırılmış Durumdaki Gezinme Hapları */
+.floating-header.scrolled .header-pill {
+    background: var(--color-white);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: 1px solid var(--overlay-black-08);
+    box-shadow: 0 4px 20px var(--overlay-black-05);
+}
+
+.floating-header.scrolled .logo,
+.floating-header.scrolled .nav-link,
+.floating-header.scrolled .lang-selector {
+    color: var(--text-secondary);
+}
+
+.floating-header.scrolled .logo {
+    color: var(--color-dark);
+}
+
+.floating-header.scrolled .nav-link:hover,
+.floating-header.scrolled .lang-selector:hover {
+    color: var(--color-dark);
+    background: var(--overlay-black-05);
+}
+
+.floating-header.scrolled .btn-pill-primary {
+    background: var(--color-dark);
+    color: var(--color-white);
+    border-color: var(--color-dark);
+}
+
+.floating-header.scrolled .btn-pill-primary:hover {
+    background: var(--color-white);
+    color: var(--color-dark);
+}
+
+
+
+.header-pill {
+    background: var(--overlay-white-05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--overlay-white-20);
+    border-radius: var(--pill-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    /* Absolute fixed height / Kesin ve sabit yükseklik */
+    transition: var(--transition-smooth);
+}
+
+.logo-pill {
+    padding: 0 var(--spacing-lg);
+}
+
+.nav-pill {
+    padding: 0 var(--spacing-3);
+}
+
+.action-pill {
+    padding: 0 var(--spacing-2) 0 var(--spacing-5);
+    gap: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 56px;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    color: white;
+}
+
+.logo span {
+    color: var(--accent-solid);
+}
+
+.main-nav {
+    display: flex;
+    gap: var(--spacing-sm);
+    align-items: center;
+}
+
+.nav-link {
+    padding: var(--spacing-2-5) var(--spacing-5);
+    border-radius: var(--pill-radius);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-white);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: white;
+    background: var(--overlay-white-10);
+}
+
+
+
+.lang-switch-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.lang-checkbox {
+    display: none;
+}
+
+.lang-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 4px;
+    width: 86px;
+    height: 34px;
+    cursor: pointer;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.lang-label {
+    flex: 1;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-gray-500);
+    z-index: 2;
+    transition: color 0.4s ease;
+    user-select: none;
+}
+
+/* The Sliding Thumb */
+.slider-thumb {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: calc(50% - 4px);
+    height: calc(100% - 8px);
+    background: #8F8171; /* Premium brownish pill */
+    border-radius: 16px;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* Checked state (EN) */
+.lang-checkbox:checked + .lang-slider .slider-thumb {
+    transform: translateX(100%);
+}
+
+.lang-checkbox:not(:checked) + .lang-slider .tr-label {
+    color: var(--color-white);
+}
+
+.lang-checkbox:checked + .lang-slider .en-label {
+    color: var(--color-white);
+}
+
+/* Scrolled header state */
+.floating-header.scrolled .lang-slider {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.floating-header.scrolled .lang-label {
+    color: var(--color-gray-400);
+}
+
+.floating-header.scrolled .lang-checkbox:not(:checked) + .lang-slider .tr-label,
+.floating-header.scrolled .lang-checkbox:checked + .lang-slider .en-label {
+    color: var(--color-white);
+}
+
+/* Scrolled state for dropdown / Kaydırılmış menü durumu */
+.floating-header.scrolled .lang-dropdown {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.floating-header.scrolled .lang-option {
+    color: var(--color-dark);
+}
+
+.floating-header.scrolled .lang-option:hover {
+    background: var(--bg-color);
+}
+
+.floating-header.scrolled .lang-option.active {
+    background: var(--accent-solid);
+    color: var(--color-white);
+}
+
+/* ==========================================================================
+   4.1 MOBILE OVERLAY & TOGGLE (DESKTOP STATE)
+   ========================================================================== */
+.mobile-menu-toggle,
+.mobile-menu-drawer,
+.mobile-menu-overlay {
+    display: none; /* Hidden on desktop / Masaüstünde tamamen gizli */
+}
+
+/* 8. FOOTER / ALT BİLGİ BÖLÜMÜ */
+.site-footer {
+    background-color: var(--color-white);
+    padding: var(--spacing-20) 0 var(--spacing-10);
+    position: relative;
+    border-top: 1px solid var(--overlay-black-05);
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--spacing-10);
+    margin-bottom: 60px;
+}
+
+.footer-brand {
+    max-width: 300px;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.footer-slogan {
+    font-size: 0.95rem;
+    color: var(--overlay-black-50);
+    margin-bottom: 30px;
+}
+
+.footer-subscribe {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--overlay-black-10);
+    border-radius: 40px;
+    padding: var(--spacing-1);
+    margin-bottom: var(--spacing-lg);
+    transition: var(--transition-fast);
+}
+
+.footer-subscribe:focus-within {
+    border-color: var(--overlay-black-30);
+}
+
+.footer-subscribe input {
+    border: none;
+    background: transparent;
+    padding: var(--spacing-2-5) var(--spacing-4);
+    font-size: 0.9rem;
+    outline: none;
+    width: 100%;
+    color: #000;
+}
+
+.footer-subscribe input::placeholder {
+    color: var(--overlay-black-40);
+}
+
+.join-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: var(--spacing-2-5) var(--spacing-6);
+    border-radius: 40px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.join-btn:hover {
+    background: #333;
+}
+
+.footer-lang {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-1-5);
+    padding: var(--spacing-2) var(--spacing-4);
+    border: 1px solid var(--overlay-black-10);
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: var(--overlay-black-70);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.footer-lang:hover {
+    border-color: var(--overlay-black-30);
+    color: #000;
+}
+
+.footer-links {
+    display: flex;
+    gap: var(--spacing-20);
+    flex-wrap: wrap;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.footer-col h4 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 4px;
+}
+
+.footer-col a {
+    font-size: 0.9rem;
+    color: var(--overlay-black-50);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.footer-col a:hover {
+    color: #000;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid var(--overlay-black-05);
+    font-size: 0.85rem;
+    color: var(--overlay-black-40);
+}
+
+.footer-legal {
+    display: flex;
+    gap: var(--spacing-lg);
+}
+
+.footer-legal a {
+    color: var(--overlay-black-40);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.footer-legal a:hover {
+    color: #000;
+}
+
+@media (max-width: 992px) {
+    .footer-links {
+        gap: var(--spacing-10);
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+
+
+    .footer-bottom {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   9. FLOATING CALCULATORS DOCK / YÜZEN HESAPLAYICI MENÜSÜ
+   ========================================================================== */
+.floating-dock {
+    position: fixed;
+    right: var(--spacing-10); /* Ekrandan biraz daha içeri kaydırıldı (40px) */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    background: var(--overlay-white-15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--overlay-white-20);
+    padding: var(--spacing-2);
+    border-radius: 30px;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+}
+
+.dock-item {
+    position: relative;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    background: transparent;
+    border-radius: 50%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    /* Entrance animation / Giriş animasyonu */
+    animation: slideInRight 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
+}
+
+/* Staggered delays for a cascade effect / Basamaklı giriş efekti */
+.dock-item:nth-child(1) { animation-delay: 0.1s; }
+.dock-item:nth-child(2) { animation-delay: 0.2s; }
+.dock-item:nth-child(3) { animation-delay: 0.3s; }
+.dock-item:nth-child(4) { animation-delay: 0.4s; }
+.dock-item:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes slideInRight {
+    0% { transform: translateX(50px) scale(0.5); opacity: 0; }
+    100% { transform: translateX(0) scale(1); opacity: 1; }
+}
+
+.dock-item svg {
+    width: 22px;
+    height: 22px;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy SVG */
+}
+
+.dock-item:hover {
+    background: var(--accent-solid);
+    color: var(--color-white);
+    transform: scale(1.1) translateX(-5px);
+    box-shadow: 0 0 20px rgba(126, 113, 96, 0.6), inset 0 0 10px rgba(255,255,255,0.2);
+}
+
+.dock-item:hover svg {
+    transform: scale(1.2) rotate(-10deg);
+}
+
+/* Scrolled state for white backgrounds / Beyaz arkaplanlar için kaydırma durumu */
+.floating-dock.scrolled {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.floating-dock.scrolled .dock-item {
+    color: var(--color-dark);
+}
+
+.floating-dock.scrolled .dock-item:hover {
+    background: var(--accent-solid);
+    color: var(--color-white);
+}
+
+/* Tooltip on hover / Hover yapıldığında ipucu (Tooltip) */
+.dock-item::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    right: calc(100% + 20px);
+    top: 50%;
+    transform: translateY(-50%) translateX(20px) scale(0.8);
+    background: rgba(20, 17, 19, 0.95);
+    color: var(--color-white);
+    padding: var(--spacing-1-5) var(--spacing-3);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Elastic bounce */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    pointer-events: none;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Tooltip Arrow / İpucu oku */
+.dock-item::after {
+    content: '';
+    position: absolute;
+    right: calc(100% + 15px);
+    top: 50%;
+    transform: translateY(-50%) translateX(20px) scale(0.8);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgba(20, 17, 19, 0.95);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    pointer-events: none;
+}
+
+.dock-item:hover::before,
+.dock-item:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0) scale(1);
+}
+
+/* Yüzen menüyü beyaz sayfa kısımlarında da okunaklı kılmak için invert edebiliriz, ama Glassmorphism genel olarak her zeminde iyi çalışır. */
+
+/* Mobile view: hide or move to bottom / Mobil görünümde alta al */
+@media (max-width: 768px) {
+    .floating-dock {
+        top: auto;
+        bottom: var(--spacing-4);
+        right: 50%;
+        transform: translateX(50%);
+        flex-direction: row;
+        border-radius: 30px;
+    }
+    
+    .dock-item::before {
+        right: auto;
+        left: 50%;
+        top: auto;
+        bottom: calc(100% + 15px);
+        transform: translateX(-50%) translateY(10px);
+    }
+    
+    .dock-item::after {
+        right: auto;
+        left: 50%;
+        top: auto;
+        bottom: calc(100% + 10px);
+        transform: translateX(-50%) translateY(10px);
+        border-color: rgba(20, 17, 19, 0.9) transparent transparent transparent;
+    }
+    
+    .dock-item:hover::before,
+    .dock-item:hover::after {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* ==========================================================================
+   10. BACK TO TOP BUTTON / YUKARI ÇIK BUTONU
+   ========================================================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--color-dark);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 999;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-to-top:hover {
+    background: var(--accent-solid);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(126, 113, 96, 0.4);
+}
+
+.back-to-top svg {
+    transition: transform 0.3s ease;
+}
+
+.back-to-top:hover svg {
+    transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 90px; /* Mobilde yüzen dock'un üzerinde dursun */
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}

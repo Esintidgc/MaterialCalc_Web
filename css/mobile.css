@@ -1,0 +1,919 @@
+/* ==========================================================================
+   MaterialCalc - Profesyonel Mobil CSS (mobile.css)
+   Prensip: Sıfır !important, Doğal CSS Spesifikliği ve Temiz Mimari
+   Hedef: Küçük ve Kompakt Ekranlar (<= 768px)
+   ========================================================================== */
+
+/* Menü Açıkken Arka Plan Kaydırmasını Tamamen Durdur (Scroll Lock) */
+html.menu-open,
+body.menu-open {
+    overflow: hidden;
+    height: 100%;
+    touch-action: none;
+}
+
+@media (max-width: 768px) {
+
+    /* ==========================================================================
+       1. DİNAMİK ADA & MOBİL HEADER
+       ========================================================================== */
+    body .floating-header {
+        top: 6px;
+        padding: 0 22px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        justify-content: space-between;
+    }
+
+    body .floating-header.scrolled {
+        top: 4px;
+        padding: 0 22px;
+    }
+
+    body .header-pill {
+        height: 24px;
+        border-radius: 100px;
+    }
+
+    body .logo-pill {
+        padding: 0 8px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+    }
+
+    body .logo {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: -0.2px;
+        color: #ffffff;
+        line-height: 1;
+    }
+
+    body .logo span {
+        color: #dfd5c6;
+    }
+
+    body .floating-header.scrolled .logo span {
+        color: var(--accent-solid);
+    }
+
+    body .nav-pill {
+        display: none;
+    }
+
+    body .action-pill {
+        padding: 0 2px 0 4px;
+        gap: 3px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+    }
+
+    body .action-pill .header-cta-btn {
+        display: none;
+    }
+
+    body .mobile-menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5px;
+        width: 18px;
+        height: 18px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        z-index: 1001;
+    }
+
+    body .hamburger-bar {
+        width: 10px;
+        height: 1.2px;
+        background-color: #ffffff;
+        border-radius: 1px;
+        transition: all 0.25s ease;
+    }
+
+    body .floating-header.scrolled .hamburger-bar {
+        background-color: var(--color-dark);
+    }
+
+    body .mobile-menu-toggle.active .hamburger-bar:nth-child(1) {
+        transform: translateY(2.7px) rotate(45deg);
+    }
+
+    body .mobile-menu-toggle.active .hamburger-bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    body .mobile-menu-toggle.active .hamburger-bar:nth-child(3) {
+        transform: translateY(-2.7px) rotate(-45deg);
+    }
+
+    /* ==========================================================================
+       1.2 TAM EKRAN MİNİMALİST APPLE OVERLAY MENÜ
+       ========================================================================== */
+    body .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        background: rgba(15, 12, 14, 0.88);
+        backdrop-filter: blur(35px);
+        -webkit-backdrop-filter: blur(35px);
+        z-index: 998; /* Header altında ama sayfanın tamamının üstünde */
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s;
+    }
+
+    body .mobile-menu-overlay.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    body .mobile-overlay-inner {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        padding: 60px 20px 30px 20px;
+        box-sizing: border-box;
+        gap: 22px;
+    }
+
+    body .mobile-overlay-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    body .overlay-link {
+        font-size: 1.10rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.68);
+        text-decoration: none;
+        letter-spacing: -0.2px;
+        transform: translateY(12px);
+        opacity: 0;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, color 0.2s ease;
+    }
+
+    body .mobile-menu-overlay.open .overlay-link {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    body .mobile-menu-overlay.open .overlay-link:nth-child(1) { transition-delay: 0.05s; }
+    body .mobile-menu-overlay.open .overlay-link:nth-child(2) { transition-delay: 0.09s; }
+    body .mobile-menu-overlay.open .overlay-link:nth-child(3) { transition-delay: 0.13s; }
+    body .mobile-menu-overlay.open .overlay-link:nth-child(4) { transition-delay: 0.17s; }
+    body .mobile-menu-overlay.open .overlay-link:nth-child(5) { transition-delay: 0.21s; }
+
+    body .overlay-link:hover,
+    body .overlay-link:active {
+        color: #ffffff;
+        transform: scale(1.04);
+    }
+
+    body .mobile-overlay-footer {
+        margin-top: 6px;
+        transform: translateY(12px);
+        opacity: 0;
+        transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+        transition-delay: 0.25s;
+    }
+
+    body .mobile-menu-overlay.open .mobile-overlay-footer {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    body .overlay-cta {
+        min-width: 130px;
+        height: 30px;
+        font-size: 0.72rem;
+        font-weight: 700;
+        border-radius: 100px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #ffffff;
+        color: #141113;
+        text-decoration: none;
+        box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+    }
+
+    body .lang-slider {
+        width: 38px;
+        height: 16px;
+        border-radius: 8px;
+        padding: 1px;
+    }
+
+    body .lang-label {
+        font-size: 0.46rem;
+        font-weight: 700;
+        line-height: 1;
+    }
+
+    /* ==========================================================================
+       2. HERO BÖLÜMÜ
+       ========================================================================== */
+    body .hero-brands-container {
+        margin: 6px 12px;
+        border-radius: 12px;
+    }
+
+    body .hero-section {
+        min-height: auto;
+        padding: 40px 8px 12px 8px;
+        border-radius: 12px;
+    }
+
+    body .hero-bg-wrapper {
+        border-radius: 12px;
+    }
+
+    body .hero-main-row {
+        flex-direction: column;
+        gap: 3px;
+        text-align: center;
+    }
+
+    /* Arama Çubuğu */
+    body .hero-search-bar {
+        width: 100%;
+        max-width: 220px;
+        height: 24px;
+        margin: 0 auto 8px auto;
+        box-sizing: border-box;
+        box-shadow: 1.5px 1.5px 0 0 #ffffff;
+        padding: 2px 2px 2px 8px;
+        gap: 5px;
+        border-radius: 100px;
+        display: flex;
+        align-items: center;
+    }
+
+    body .hero-search-bar svg {
+        width: 10px;
+        height: 10px;
+        flex-shrink: 0;
+    }
+
+    body .hero-search-bar input {
+        font-size: 0.52rem;
+        line-height: 1;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    body .hero-search-bar input::placeholder {
+        font-size: 0.52rem;
+        line-height: 1;
+        opacity: 0.75;
+    }
+
+    body .hero-search-bar .search-btn {
+        width: 17px;
+        height: 17px;
+        min-width: 17px;
+    }
+
+    body .hero-search-bar .search-btn svg {
+        width: 8px;
+        height: 8px;
+    }
+
+    /* Başlık */
+    body .hero-left h1 {
+        font-size: 1.10rem;
+        white-space: normal;
+        letter-spacing: -0.2px;
+        line-height: 1.15;
+        margin-bottom: 2px;
+    }
+
+    body .text-muted-hero {
+        font-size: 1.05rem;
+        display: block;
+        font-weight: 500;
+    }
+
+    body .text-white-hero {
+        font-size: 1.05rem;
+        display: block;
+        margin-top: 1px;
+    }
+
+    body #typewriter-text {
+        font-size: 1.05rem;
+        font-weight: 700;
+    }
+
+    body .typewriter-cursor {
+        height: 0.8em;
+        width: 1.2px;
+    }
+
+    /* Açıklama & Butonlar */
+    body .hero-right {
+        padding-top: 0;
+        align-items: center;
+    }
+
+    body .hero-right p {
+        font-size: 0.68rem;
+        margin-bottom: 8px;
+        line-height: 1.3;
+        max-width: 230px;
+        margin-left: auto;
+        margin-right: auto;
+        color: rgba(255, 255, 255, 0.88);
+        font-weight: 400;
+        text-align: center;
+    }
+
+    body .hero-buttons {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 5px;
+        justify-content: center;
+        max-width: 230px;
+        margin: 0 auto;
+    }
+
+    body .btn-solid-white,
+    body .btn-glass-outline {
+        flex: 1;
+        max-width: 100px;
+        height: 26px;
+        padding: 0 4px;
+        font-size: 0.68rem;
+        font-weight: 600;
+        text-align: center;
+        border-radius: 100px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+    }
+
+    /* ==========================================================================
+       3. MARKALAR (BRANDS) IZGARASI
+       ========================================================================== */
+    body .brands-section {
+        padding: 10px 4px 8px 4px;
+    }
+
+    body .brands-title {
+        font-size: 0.72rem;
+        font-weight: 600;
+        margin-bottom: 6px;
+        line-height: 1.25;
+        max-width: 210px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    body .brands-logo-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px 6px;
+        justify-items: center;
+        width: 100%;
+    }
+
+    body .brand-logo {
+        opacity: 0.85;
+        gap: 3px;
+    }
+
+    body .brand-logo svg {
+        width: 13px;
+        height: 13px;
+    }
+
+    body .brand-logo span {
+        font-size: 0.68rem;
+        font-weight: 600;
+    }
+
+    /* ==========================================================================
+       4. NASIL ÇALIŞIR & 3D CÜZDAN (WALLET)
+       ========================================================================== */
+    body .how-it-works {
+        margin-top: 18px;
+        padding: 0 6px;
+    }
+
+    body .hiw-header {
+        margin-bottom: 8px;
+    }
+
+    body .hiw-badge {
+        font-size: 0.60rem;
+        padding: 2px 6px;
+        margin-bottom: 3px;
+        border-radius: 8px;
+    }
+
+    body .hiw-header h2 {
+        font-size: 1.05rem;
+        line-height: 1.2;
+        margin-bottom: 2px;
+    }
+
+    body .hiw-header p {
+        font-size: 0.68rem;
+        line-height: 1.25;
+        max-width: 230px;
+        margin: 0 auto;
+    }
+
+    body .wallet-app-container {
+        margin-top: 4px;
+        margin-bottom: 16px;
+        width: 100%;
+    }
+
+    body .wallet {
+        width: 215px;
+        max-width: calc(100vw - 20px);
+        height: 175px;
+    }
+
+    body .wallet::after {
+        font-size: 9px;
+        top: calc(100% + 3px);
+        content: "Detay için dokunun";
+    }
+
+    body .wallet-back {
+        width: 100%;
+        height: 150px;
+        border-radius: 10px 10px 35px 35px;
+    }
+
+    body .wallet-card {
+        width: calc(100% - 10px);
+        height: 110px;
+        left: 5px;
+        border-radius: 10px;
+    }
+
+    body .wallet-card-glass {
+        padding: 6px 8px;
+    }
+
+    body .card-top {
+        font-size: 9px;
+    }
+
+    body .hiw-step-badge {
+        width: 16px;
+        height: 16px;
+        font-size: 0.60rem;
+    }
+
+    body .card-info .label {
+        font-size: 7px;
+    }
+
+    body .card-info .value {
+        font-size: 10px;
+        font-weight: 700;
+    }
+
+    body .step-3 { bottom: 68px; }
+    body .step-2 { bottom: 44px; }
+    body .step-1 { bottom: 20px; }
+
+    body .pocket {
+        width: 100%;
+        height: 118px;
+    }
+
+    body .pocket-content {
+        top: 24px;
+        gap: 1px;
+    }
+
+    body .balance-stars {
+        font-size: 14px;
+        letter-spacing: 2px;
+    }
+
+    body .balance-real {
+        font-size: 11px;
+        font-weight: 700;
+    }
+
+    body .eye-icon-wrapper {
+        width: 16px;
+        height: 16px;
+        margin-top: 1px;
+    }
+
+    body .eye-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    /* Dokunmatik / Aktif Cüzdan */
+    body .wallet.active .step-3,
+    body .wallet:hover .step-3 {
+        transform: translateY(-60px) rotate(-3deg);
+    }
+
+    body .wallet.active .step-2,
+    body .wallet:hover .step-2 {
+        transform: translateY(-40px) rotate(2deg);
+    }
+
+    body .wallet.active .step-1,
+    body .wallet:hover .step-1 {
+        transform: translateY(-12px);
+    }
+
+    body .wallet.active .balance-stars,
+    body .wallet:hover .balance-stars {
+        opacity: 0;
+        transform: translateY(-5px) scale(0.9);
+    }
+
+    body .wallet.active .balance-real,
+    body .wallet:hover .balance-real {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(1);
+    }
+
+    body .wallet.active .eye-slash,
+    body .wallet:hover .eye-slash {
+        opacity: 0;
+    }
+
+    body .wallet.active .eye-open,
+    body .wallet:hover .eye-open {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    /* ==========================================================================
+       5. HESAPLAYICILAR DİKEY KARTLARI
+       ========================================================================== */
+    body .calculators-section {
+        margin-top: 18px;
+        padding: 0 6px 18px 6px;
+    }
+
+    body .calculators-header {
+        margin-bottom: 8px;
+    }
+
+    body .calculators-header-text h2 {
+        font-size: 1.05rem;
+        line-height: 1.2;
+        margin-bottom: 2px;
+    }
+
+    body .calculators-header-text p {
+        font-size: 0.68rem;
+    }
+
+    body .calc-accordion-container {
+        flex-direction: column;
+        height: auto;
+        gap: 6px;
+    }
+
+    body .calc-accordion-card {
+        height: 98px;
+        width: 100%;
+        flex: none;
+        border-radius: 10px;
+    }
+
+    body .calc-accordion-collapsed-title {
+        display: none;
+    }
+
+    body .calc-accordion-expanded-content {
+        opacity: 1;
+        transform: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        padding: 6px 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-start;
+        gap: 1px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.92) 0%, rgba(0, 0, 0, 0.4) 75%, transparent 100%);
+    }
+
+    body .calc-accordion-expanded-content h3 {
+        font-size: 0.88rem;
+        font-weight: 700;
+        margin: 0;
+    }
+
+    body .calc-accordion-expanded-content p {
+        font-size: 0.64rem;
+        line-height: 1.2;
+        max-width: 100%;
+        opacity: 0.88;
+        margin: 0;
+    }
+
+    body .calc-accordion-expanded-content .btn-pill-primary {
+        margin-top: 2px;
+        padding: 1px 8px;
+        font-size: 0.64rem;
+        height: 22px;
+    }
+
+    /* ==========================================================================
+       6. SSS (FAQ)
+       ========================================================================== */
+    body .faq-section {
+        padding: 18px 6px 14px 6px;
+    }
+
+    body .faq-header h2 {
+        font-size: 1.05rem;
+    }
+
+    body .faq-question {
+        padding: 6px 8px;
+    }
+
+    body .faq-q-left svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    body .faq-q-left span {
+        font-size: 0.70rem;
+    }
+
+    body .faq-icon-plus {
+        font-size: 0.9rem;
+    }
+
+    body .faq-answer p {
+        padding: 4px 8px 8px 8px;
+        font-size: 0.64rem;
+    }
+
+    /* ==========================================================================
+       7. FOOTER, DOCK & BACK TO TOP
+       ========================================================================== */
+    body .site-footer {
+        padding: 18px 6px 10px 6px;
+    }
+
+    body .footer-logo {
+        font-size: 0.88rem;
+        margin-bottom: 2px;
+    }
+
+    body .footer-slogan {
+        font-size: 0.64rem;
+        margin-bottom: 8px;
+    }
+
+    body .footer-subscribe {
+        padding: 2px;
+        margin-bottom: 8px;
+    }
+
+    body .footer-subscribe input {
+        font-size: 0.64rem;
+        padding: 3px 6px;
+    }
+
+    body .join-btn {
+        font-size: 0.64rem;
+        padding: 3px 8px;
+    }
+
+    body .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    body .footer-col h4 {
+        font-size: 0.72rem;
+    }
+
+    body .footer-col a {
+        font-size: 0.64rem;
+    }
+
+    body .footer-bottom {
+        padding-top: 10px;
+        font-size: 0.62rem;
+        gap: 6px;
+    }
+
+    /* Yüzen Menü (Dock) */
+    body .floating-dock {
+        bottom: 4px;
+        padding: 2px 3px;
+        border-radius: 14px;
+        gap: 2px;
+        z-index: 1000;
+    }
+
+    body .dock-item {
+        width: 24px;
+        height: 24px;
+    }
+
+    body .dock-item svg {
+        width: 12px;
+        height: 12px;
+    }
+
+    body .back-to-top {
+        bottom: 36px;
+        right: 6px;
+        width: 24px;
+        height: 24px;
+    }
+
+    body .back-to-top svg {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+
+/* ==========================================================================
+   2. KÜÇÜK VE KOMPAKT EKRANLAR (<= 480px / 320px - 400px - %200 Zoom Dahil)
+   Özellik: Üstten aşağı indirilmiş Dinamik Ada & Tam Orantılı Mikro Elemanlar
+   ========================================================================== */
+@media (max-width: 480px) {
+
+    /* --- Üstten Aşağı İndirilmiş ve %10 Dengelenmiş Dinamik Ada --- */
+    body .floating-header {
+        top: 14px; /* Üstten aşağıya ferah nefes payı */
+        padding: 0 22px;
+    }
+
+    body .floating-header.scrolled {
+        top: 8px;
+        padding: 0 22px;
+    }
+
+    body .header-pill {
+        height: 22px; /* %10 Büyütüldü (tam dengeli mikro kapsül) */
+    }
+
+    body .logo-pill {
+        height: 22px;
+        padding: 0 7px;
+    }
+
+    body .logo {
+        font-size: 0.60rem; /* %10 Büyütüldü */
+        letter-spacing: -0.15px;
+    }
+
+    body .action-pill {
+        height: 22px;
+        padding: 0 3px 0 5px;
+        gap: 4px;
+    }
+
+    /* TR / EN Dil Kaydırıcı ve Geçiş Efekti Kutucuğu (Slider Thumb) */
+    body .lang-switch {
+        display: flex;
+        align-items: center;
+    }
+
+    body .lang-slider {
+        width: 38px;
+        height: 16px;
+        border-radius: 9px;
+        padding: 1.5px;
+        position: relative;
+    }
+
+    body .slider-thumb {
+        top: 1.5px;
+        left: 1.5px;
+        width: calc(50% - 1.5px);
+        height: calc(100% - 3px);
+        border-radius: 7px;
+        background: var(--accent-solid);
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    }
+
+    body .lang-label {
+        font-size: 0.44rem;
+        font-weight: 700;
+        z-index: 2;
+        line-height: 1;
+    }
+
+    body .mobile-menu-toggle {
+        width: 16px;
+        height: 16px;
+        gap: 1.5px;
+    }
+
+    body .hamburger-bar {
+        width: 9px;
+        height: 1.2px;
+    }
+
+    body .mobile-menu-toggle.active .hamburger-bar:nth-child(1) {
+        transform: translateY(2.5px) rotate(45deg);
+    }
+
+    body .mobile-menu-toggle.active .hamburger-bar:nth-child(3) {
+        transform: translateY(-2.5px) rotate(-45deg);
+    }
+
+    body .overlay-link {
+        font-size: 0.98rem;
+    }
+
+    body .mobile-overlay-nav {
+        gap: 10px;
+    }
+
+    body .overlay-cta {
+        min-width: 120px;
+        height: 28px;
+        font-size: 0.68rem;
+    }
+
+    /* Kompakt Arama Çubuğu */
+    body .hero-search-bar {
+        max-width: 175px;
+        height: 20px;
+        margin: 0 auto 6px auto;
+        padding: 1px 2px 1px 6px;
+        gap: 3px;
+        box-shadow: 1px 1px 0 0 #ffffff;
+    }
+
+    body .hero-search-bar svg {
+        width: 8px;
+        height: 8px;
+    }
+
+    body .hero-search-bar input {
+        font-size: 0.40rem;
+        line-height: 1;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    body .hero-search-bar input::placeholder {
+        font-size: 0.40rem;
+        line-height: 1;
+        opacity: 0.75;
+    }
+
+    body .hero-search-bar .search-btn {
+        width: 14px;
+        height: 14px;
+        min-width: 14px;
+    }
+
+    body .hero-search-bar .search-btn svg {
+        width: 7px;
+        height: 7px;
+    }
+
+    /* Adanın üstten aşağı inmesine uyumlu Hero boşluğu */
+    body .hero-section {
+        padding: 46px 8px 12px 8px;
+    }
+}
+
