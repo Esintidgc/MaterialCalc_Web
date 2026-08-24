@@ -154,12 +154,11 @@
 
 /* Home Page / Anasayfa */
 :root {
-    --bg-main: #0e0c0d;
-    --bg-island: #1a1618; /* Combined background for Hero and Brands / Hero ve Brands'in birleşik arka planı */
+    --bg-island: #F3F3F3; /* Combined background for Hero and Brands / Hero ve Brands'in birleşik arka planı */
     --hero-min-height: calc(100vh - 48px);
 }
 
 /* Calculator Pages / Hesaplayıcı Sayfaları */
 :root {
-    --calc-page-bg: #141113;
+    --calc-page-bg: var(--color-gray-200);
 }
