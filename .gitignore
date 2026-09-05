@@ -6,6 +6,8 @@
 pages/
 
 # 2. Markdown Analysis & Planning Files / Planlama ve Geliştirme Notları
+md/
+docs/
 *.md
 !README.md
 

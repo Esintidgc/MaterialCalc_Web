@@ -3,6 +3,8 @@ node_modules/
 .git/
 .wrangler/
 pages/
+md/
+docs/
 *.md
 !README.md
 optimize_images.js
