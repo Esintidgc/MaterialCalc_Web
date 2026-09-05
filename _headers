@@ -1,0 +1,19 @@
+# ==============================================================================
+# Cloudflare Pages Security & Cache Headers / Güvenlik ve Önbellek Başlıkları
+# ==============================================================================
+
+/*
+  # Clickjacking Koruması (Siteyi iframe içine gömmeyi kısıtlar)
+  X-Frame-Options: SAMEORIGIN
+  
+  # MIME-Type Sniffing Koruması (Dosya türü sahteciliğini engeller)
+  X-Content-Type-Options: nosniff
+  
+  # XSS Filtresi (Eski tarayıcılar için aktif koruma)
+  X-XSS-Protection: 1; mode=block
+  
+  # Gizlilik ve Yönlendirme Politikası
+  Referrer-Policy: strict-origin-when-cross-origin
+  
+  # İzin Politikası (Kamera, mikrofon, konum gibi gereksiz API'leri kapatır)
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()

@@ -1,0 +1,44 @@
+# ==============================================================================
+# MaterialCalc - Strict .gitignore / Dosya Filtreleme Kuralları
+# ==============================================================================
+
+# 1. Legacy & Duplicate Folders / Eski ve Yedek Sayfa Klasörleri
+pages/
+
+# 2. Markdown Analysis & Planning Files / Planlama ve Geliştirme Notları
+*.md
+!README.md
+
+# 3. Environment & Secret Files / Gizli Bilgi ve Yapılandırmalar
+.env
+.env.local
+.env.*.local
+*.env
+
+# 4. Operating System Files / İşletim Sistemi Artıkları
+.DS_Store
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# 5. IDE & Editor Files / Editör Geçici Dosyaları
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 6. Temporary, Log & Backup Files / Geçici, Yedek ve Log Dosyaları
+*.log
+*.tmp
+*.bak
+*.old
+*.zip
+*.rar
+*.tar.gz
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+tmp/
+temp/
+
+

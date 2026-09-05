@@ -454,12 +454,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 .trim();
         };
 
-        // Eşleşen harfleri kalın ve belirgin vurgulama / Highlight matching search query
+        // Eşleşen harfleri güvenli şekilde kalın ve belirgin vurgulama / Safe highlight matching query
         const highlightMatch = (text, query) => {
-            if (!query || !text) return text;
+            if (!text) return '';
+            // HTML Güvenlik Kaçışı / HTML entity escape
+            const safeText = String(text)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+            if (!query) return safeText;
             const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
             const regex = new RegExp(`(${escapedQuery})`, 'gi');
-            return text.replace(regex, '<span class="search-highlight">$1</span>');
+            return safeText.replace(regex, '<span class="search-highlight">$1</span>');
         };
 
         // Sonuçları Açılır Menüde Listeleme / Render Search Results

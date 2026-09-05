@@ -43,14 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Check URL for initial tab
+    // Check URL for initial tab with strict whitelist validation
     const urlParams = new URLSearchParams(window.location.search);
     const typeParam = urlParams.get('type');
-    if (typeParam) {
-        const btnExists = document.querySelector(`.calc-nav-btn[data-target="${typeParam}"]`);
-        if (btnExists) {
-            switchTab(typeParam);
-        }
+    const validTypes = ['ceramic', 'parquet', 'paint', 'wallpaper', 'skirting', 'baseboard'];
+    if (typeParam && validTypes.includes(typeParam)) {
+        switchTab(typeParam === 'skirting' ? 'baseboard' : typeParam);
     }
 
     // CERAMIC CALCULATOR LOGIC
