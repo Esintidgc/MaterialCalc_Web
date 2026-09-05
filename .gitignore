@@ -30,6 +30,8 @@ $RECYCLE.BIN/
 # 6. Temporary, Log & Backup Files / Geçici, Yedek ve Log Dosyaları
 node_modules/
 optimize_images.js
+package.json
+package-lock.json
 *.log
 *.tmp
 *.bak

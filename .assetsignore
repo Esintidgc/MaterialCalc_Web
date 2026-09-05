@@ -1,0 +1,10 @@
+# Cloudflare Workers Static Assets Ignore List
+node_modules/
+.git/
+.wrangler/
+pages/
+*.md
+!README.md
+optimize_images.js
+package.json
+package-lock.json
