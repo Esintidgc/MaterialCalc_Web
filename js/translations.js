@@ -1,32 +1,37 @@
 const translations = {
     tr: {
-        // Navbar
+        // 1. Floating Navbar / Gezinme Çubuğu
         "nav.calculators": "Hesaplayıcılar",
         "nav.howItWorks": "Nasıl Çalışır?",
         "nav.faq": "S.S.S",
         "nav.contact": "İletişim",
         "nav.start": "Hemen Başla",
 
-        // Hero Section
+        // 2. Hero Section & Search / Karşılama Alanı ve Arama
         "hero.searchPlaceholder": "Malzeme veya uygulama arayın...",
+        "search.noResults": "Sonuç bulunamadı",
+        "search.badgeCalculator": "Hesaplayıcı",
+        "search.badgeGuide": "Rehber",
+        "search.badgeInfo": "Bilgi",
+        "search.badgeSupport": "Destek",
         "hero.titlePrefix": "Malzemeni hesapla.",
         "hero.description": "Uygulama yapacağınız alanın ölçülerini girin. Sadece net matematiksel verilerle ihtiyacınız olan malzeme miktarını anında bulun.",
         "hero.btnFast": "Hızlı Hesapla",
         "hero.btnFeatures": "Neler Var?",
 
-        // Typewriter Words
+        // 3. Typewriter Words / Daktilo Animasyonu Kelimeleri
         "typewriter.word1": "Saniyeler içinde.",
         "typewriter.word2": "Tam ölçüsüyle.",
         "typewriter.word3": "Net verilerle.",
 
-        // Brands Section
+        // 4. Category Badges & Brands / Kategori Rozetleri ve Markalar
         "brands.title": "Tüm yapı ve dekorasyon projeleriniz için profesyonel hesaplama platformu.",
         "brands.parquet": "Parke",
         "brands.paint": "Boya",
         "brands.wallpaper": "Duvar Kağıdı",
         "brands.drywall": "Alçıpan",
 
-        // How It Works
+        // 5. How It Works & Wallet / Nasıl Çalışır ve 3D Cüzdan
         "hiw.badge": "Kolay Kullanım",
         "hiw.title": "Sadece 3 Adımda Hesaplayın",
         "hiw.desc": "Karmaşık hesaplamalarla vakit kaybetmeyin. Projenize uygun malzemeyi seçin, ölçülerinizi girin ve net sonuçları anında alın.",
@@ -38,11 +43,11 @@ const translations = {
         "hiw.step1.val": "MALZEMENİ SEÇ",
         "hiw.pocket.balance": "HIZLI HESAP",
 
-        // Calculators Header
+        // 6. Calculators Header & Cards / Hesaplayıcılar Başlığı ve Kartları
         "calc.header.title": "Projelerinize yer açın,<br>gerisini bize bırakın.",
         "calc.header.desc": "Uygulamalarınız için ihtiyaç duyduğunuz malzemeleri net verilerle hesaplayın.",
 
-        // Calculators Cards
+        // 6.1 Calculators Cards / Hesaplayıcı Kartları
         "calc.ceramic.title": "Seramik",
         "calc.ceramic.fullTitle": "Seramik Hesaplama",
         "calc.ceramic.desc": "Zemin ve duvar uygulamalarınız için gerekli seramik kutu miktarını fire oranlarıyla bulun.",
@@ -68,14 +73,14 @@ const translations = {
         "calc.baseboard.desc": "Oda çevresi ve kapı boşluklarını girerek gerekli süpürgelik uzunluğunu (mt) bulun.",
         "calc.baseboard.btn": "Hesapla",
 
-        // Floating Dock Tooltips
+        // 6.2 Floating Dock Tooltips / Yüzen Hızlı Menü İpuçları
         "dock.ceramic": "Seramik",
         "dock.parquet": "Parke",
         "dock.paint": "Boya",
         "dock.wallpaper": "Duvar Kağıdı",
         "dock.baseboard": "Süpürgelik",
 
-        // Calculator Form & Results
+        // 6.3 Calculator Form & Results / Hesaplama Formu ve Sonuçları
         "calc.sidebar.title": "Kategoriler",
         "calc.form.modeDim": "En × Boy",
         "calc.form.modeArea": "Toplam Alan",
@@ -126,7 +131,7 @@ const translations = {
         "calc.result.totalPieces": "İhtiyaç Duyulan Adet",
         "calc.result.pieceLabel": "Adet",
 
-        // Usta Hesabi Page
+        // 7. Usta Hesabi Page / Usta Hesabı Sayfası
         "nav.ustaHesabi": "Usta Hesabı",
         "usta.badge": "Şeffaf Algoritmalar",
         "usta.title": "Şantiyenin Gerçek Matematiği",
@@ -172,7 +177,7 @@ const translations = {
         "usta.baseboard.v6": "2.4m Süpürgelik",
         "usta.baseboard.v7": "8 Adet",
 
-        // FAQ Section
+        // 8. FAQ Section / Sıkça Sorulan Sorular (S.S.S)
         "faq.title": "Questions, answered.", // As is in the original
         "faq.q1": "MaterialCalc uygulamasını kullanmak tamamen ücretsiz mi?",
         "faq.a1": "Evet, MaterialCalc'in tüm temel hesaplama özellikleri tamamen ücretsizdir. Projeleriniz için ihtiyacınız olan malzeme miktarını anında, hiçbir ücret ödemeden hesaplayabilirsiniz.",
@@ -183,8 +188,9 @@ const translations = {
         "faq.q4": "Hesaplama sonuçlarını kaydedebilir miyim?",
         "faq.a4": "Şu an için sonuçların ekran görüntüsünü alabilirsiniz. Çok yakında PDF olarak indirme ve profilinize proje kaydetme özelliklerini aktif edeceğiz!",
 
-        // Footer
+        // 9. Footer & Newsletter / Alt Bilgi ve E-Bülten
         "footer.slogan": "Projeleriniz için en doğru hesaplamalar.",
+        "footer.emailPlaceholder": "eposta@adresiniz.com",
         "footer.join": "Join",
         "footer.explore": "Keşfet",
         "footer.howItWorks": "Nasıl Çalışır",
@@ -199,33 +205,38 @@ const translations = {
         "footer.terms": "Şartlar & İade"
     },
     en: {
-        // Navbar
+        // 1. Floating Navbar / Gezinme Çubuğu
         "nav.calculators": "Calculators",
         "nav.howItWorks": "How it Works?",
         "nav.faq": "F.A.Q",
         "nav.contact": "Contact",
         "nav.start": "Start Now",
 
-        // Hero Section
-        "hero.searchPlaceholder": "Search for material or application...",
+        // 2. Hero Section & Search / Karşılama Alanı ve Arama
+        "hero.searchPlaceholder": "Search materials or tools...",
+        "search.noResults": "No results found",
+        "search.badgeCalculator": "Calculator",
+        "search.badgeGuide": "Guide",
+        "search.badgeInfo": "Info",
+        "search.badgeSupport": "Support",
         "hero.titlePrefix": "Calculate materials.",
         "hero.description": "Enter the dimensions of your application area. Instantly find the amount of material you need with precise mathematical data.",
         "hero.btnFast": "Quick Calc",
         "hero.btnFeatures": "Features",
 
-        // Typewriter Words
+        // 3. Typewriter Words / Daktilo Animasyonu Kelimeleri
         "typewriter.word1": "In seconds.",
         "typewriter.word2": "With precision.",
         "typewriter.word3": "With accuracy.",
 
-        // Brands Section
+        // 4. Category Badges & Brands / Kategori Rozetleri ve Markalar
         "brands.title": "The professional calculation platform for all your construction and decoration projects.",
         "brands.parquet": "Parquet",
         "brands.paint": "Paint",
         "brands.wallpaper": "Wallpaper",
         "brands.drywall": "Drywall",
 
-        // How It Works
+        // 5. How It Works & Wallet / Nasıl Çalışır ve 3D Cüzdan
         "hiw.badge": "Easy to Use",
         "hiw.title": "Calculate in Just 3 Steps",
         "hiw.desc": "Don't waste time with complex calculations. Choose the right material for your project, enter your dimensions, and get precise results instantly.",
@@ -237,11 +248,11 @@ const translations = {
         "hiw.step1.val": "CHOOSE MATERIAL",
         "hiw.pocket.balance": "QUICK CALC",
 
-        // Calculators Header
+        // 6. Calculators Header & Cards / Hesaplayıcılar Başlığı ve Kartları
         "calc.header.title": "Make room for your projects,<br>leave the rest to us.",
         "calc.header.desc": "Calculate the materials you need for your applications with precise data.",
 
-        // Calculators Cards
+        // 6.1 Calculators Cards / Hesaplayıcı Kartları
         "calc.ceramic.title": "Ceramic",
         "calc.ceramic.fullTitle": "Ceramic Calculator",
         "calc.ceramic.desc": "Find the required amount of ceramic boxes for your floor and wall applications including waste rates.",
@@ -267,14 +278,14 @@ const translations = {
         "calc.baseboard.desc": "Find the required baseboard length (m) by entering the room perimeter and door gaps.",
         "calc.baseboard.btn": "Calculate",
 
-        // Floating Dock Tooltips
+        // 6.2 Floating Dock Tooltips / Yüzen Hızlı Menü İpuçları
         "dock.ceramic": "Ceramic",
         "dock.parquet": "Parquet",
         "dock.paint": "Paint",
         "dock.wallpaper": "Wallpaper",
         "dock.baseboard": "Baseboard",
 
-        // Calculator Form & Results
+        // 6.3 Calculator Form & Results / Hesaplama Formu ve Sonuçları
         "calc.sidebar.title": "Categories",
         "calc.form.modeDim": "Width × Length",
         "calc.form.modeArea": "Total Area",
@@ -325,7 +336,7 @@ const translations = {
         "calc.result.totalPieces": "Pieces Needed",
         "calc.result.pieceLabel": "Pcs",
 
-        // Usta Hesabi Page
+        // 7. Usta Hesabi Page / Usta Hesabı Sayfası
         "nav.ustaHesabi": "Master Calc",
         "usta.badge": "Transparent Algorithms",
         "usta.title": "Real Construction Math",
@@ -371,7 +382,7 @@ const translations = {
         "usta.baseboard.v6": "2.4m Baseboard",
         "usta.baseboard.v7": "8 Pieces",
 
-        // FAQ Section
+        // 8. FAQ Section / Sıkça Sorulan Sorular (S.S.S)
         "faq.title": "Questions, answered.",
         "faq.q1": "Is it completely free to use the MaterialCalc application?",
         "faq.a1": "Yes, all basic calculation features of MaterialCalc are completely free. You can instantly calculate the amount of material you need for your projects without paying any fees.",
@@ -382,8 +393,9 @@ const translations = {
         "faq.q4": "Can I save the calculation results?",
         "faq.a4": "For now, you can take a screenshot of the results. Very soon we will activate the features to download as PDF and save projects to your profile!",
 
-        // Footer
+        // 9. Footer & Newsletter / Alt Bilgi ve E-Bülten
         "footer.slogan": "The most accurate calculations for your projects.",
+        "footer.emailPlaceholder": "you@email.com",
         "footer.join": "Join",
         "footer.explore": "Explore",
         "footer.howItWorks": "How it Works",

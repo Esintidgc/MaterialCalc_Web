@@ -29,10 +29,11 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- CSS FILES / CSS DOSYALARIMIZ (Modüler & Ayrı) -->
-    <link rel="stylesheet" href="css/variables.css?v=15.0">
-    <link rel="stylesheet" href="css/style.css?v=15.0">
-    <link rel="stylesheet" href="css/components.css?v=15.0">
-    <link rel="stylesheet" href="css/mobile.css?v=15.0">
+    <link rel="stylesheet" href="css/variables.css?v=152.0">
+    <link rel="stylesheet" href="css/style.css?v=152.0">
+    <link rel="stylesheet" href="css/components.css?v=152.0">
+    <link rel="stylesheet" href="css/mobile.css?v=152.0">
+    <link rel="stylesheet" href="css/tablet.css?v=152.0">
 </head>
 
 <body class="home-page">
@@ -40,7 +41,8 @@
     <!-- 1. FLOATING NAVBAR (Dynamic Island Style) / YÜZEN GEZİNME ÇUBUĞU (Dinamik Ada Tarzı) -->
     <header class="floating-header">
         <div class="header-pill logo-pill" data-aos="fade-down">
-            <a href="index.html" class="logo">Material<span>Calc</span></a>
+            <a href="index.html" class="logo"><span class="logo-full">Material<span>Calc</span></span><span
+                    class="logo-short">M<span>C</span></span></a>
         </div>
 
         <div class="header-pill nav-pill" data-aos="fade-down" data-aos-delay="100">
@@ -63,7 +65,7 @@
                 </label>
             </div>
             <a href="#calculatorGrid" class="btn-pill-primary header-cta-btn" data-i18n="nav.start">Hemen Başla</a>
-            
+
             <!-- Mobile Hamburger Button / Mobil Menü Butonu -->
             <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
                 <span class="hamburger-bar"></span>
@@ -73,7 +75,7 @@
         </div>
     </header>
 
-    <!-- FULL-SCREEN APPLE OVERLAY MENU / TAM EKRAN MİNİMALİST MENÜ -->
+    <!-- 1.1 FULL-SCREEN MOBILE DRAWER MENU / TAM EKRAN MOBİL MENÜ -->
     <div class="mobile-menu-overlay" id="mobileMenuDrawer">
         <div class="mobile-overlay-inner">
             <nav class="mobile-overlay-nav">
@@ -86,6 +88,16 @@
 
             <div class="mobile-overlay-footer">
                 <a href="#calculatorGrid" class="btn-solid-white overlay-cta" data-i18n="nav.start">Hemen Başla</a>
+
+                <!-- Mobile In-Menu Language Switcher / Mobil Menü İçi Dil Değiştirici -->
+                <div class="mobile-overlay-lang">
+                    <input type="checkbox" id="mobileLangToggleCheckbox" class="lang-checkbox">
+                    <label for="mobileLangToggleCheckbox" class="lang-slider mobile-lang-slider">
+                        <span class="lang-label tr-label">TR</span>
+                        <span class="lang-label en-label">EN</span>
+                        <div class="slider-thumb"></div>
+                    </label>
+                </div>
             </div>
         </div>
     </div>
@@ -95,49 +107,62 @@
 
         <!-- 2. HERO & BRANDS UNIFIED ISLAND / BİRLEŞİK KARŞILAMA VE MARKALAR ADASI -->
         <div class="hero-brands-container">
-            <!-- HERO SECTION / KARŞILAMA BÖLÜMÜ -->
+            <!-- 2.1 HERO SECTION / KARŞILAMA BÖLÜMÜ -->
             <section class="hero-section">
                 <div class="hero-bg-wrapper">
-                    <div class="hero-bg" style="background-image: url('assets/images/livingroom_2.png'), url('Images/livingroom_2.png');"></div>
+                    <div class="hero-bg"
+                        style="background-image: url('Images/livingroom_2.png');">
+                    </div>
                     <div class="hero-overlay"></div>
                 </div>
 
                 <div class="container hero-content">
-                    <div data-aos="fade-down" data-aos-delay="300">
-                        <form class="hero-search-bar" onsubmit="event.preventDefault()">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            </svg>
-                            <input type="text" id="heroSearchInput" autocomplete="off" data-i18n-placeholder="hero.searchPlaceholder" placeholder="Malzeme veya uygulama arayın..." />
-                            <button class="search-btn">
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                    <div class="hero-search-area" data-aos="fade-down" data-aos-delay="300">
+                        <div class="hero-search-wrapper" id="heroSearchWrapper">
+                            <form class="hero-search-bar" onsubmit="event.preventDefault()">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor"
                                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                    <line x1="5" y1="12" x2="19" y2="12"></line>
-                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                    <circle cx="11" cy="11" r="8"></circle>
+                                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                                 </svg>
-                            </button>
-                        </form>
+                                <input type="text" id="heroSearchInput" autocomplete="off"
+                                    data-i18n-placeholder="hero.searchPlaceholder"
+                                    placeholder="Malzeme veya uygulama arayın..." />
+                                <button class="search-btn" aria-label="Arama Yap">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </button>
+                            </form>
+                            <!-- Canlı Akıllı Arama Açılır Menüsü / Smart Autocomplete Dropdown -->
+                            <div class="hero-search-dropdown" id="heroSearchDropdown" data-lenis-prevent role="listbox" aria-label="Arama Sonuçları"></div>
+                        </div>
                     </div>
 
                     <div class="hero-main-row">
                         <div class="hero-left" data-aos="fade-right">
-                        <h1>
-                            <!-- SEO & Ekran Okuyucular için tam, statik metin (Görünmez) -->
-                            <span class="sr-only">Malzemeni hesapla. Saniyeler içinde. Hatasız.</span>
-                            
-                            <!-- Kullanıcılar için görsel animasyon (Botlar görmezden gelir) -->
-                            <span aria-hidden="true" class="text-muted-hero" data-i18n="hero.titlePrefix">Malzemeni hesapla.</span>
-                            <span aria-hidden="true" class="text-white-hero"><span id="typewriter-text"></span><span class="typewriter-cursor"></span></span>
-                        </h1>
-                    </div>
+                            <h1>
+                                <!-- SEO & Ekran Okuyucular için tam, statik metin (Görünmez) -->
+                                <span class="sr-only">Malzemeni hesapla. Saniyeler içinde. Hatasız.</span>
+
+                                <!-- Kullanıcılar için görsel animasyon (Botlar görmezden gelir) -->
+                                <span aria-hidden="true" class="text-muted-hero" data-i18n="hero.titlePrefix">Malzemeni
+                                    hesapla.</span>
+                                <span aria-hidden="true" class="text-white-hero"><span id="typewriter-text"></span><span
+                                        class="typewriter-cursor"></span></span>
+                            </h1>
+                        </div>
                         <div class="hero-right" data-aos="fade-left" data-aos-delay="200">
-                            <p data-i18n="hero.description">Uygulama yapacağınız alanın ölçülerini girin. Sadece net matematiksel verilerle
+                            <p data-i18n="hero.description">Uygulama yapacağınız alanın ölçülerini girin. Sadece net
+                                matematiksel verilerle
                                 ihtiyacınız olan malzeme miktarını anında bulun.</p>
                             <div class="hero-buttons">
-                                <a href="#calculatorGrid" class="btn-solid-white" data-i18n="hero.btnFast">Hızlı Hesapla</a>
-                                <a href="#howItWorks" class="btn-glass-outline" data-i18n="hero.btnFeatures">Neler Var?</a>
+                                <a href="#calculatorGrid" class="btn-solid-white" data-i18n="hero.btnFast">Hızlı
+                                    Hesapla</a>
+                                <a href="#howItWorks" class="btn-glass-outline" data-i18n="hero.btnFeatures">Neler
+                                    Var?</a>
                             </div>
                         </div>
                     </div>
@@ -147,7 +172,8 @@
             <!-- BRANDS SECTION / MARKALAR (GÜVENENLER) BÖLÜMÜ -->
             <section class="brands-section">
                 <div class="container">
-                    <h2 class="brands-title" data-aos="fade-up" data-i18n="brands.title">Tüm yapı ve dekorasyon projeleriniz için profesyonel hesaplama platformu.
+                    <h2 class="brands-title" data-aos="fade-up" data-i18n="brands.title">Tüm yapı ve dekorasyon
+                        projeleriniz için profesyonel hesaplama platformu.
                     </h2>
                     <div class="brands-logo-grid" data-aos="fade-up" data-aos-delay="100">
 
@@ -198,7 +224,8 @@
             <div class="hiw-header" data-aos="fade-up">
                 <span class="hiw-badge" data-i18n="hiw.badge">Kolay Kullanım</span>
                 <h2 data-i18n="hiw.title">Sadece 3 Adımda Hesaplayın</h2>
-                <p data-i18n="hiw.desc">Karmaşık hesaplamalarla vakit kaybetmeyin. Projenize uygun malzemeyi seçin, ölçülerinizi girin ve net
+                <p data-i18n="hiw.desc">Karmaşık hesaplamalarla vakit kaybetmeyin. Projenize uygun malzemeyi seçin,
+                    ölçülerinizi girin ve net
                     sonuçları anında alın.</p>
             </div>
             <div class="wallet-app-container" data-aos="zoom-in-up" data-aos-delay="200">
@@ -267,11 +294,11 @@
                                 stroke="#e5e5ea" stroke-width="1.5" stroke-dasharray="6 4"></path>
                         </svg>
                         <div class="pocket-content">
-                            <div style="position: relative; height: 24px; width: 100%;">
+                            <div class="balance-wrapper">
                                 <div class="balance-stars">******</div>
                                 <div class="balance-real" data-i18n="hiw.pocket.balance">HIZLI HESAP</div>
                             </div>
-                            <div style="color: #8e8e93; font-size: 12px; font-weight: 500; margin-top: 4px;">
+                            <div class="pocket-brand-text">
                                 MaterialCalc
                             </div>
                             <button class="eye-icon-wrapper" aria-label="Bakiye Göster/Gizle">
@@ -281,8 +308,8 @@
                                     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                                     <circle cx="12" cy="12" r="3"></circle>
                                     <line x1="3" y1="3" x2="21" y2="21"></line>
-                                    </svg>
-                                <svg class="eye-icon eye-open" style="opacity: 0;" width="20" height="20"
+                                </svg>
+                                <svg class="eye-icon eye-open" width="20" height="20"
                                     viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                     stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
@@ -300,79 +327,102 @@
             <div class="calculators-header" data-aos="fade-up">
                 <div class="calculators-header-text">
                     <h2 data-i18n="calc.header.title">Projelerinize yer açın,<br>gerisini bize bırakın.</h2>
-                    <p data-i18n="calc.header.desc">Uygulamalarınız için ihtiyaç duyduğunuz malzemeleri net verilerle hesaplayın.</p>
+                    <p data-i18n="calc.header.desc">Uygulamalarınız için ihtiyaç duyduğunuz malzemeleri net verilerle
+                        hesaplayın.</p>
                 </div>
             </div>
 
             <div class="calc-accordion-container" data-aos="fade-up" data-aos-delay="150">
                 <!-- 1. Ceramic / Seramik -->
-                <a href="hesapla.html?type=ceramic" class="calc-accordion-card">
-                    <div class="calc-accordion-bg" style="background-image: url('assets/images/livingroom_4.png'), url('Images/livingroom_4.png');"></div>
+                <div class="calc-accordion-card">
+                    <div class="calc-accordion-bg"
+                        style="background-image: url('Images/livingroom_4.png');">
+                    </div>
                     <div class="calc-accordion-collapsed-title">
                         <span data-i18n="calc.ceramic.title">Seramik</span>
                     </div>
                     <div class="calc-accordion-expanded-content">
                         <h3 data-i18n="calc.ceramic.fullTitle">Seramik Hesaplama</h3>
-                        <p data-i18n="calc.ceramic.desc">Zemin ve duvar uygulamalarınız için gerekli seramik kutu miktarını fire oranlarıyla bulun.
+                        <p data-i18n="calc.ceramic.desc">Zemin ve duvar uygulamalarınız için gerekli seramik kutu
+                            miktarını fire oranlarıyla bulun.
                         </p>
-                        <span class="btn-pill-primary" data-i18n="calc.ceramic.btn">Hesapla</span>
+                        <a href="hesapla.html?type=ceramic" class="btn-pill-primary"
+                            data-i18n="calc.ceramic.btn">Hesapla</a>
                     </div>
-                </a>
+                </div>
+
                 <!-- 2. Parquet / Parke -->
-                <a href="hesapla.html?type=parquet" class="calc-accordion-card">
-                    <div class="calc-accordion-bg" style="background-image: url('assets/images/livingroom_2.png'), url('Images/livingroom_2.png');"></div>
+                <div class="calc-accordion-card">
+                    <div class="calc-accordion-bg"
+                        style="background-image: url('Images/livingroom_2.png');">
+                    </div>
                     <div class="calc-accordion-collapsed-title">
                         <span data-i18n="calc.parquet.title">Parke</span>
                     </div>
                     <div class="calc-accordion-expanded-content">
                         <h3 data-i18n="calc.parquet.fullTitle">Parke Hesaplama</h3>
-                        <p data-i18n="calc.parquet.desc">Laminant veya lamine parke uygulamanız için ihtiyacınız olan paket miktarını çıkarın.</p>
-                        <span class="btn-pill-primary" data-i18n="calc.parquet.btn">Hesapla</span>
+                        <p data-i18n="calc.parquet.desc">Laminant veya lamine parke uygulamanız için ihtiyacınız olan
+                            paket miktarını çıkarın.</p>
+                        <a href="hesapla.html?type=parquet" class="btn-pill-primary"
+                            data-i18n="calc.parquet.btn">Hesapla</a>
                     </div>
-                </a>
+                </div>
 
                 <!-- 3. Paint / Boya -->
-                <a href="hesapla.html?type=paint" class="calc-accordion-card">
-                    <div class="calc-accordion-bg" style="background-image: url('assets/images/livingroom_4.png'), url('Images/livingroom_4.png');"></div>
+                <div class="calc-accordion-card">
+                    <div class="calc-accordion-bg"
+                        style="background-image: url('Images/livingroom_4.png');">
+                    </div>
                     <div class="calc-accordion-collapsed-title">
                         <span data-i18n="calc.paint.title">Boya</span>
                     </div>
                     <div class="calc-accordion-expanded-content">
                         <h3 data-i18n="calc.paint.fullTitle">Boya Hesaplama</h3>
-                        <p data-i18n="calc.paint.desc">Oda ölçülerinizi girin, boyamanız gereken alan için kaç litre boya gerektiğini öğrenin.</p>
-                        <span class="btn-pill-primary" data-i18n="calc.paint.btn">Hesapla</span>
+                        <p data-i18n="calc.paint.desc">Oda ölçülerinizi girin, boyamanız gereken alan için kaç litre
+                            boya gerektiğini öğrenin.</p>
+                        <a href="hesapla.html?type=paint" class="btn-pill-primary"
+                            data-i18n="calc.paint.btn">Hesapla</a>
                     </div>
-                </a>
+                </div>
 
                 <!-- 4. Wallpaper / Duvar Kağıdı -->
-                <a href="hesapla.html?type=wallpaper" class="calc-accordion-card">
-                    <div class="calc-accordion-bg" style="background-image: url('assets/images/livingroom_4.png'), url('Images/livingroom_4.png');"></div>
+                <div class="calc-accordion-card">
+                    <div class="calc-accordion-bg"
+                        style="background-image: url('Images/livingroom_4.png');">
+                    </div>
                     <div class="calc-accordion-collapsed-title">
                         <span data-i18n="calc.wallpaper.title">Duvar Kağıdı</span>
                     </div>
                     <div class="calc-accordion-expanded-content">
                         <h3 data-i18n="calc.wallpaper.fullTitle">Duvar Kağıdı Hesaplama</h3>
-                        <p data-i18n="calc.wallpaper.desc">Rulo ebatları ve duvar ölçülerinize göre net olarak kaç rulo gerektiğini hesaplayın.</p>
-                        <span class="btn-pill-primary" data-i18n="calc.wallpaper.btn">Hesapla</span>
+                        <p data-i18n="calc.wallpaper.desc">Rulo ebatları ve duvar ölçülerinize göre net olarak kaç rulo
+                            gerektiğini hesaplayın.</p>
+                        <a href="hesapla.html?type=wallpaper" class="btn-pill-primary"
+                            data-i18n="calc.wallpaper.btn">Hesapla</a>
                     </div>
-                </a>
+                </div>
 
                 <!-- 5. Baseboard / Süpürgelik -->
-                <a href="hesapla.html?type=baseboard" class="calc-accordion-card">
-                    <div class="calc-accordion-bg" style="background-image: url('assets/images/livingroom_2.png'), url('Images/livingroom_2.png');"></div>
+                <div class="calc-accordion-card">
+                    <div class="calc-accordion-bg"
+                        style="background-image: url('Images/livingroom_2.png');">
+                    </div>
                     <div class="calc-accordion-collapsed-title">
                         <span data-i18n="calc.baseboard.title">Süpürgelik</span>
                     </div>
                     <div class="calc-accordion-expanded-content">
                         <h3 data-i18n="calc.baseboard.fullTitle">Süpürgelik Hesaplama</h3>
-                        <p data-i18n="calc.baseboard.desc">Oda çevresi ve kapı boşluklarını girerek gerekli süpürgelik uzunluğunu (mt) bulun.</p>
-                        <span class="btn-pill-primary" data-i18n="calc.baseboard.btn">Hesapla</span>
+                        <p data-i18n="calc.baseboard.desc">Oda çevresi ve kapı boşluklarını girerek gerekli süpürgelik
+                            uzunluğunu (mt) bulun.</p>
+                        <a href="hesapla.html?type=baseboard" class="btn-pill-primary"
+                            data-i18n="calc.baseboard.btn">Hesapla</a>
                     </div>
-                </a>
+                </div>
             </div>
+        </section>
 
-            <!-- 5. FAQ SECTION / SSS BÖLÜMÜ -->
-            <section id="faq" class="container faq-section">
+        <!-- 5. FAQ SECTION / SSS BÖLÜMÜ -->
+        <section id="faq" class="container faq-section">
                 <div class="faq-header" data-aos="fade-up">
                     <h2 data-i18n="faq.title">Questions, answered.</h2>
                 </div>
@@ -392,7 +442,8 @@
                             </div>
                         </button>
                         <div class="faq-answer">
-                            <p data-i18n="faq.a1">Evet, MaterialCalc'in tüm temel hesaplama özellikleri tamamen ücretsizdir. Projeleriniz
+                            <p data-i18n="faq.a1">Evet, MaterialCalc'in tüm temel hesaplama özellikleri tamamen
+                                ücretsizdir. Projeleriniz
                                 için ihtiyacınız olan malzeme miktarını anında, hiçbir ücret ödemeden
                                 hesaplayabilirsiniz.</p>
                         </div>
@@ -413,7 +464,8 @@
                             </div>
                         </button>
                         <div class="faq-answer">
-                            <p data-i18n="faq.a2">Uygulamamız endüstri standartlarına uygun algoritmalar kullanır. Girdiğiniz alan (en/boy)
+                            <p data-i18n="faq.a2">Uygulamamız endüstri standartlarına uygun algoritmalar kullanır.
+                                Girdiğiniz alan (en/boy)
                                 ölçülerine ve paket içi miktarlarına göre %100 net sonuç çıkarır.</p>
                         </div>
                     </div>
@@ -425,14 +477,16 @@
                                     fill="none">
                                     <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                                 </svg>
-                                <span data-i18n="faq.q3">Kendi fire oranımı (%) manuel olarak belirleyebilir miyim?</span>
+                                <span data-i18n="faq.q3">Kendi fire oranımı (%) manuel olarak belirleyebilir
+                                    miyim?</span>
                             </div>
                             <div class="faq-q-right">
                                 <span class="faq-icon-plus">+</span>
                             </div>
                         </button>
                         <div class="faq-answer">
-                            <p data-i18n="faq.a3">Kesinlikle! Her projenin zorluk derecesine göre farklı fire payı gerekebilir. Hesaplama
+                            <p data-i18n="faq.a3">Kesinlikle! Her projenin zorluk derecesine göre farklı fire payı
+                                gerekebilir. Hesaplama
                                 ekranında fire oranını %5, %10 veya istediğiniz herhangi bir değere çekebilirsiniz.</p>
                         </div>
                     </div>
@@ -453,7 +507,8 @@
                             </div>
                         </button>
                         <div class="faq-answer">
-                            <p data-i18n="faq.a4">Şu an için sonuçların ekran görüntüsünü alabilirsiniz. Çok yakında PDF olarak indirme ve
+                            <p data-i18n="faq.a4">Şu an için sonuçların ekran görüntüsünü alabilirsiniz. Çok yakında PDF
+                                olarak indirme ve
                                 profilinize proje kaydetme özelliklerini aktif edeceğiz!</p>
                         </div>
                     </div>
@@ -473,7 +528,8 @@
                     <p class="footer-slogan" data-i18n="footer.slogan">Projeleriniz için en doğru hesaplamalar.</p>
 
                     <form class="footer-subscribe" onsubmit="event.preventDefault()">
-                        <input type="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="you@email.com" required>
+                        <input type="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="you@email.com"
+                            required>
                         <button type="submit" class="join-btn" data-i18n="footer.join">Join</button>
                     </form>
 
@@ -482,26 +538,32 @@
                 <div class="footer-links">
                     <div class="footer-col">
                         <h4 data-i18n="footer.explore">Keşfet</h4>
-                        <a href="#howItWorks" data-i18n="footer.howItWorks">Nasıl Çalışır</a>
-                        <a href="usta-hesabi.html" data-i18n="nav.ustaHesabi">Usta Hesabı</a>
-                        <a href="#" data-i18n="footer.features">Özellikler</a>
-                        <a href="#" data-i18n="footer.about">Hakkımızda</a>
-                        <a href="#faq" data-i18n="footer.faq">SSS</a>
+                        <div class="footer-col-links">
+                            <a href="#howItWorks" data-i18n="footer.howItWorks">Nasıl Çalışır</a>
+                            <a href="usta-hesabi.html" data-i18n="nav.ustaHesabi">Usta Hesabı</a>
+                            <a href="#" data-i18n="footer.features">Özellikler</a>
+                            <a href="#" data-i18n="footer.about">Hakkımızda</a>
+                            <a href="#faq" data-i18n="footer.faq">SSS</a>
+                        </div>
                     </div>
                     <div class="footer-col">
                         <h4 data-i18n="footer.calculators">Hesaplayıcılar</h4>
-                        <a href="hesapla.html?type=ceramic" data-i18n="calc.ceramic.title">Seramik</a>
-                        <a href="hesapla.html?type=parquet" data-i18n="calc.parquet.title">Parke</a>
-                        <a href="hesapla.html?type=paint" data-i18n="calc.paint.title">Boya</a>
-                        <a href="hesapla.html?type=wallpaper" data-i18n="calc.wallpaper.title">Duvar Kağıdı</a>
-                        <a href="hesapla.html?type=baseboard" data-i18n="calc.baseboard.title">Süpürgelik</a>
+                        <div class="footer-col-links">
+                            <a href="hesapla.html?type=ceramic" data-i18n="calc.ceramic.title">Seramik</a>
+                            <a href="hesapla.html?type=parquet" data-i18n="calc.parquet.title">Parke</a>
+                            <a href="hesapla.html?type=paint" data-i18n="calc.paint.title">Boya</a>
+                            <a href="hesapla.html?type=wallpaper" data-i18n="calc.wallpaper.title">Duvar Kağıdı</a>
+                            <a href="hesapla.html?type=baseboard" data-i18n="calc.baseboard.title">Süpürgelik</a>
+                        </div>
                     </div>
                     <div class="footer-col">
                         <h4 data-i18n="footer.contact">İletişim</h4>
-                        <a href="#" data-i18n="footer.support">Destek</a>
-                        <a href="#">Email</a>
-                        <a href="#">Instagram</a>
-                        <a href="#">X</a>
+                        <div class="footer-col-links">
+                            <a href="#" data-i18n="footer.support">Destek</a>
+                            <a href="#">Email</a>
+                            <a href="#">Instagram</a>
+                            <a href="#">X</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -518,39 +580,43 @@
         </div>
     </footer>
 
+    <!-- 7. FLOATING ACTION DOCK / YÜZEN HIZLI İŞLEM MENÜSÜ -->
     <aside class="floating-dock" aria-label="Hızlı Hesaplama Araçları">
-        <a href="hesapla.html?type=ceramic" class="dock-item" data-i18n-tooltip="dock.ceramic" data-tooltip="Seramik" aria-label="Seramik Hesaplama">
+        <a href="hesapla.html?type=ceramic" class="dock-item" data-i18n-tooltip="dock.ceramic" data-tooltip="Seramik"
+            aria-label="Seramik Hesaplama">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                 <rect x="3" y="3" width="18" height="18" rx="2" />
                 <path d="M3 12h18M12 3v18" />
             </svg>
         </a>
-        <a href="hesapla.html?type=parquet" class="dock-item" data-i18n-tooltip="dock.parquet" data-tooltip="Parke" aria-label="Parke Hesaplama">
+        <a href="hesapla.html?type=parquet" class="dock-item" data-i18n-tooltip="dock.parquet" data-tooltip="Parke"
+            aria-label="Parke Hesaplama">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                 <path d="M4 4h16v16H4zM4 12h16M12 4v16" />
             </svg>
         </a>
-        <a href="hesapla.html?type=paint" class="dock-item" data-i18n-tooltip="dock.paint" data-tooltip="Boya" aria-label="Boya Hesaplama">
+        <a href="hesapla.html?type=paint" class="dock-item" data-i18n-tooltip="dock.paint" data-tooltip="Boya"
+            aria-label="Boya Hesaplama">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                 <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
             </svg>
         </a>
-        <a href="hesapla.html?type=wallpaper" class="dock-item" data-i18n-tooltip="dock.wallpaper" data-tooltip="Duvar Kağıdı"
-            aria-label="Duvar Kağıdı Hesaplama">
+        <a href="hesapla.html?type=wallpaper" class="dock-item" data-i18n-tooltip="dock.wallpaper"
+            data-tooltip="Duvar Kağıdı" aria-label="Duvar Kağıdı Hesaplama">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                 <rect x="4" y="4" width="16" height="16" rx="2" />
                 <path d="M4 12h16" />
             </svg>
         </a>
-        <a href="hesapla.html?type=baseboard" class="dock-item" data-i18n-tooltip="dock.baseboard" data-tooltip="Süpürgelik"
-            aria-label="Süpürgelik Hesaplama">
+        <a href="hesapla.html?type=baseboard" class="dock-item" data-i18n-tooltip="dock.baseboard"
+            data-tooltip="Süpürgelik" aria-label="Süpürgelik Hesaplama">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
                 <path d="M4 20h16M4 20L4 20M20 20L20 4" />
             </svg>
         </a>
     </aside>
 
-    <!-- BACK TO TOP BUTTON / YUKARI ÇIK BUTONU -->
+    <!-- 8. BACK TO TOP BUTTON / SAYFA BAŞINA DÖN BUTONU -->
     <button id="backToTop" class="back-to-top" aria-label="Sayfanın en üstüne çık">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round">
@@ -559,12 +625,12 @@
         </svg>
     </button>
 
-    <!-- JAVASCRIPT FILES / JAVASCRIPT DOSYALARIMIZ (Modüler & Ayrı) -->
+    <!-- 9. JAVASCRIPT FILES / JAVASCRIPT DOSYALARIMIZ (Modüler & Ayrı) -->
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/translations.js"></script>
-    <script src="js/lang.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/translations.js?v=152.0"></script>
+    <script src="js/lang.js?v=152.0"></script>
+    <script src="js/app.js?v=152.0"></script>
 </body>
 
 </html>

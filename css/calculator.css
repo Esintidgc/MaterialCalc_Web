@@ -1,7 +1,7 @@
 /* Calculator SPA Layout / Hesaplayıcı SPA Düzeni */
 
 .calc-page {
-    background: var(--color-bg);
+    background: var(--calc-page-bg);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -63,11 +63,11 @@
     font-weight: 500;
     cursor: pointer;
     text-align: left;
-    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: all 0.3s var(--ease-fluid);
 }
 
 .calc-nav-btn:hover {
-    background: rgba(0, 0, 0, 0.03);
+    background: var(--overlay-black-03);
     color: var(--text-primary);
     transform: translateX(5px);
 }
@@ -76,12 +76,12 @@
     background: var(--color-dark);
     border-color: var(--color-dark);
     color: var(--color-white);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-sm);
 }
 
 .calc-nav-btn svg {
     flex-shrink: 0;
-    color: var(--color-primary);
+    color: var(--accent-solid);
     transition: var(--transition-fast);
 }
 
@@ -158,13 +158,13 @@
     position: relative;
     display: flex;
     align-items: center;
-    background: rgba(0, 0, 0, 0.06);
-    border-radius: 20px;
-    padding: 4px;
+    background: var(--overlay-black-05);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-xs);
     width: 240px;
     height: 40px;
     cursor: pointer;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-inset-sm);
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -174,7 +174,7 @@
     font-size: 0.85rem;
     font-weight: 700;
     color: var(--text-muted);
-    z-index: 2;
+    z-index: var(--z-base);
     transition: color 0.4s ease;
     user-select: none;
 }
@@ -186,10 +186,10 @@
     width: calc(50% - 4px);
     height: calc(100% - 8px);
     background: var(--accent-solid);
-    border-radius: 16px;
-    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    z-index: 1;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-lg);
+    transition: transform var(--transition-spring);
+    z-index: var(--z-base);
+    box-shadow: var(--shadow-sm);
 }
 
 /* Checked state (Area Mode) */
@@ -240,14 +240,14 @@
 
 .min-input-wrapper input[type="number"] {
     width: 100%;
-    background: rgba(0, 0, 0, 0.04);
+    background: var(--overlay-black-05);
     border: 2px solid transparent;
-    border-radius: 12px;
+    border-radius: var(--calc-input-radius);
     color: var(--text-primary);
     padding: var(--spacing-3) var(--spacing-4);
     font-size: 1.25rem;
     font-weight: 600;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-main);
     transition: all 0.3s ease;
 }
 
@@ -255,7 +255,7 @@
     outline: none;
     background: var(--color-white);
     border-color: var(--accent-solid);
-    box-shadow: 0 4px 12px rgba(143, 129, 113, 0.15);
+    box-shadow: var(--accent-solid-shadow);
 }
 
 .min-input-wrapper input[type="number"]::placeholder {
@@ -291,11 +291,11 @@
     -webkit-appearance: none;
     height: 16px;
     width: 16px;
-    border-radius: 50%;
+    border-radius: var(--radius-round);
     background: var(--accent-solid);
     margin-top: -6px;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: var(--shadow-sm);
     transition: transform 0.2s ease;
 }
 
@@ -322,16 +322,16 @@
 .min-info-card {
     flex: 1;
     min-width: 300px;
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(20px);
+    background: var(--calc-card-glass);
+    backdrop-filter: blur(var(--blur-lg));
     border: 1px solid var(--overlay-black-05);
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     padding: var(--spacing-6) var(--spacing-8);
     display: flex;
     align-items: center;
     justify-content: space-around;
     gap: var(--spacing-6);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03), inset 0 2px 5px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 30px var(--overlay-black-03), inset 0 2px 5px var(--overlay-white-50);
 }
 
 .min-result-item {
@@ -366,18 +366,18 @@
 /* Final Result Card */
 .min-final-card {
     background: var(--accent-solid);
-    border-radius: 20px;
+    border-radius: var(--radius-xl);
     padding: var(--spacing-6) var(--spacing-10);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: var(--spacing-2);
-    box-shadow: 0 10px 30px rgba(143, 129, 113, 0.3);
+    box-shadow: var(--accent-solid-shadow);
 }
 
 .min-final-card h3 {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-white-dim);
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -391,7 +391,7 @@
 }
 
 .min-final-card .min-res-value small {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--text-white-dim);
 }
 
 /* Responsive / Mobil Uyumluluk */

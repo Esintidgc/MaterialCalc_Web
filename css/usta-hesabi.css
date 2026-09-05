@@ -1,49 +1,54 @@
-/* usta-hesabi.css */
+/* ==========================================================================
+   MaterialCalc - Usta Hesabı Rehberi / Craftsman Calculation Guide
+   ========================================================================== */
+
+/* 1. Math Cards Grid / Matematik Kartları Izgarası */
 .math-cards-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    margin-top: 50px;
+    gap: var(--spacing-7-5);
+    margin-top: var(--spacing-12-5);
 }
 
 .math-card {
-    padding: 30px;
-    border-radius: 24px;
+    padding: var(--spacing-7-5);
+    border-radius: var(--card-radius);
     display: grid;
     grid-template-rows: min-content 190px 90px min-content;
     align-content: start;
     align-items: stretch;
     text-align: center;
-    gap: 20px;
+    gap: var(--spacing-5);
     height: 100%;
 }
 
 .math-card h3 {
     font-size: 1.3rem;
-    color: var(--text-dark);
+    color: var(--text-primary);
     margin: 0;
     text-align: left;
-    justify-self: start; /* Sadece yazı kadar yer kapla (rozet gibi) */
+    justify-self: start;
     
-    /* Glassmorphism Effect */
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    /* Glassmorphism Effect / Cam Efekti */
+    background: var(--usta-glass-badge);
+    backdrop-filter: blur(var(--blur-md));
+    -webkit-backdrop-filter: blur(var(--blur-md));
     padding: 10px 20px;
     border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    border: 1px solid var(--overlay-white-90);
+    box-shadow: 0 4px 12px var(--overlay-black-03);
 }
 
+/* 2. Formula Box / Formül Kutusu */
 .formula-box {
-    background: rgba(255, 255, 255, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    padding: 20px;
+    background: var(--usta-glass-formula);
+    border: 1px solid var(--overlay-white-40);
+    padding: var(--spacing-5);
     border-radius: 16px;
-    font-family: monospace;
+    font-family: var(--font-mono);
     font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--text-gray);
+    line-height: var(--line-height-base);
+    color: var(--text-secondary);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -52,26 +57,28 @@
 }
 
 .formula-box strong {
-    color: var(--text-dark);
-    font-family: 'Poppins', sans-serif;
+    color: var(--text-primary);
+    font-family: var(--font-main);
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: var(--spacing-2);
 }
 
+/* 3. Standards Note / Standartlar Notu */
 .std-note {
-    background: rgba(200, 160, 100, 0.1);
-    color: var(--primary-color);
+    background: var(--accent-solid-light);
+    color: var(--accent-solid);
     padding: 12px 15px;
     border-radius: 12px;
     font-size: 0.85rem;
     margin: 0;
-    border-left: 4px solid var(--primary-color);
-    border-right: 4px solid var(--primary-color);
+    border-left: 4px solid var(--accent-solid);
+    border-right: 4px solid var(--accent-solid);
     width: 100%;
     align-self: center;
     text-align: left;
 }
 
+/* 4. Math Table / Matematiksel Değerler Tablosu */
 .math-table {
     width: 100%;
     border-collapse: collapse;
@@ -82,12 +89,12 @@
 .math-table td {
     padding: 12px;
     text-align: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid var(--overlay-black-05);
 }
 
 .math-table th {
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--text-primary);
     width: 30%;
 }
 
@@ -95,9 +102,10 @@
 .math-table tr:last-child td {
     border-bottom: none;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--text-primary);
 }
 
+/* 5. Responsive / Mobil Uyumluluk */
 @media (max-width: 768px) {
     .math-cards-grid {
         grid-template-columns: 1fr;

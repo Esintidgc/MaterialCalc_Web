@@ -1,9 +1,13 @@
-/* COMPONENTS.CSS - Common structural components / Ortak yapısal bileşenler */
-/* 4. FLOATING HEADER (DYNAMIC ISLAND) / YÜZEN GEZİNME ÇUBUĞU (DİNAMİK ADA) */
+/* ==========================================================================
+   COMPONENTS.CSS - SHARED STRUCTURAL COMPONENTS / ORTAK YAPISAL BİLEŞENLER
+   ========================================================================== */
+
+/* ==========================================================================
+   1. FLOATING NAVBAR (DYNAMIC ISLAND) / YÜZEN GEZİNME ÇUBUĞU (DİNAMİK ADA)
+   ========================================================================== */
 .floating-header {
     position: fixed;
     top: var(--spacing-12);
-    /* Moved down inside the hero image / Hero resminin içine doğru aşağı kaydırıldı */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -30,13 +34,22 @@
 }
 
 .floating-header.scrolled .logo,
+.floating-header.scrolled .logo-full,
+.floating-header.scrolled .logo-short,
 .floating-header.scrolled .nav-link,
 .floating-header.scrolled .lang-selector {
     color: var(--text-secondary);
 }
 
-.floating-header.scrolled .logo {
+.floating-header.scrolled .logo,
+.floating-header.scrolled .logo-full,
+.floating-header.scrolled .logo-short {
     color: var(--color-dark);
+}
+
+.floating-header.scrolled .logo-full span,
+.floating-header.scrolled .logo-short span {
+    color: var(--accent-solid);
 }
 
 .floating-header.scrolled .nav-link:hover,
@@ -56,7 +69,9 @@
     color: var(--color-dark);
 }
 
-
+.logo-short {
+    display: none; /* Hidden on desktop / Masaüstünde tam logo gösterilir */
+}
 
 .header-pill {
     background: var(--overlay-white-05);
@@ -67,8 +82,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 56px;
-    /* Absolute fixed height / Kesin ve sabit yükseklik */
+    height: var(--navbar-height);
     transition: var(--transition-smooth);
 }
 
@@ -86,19 +100,28 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 56px;
+    height: var(--navbar-height);
     box-sizing: border-box;
 }
 
-.logo {
+.logo,
+.logo-full {
     font-size: 1.25rem;
     font-weight: 800;
     letter-spacing: -0.5px;
-    color: white;
+    color: var(--color-white);
+    text-decoration: none;
+    line-height: 1;
+    white-space: nowrap;
 }
 
-.logo span {
-    color: var(--accent-solid);
+.logo-full span {
+    color: var(--color-logo-gold);
+    font-weight: 800;
+}
+
+.logo-short {
+    display: none;
 }
 
 .main-nav {
@@ -118,12 +141,11 @@
 }
 
 .nav-link:hover {
-    color: white;
+    color: var(--color-white);
     background: var(--overlay-white-10);
 }
 
-
-
+/* --- 1.1 Language Slider Switch (Apple Style) / TR-EN Kayan Dil Seçici --- */
 .lang-switch-wrapper {
     position: relative;
     display: inline-block;
@@ -137,13 +159,13 @@
     position: relative;
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.08);
+    background: var(--overlay-white-10);
     border-radius: 20px;
     padding: 4px;
     width: 86px;
     height: 34px;
     cursor: pointer;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: inset 0 2px 4px var(--overlay-black-10);
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -158,21 +180,21 @@
     user-select: none;
 }
 
-/* The Sliding Thumb */
+/* The Sliding Thumb / Kayan Dil Düğmesi */
 .slider-thumb {
     position: absolute;
     top: 4px;
     left: 4px;
     width: calc(50% - 4px);
     height: calc(100% - 8px);
-    background: #8F8171; /* Premium brownish pill */
+    background: var(--accent-solid);
     border-radius: 16px;
     transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     z-index: 1;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 8px var(--overlay-black-20);
 }
 
-/* Checked state (EN) */
+/* Checked state (EN) / İngilizce Durumu */
 .lang-checkbox:checked + .lang-slider .slider-thumb {
     transform: translateX(100%);
 }
@@ -185,9 +207,9 @@
     color: var(--color-white);
 }
 
-/* Scrolled header state */
+/* Scrolled header state for language slider / Kaydırılmış menüdeki dil seçici */
 .floating-header.scrolled .lang-slider {
-    background: rgba(0, 0, 0, 0.06);
+    background: var(--overlay-black-05);
 }
 
 .floating-header.scrolled .lang-label {
@@ -199,28 +221,8 @@
     color: var(--color-white);
 }
 
-/* Scrolled state for dropdown / Kaydırılmış menü durumu */
-.floating-header.scrolled .lang-dropdown {
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-}
-
-.floating-header.scrolled .lang-option {
-    color: var(--color-dark);
-}
-
-.floating-header.scrolled .lang-option:hover {
-    background: var(--bg-color);
-}
-
-.floating-header.scrolled .lang-option.active {
-    background: var(--accent-solid);
-    color: var(--color-white);
-}
-
 /* ==========================================================================
-   4.1 MOBILE OVERLAY & TOGGLE (DESKTOP STATE)
+   2. MOBILE OVERLAY DRAWER (DESKTOP HIDDEN) / MOBİL MENÜ ÇEKMECESİ (MASAÜSTÜ GİZLİ)
    ========================================================================== */
 .mobile-menu-toggle,
 .mobile-menu-drawer,
@@ -228,7 +230,9 @@
     display: none; /* Hidden on desktop / Masaüstünde tamamen gizli */
 }
 
-/* 8. FOOTER / ALT BİLGİ BÖLÜMÜ */
+/* ==========================================================================
+   3. MEGA FOOTER & NEWSLETTER / ALT BİLGİ VE E-BÜLTEN BÖLÜMÜ
+   ========================================================================== */
 .site-footer {
     background-color: var(--color-white);
     padding: var(--spacing-20) 0 var(--spacing-10);
@@ -242,7 +246,7 @@
     align-items: flex-start;
     flex-wrap: wrap;
     gap: var(--spacing-10);
-    margin-bottom: 60px;
+    margin-bottom: var(--spacing-15);
 }
 
 .footer-brand {
@@ -252,7 +256,7 @@
 .footer-logo {
     font-size: 1.5rem;
     font-weight: 700;
-    color: #000;
+    color: var(--color-dark);
     margin-bottom: 12px;
     letter-spacing: 0.5px;
 }
@@ -284,7 +288,7 @@
     font-size: 0.9rem;
     outline: none;
     width: 100%;
-    color: #000;
+    color: var(--color-dark);
 }
 
 .footer-subscribe input::placeholder {
@@ -292,8 +296,8 @@
 }
 
 .join-btn {
-    background: #000;
-    color: #fff;
+    background: var(--color-dark);
+    color: var(--color-white);
     border: none;
     padding: var(--spacing-2-5) var(--spacing-6);
     border-radius: 40px;
@@ -303,26 +307,7 @@
 }
 
 .join-btn:hover {
-    background: #333;
-}
-
-.footer-lang {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-1-5);
-    padding: var(--spacing-2) var(--spacing-4);
-    border: 1px solid var(--overlay-black-10);
-    border-radius: 20px;
-    font-size: 0.85rem;
-    color: var(--overlay-black-70);
-    font-weight: 500;
-    cursor: pointer;
-    transition: var(--transition-fast);
-}
-
-.footer-lang:hover {
-    border-color: var(--overlay-black-30);
-    color: #000;
+    background: var(--color-dark-alt);
 }
 
 .footer-links {
@@ -337,10 +322,16 @@
     gap: var(--spacing-md);
 }
 
+.footer-col-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
 .footer-col h4 {
     font-size: 0.9rem;
     font-weight: 700;
-    color: #000;
+    color: var(--color-dark);
     margin-bottom: 4px;
 }
 
@@ -352,7 +343,7 @@
 }
 
 .footer-col a:hover {
-    color: #000;
+    color: var(--color-dark);
 }
 
 .footer-bottom {
@@ -377,7 +368,7 @@
 }
 
 .footer-legal a:hover {
-    color: #000;
+    color: var(--color-dark);
 }
 
 @media (max-width: 992px) {
@@ -396,8 +387,6 @@
         justify-content: space-between;
     }
 
-
-
     .footer-bottom {
         flex-direction: column;
         gap: var(--spacing-md);
@@ -406,20 +395,20 @@
 }
 
 /* ==========================================================================
-   9. FLOATING CALCULATORS DOCK / YÜZEN HESAPLAYICI MENÜSÜ
+   4. FLOATING ACTION DOCK / YÜZEN HIZLI İŞLEM MENÜSÜ
    ========================================================================== */
 .floating-dock {
     position: fixed;
-    right: var(--spacing-10); /* Ekrandan biraz daha içeri kaydırıldı (40px) */
+    right: var(--spacing-10);
     top: 50%;
     transform: translateY(-50%);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-2);
-    background: var(--overlay-white-15);
+    background: var(--dock-bg);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--overlay-white-20);
+    border: 1px solid var(--dock-border);
     padding: var(--spacing-2);
     border-radius: 30px;
     box-shadow: var(--shadow-lg);
@@ -438,7 +427,6 @@
     border-radius: 50%;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     text-decoration: none;
-    /* Entrance animation / Giriş animasyonu */
     animation: slideInRight 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
 }
 
@@ -457,14 +445,14 @@
 .dock-item svg {
     width: 22px;
     height: 22px;
-    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Bouncy SVG */
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .dock-item:hover {
     background: var(--accent-solid);
     color: var(--color-white);
     transform: scale(1.1) translateX(-5px);
-    box-shadow: 0 0 20px rgba(126, 113, 96, 0.6), inset 0 0 10px rgba(255,255,255,0.2);
+    box-shadow: 0 0 20px var(--accent-solid-shadow-hover), inset 0 0 10px var(--overlay-white-20);
 }
 
 .dock-item:hover svg {
@@ -473,9 +461,9 @@
 
 /* Scrolled state for white backgrounds / Beyaz arkaplanlar için kaydırma durumu */
 .floating-dock.scrolled {
-    background: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    background: var(--dock-scrolled-bg);
+    border: 1px solid var(--overlay-black-08);
+    box-shadow: var(--shadow-md);
 }
 
 .floating-dock.scrolled .dock-item {
@@ -494,7 +482,7 @@
     right: calc(100% + 20px);
     top: 50%;
     transform: translateY(-50%) translateX(20px) scale(0.8);
-    background: rgba(20, 17, 19, 0.95);
+    background: var(--color-dark);
     color: var(--color-white);
     padding: var(--spacing-1-5) var(--spacing-3);
     border-radius: 8px;
@@ -503,10 +491,10 @@
     white-space: nowrap;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Elastic bounce */
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: var(--shadow-md);
     pointer-events: none;
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid var(--overlay-white-10);
 }
 
 /* Tooltip Arrow / İpucu oku */
@@ -518,7 +506,7 @@
     transform: translateY(-50%) translateX(20px) scale(0.8);
     border-width: 6px;
     border-style: solid;
-    border-color: transparent transparent transparent rgba(20, 17, 19, 0.95);
+    border-color: transparent transparent transparent var(--color-dark);
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -532,44 +520,8 @@
     transform: translateY(-50%) translateX(0) scale(1);
 }
 
-/* Yüzen menüyü beyaz sayfa kısımlarında da okunaklı kılmak için invert edebiliriz, ama Glassmorphism genel olarak her zeminde iyi çalışır. */
-
-/* Mobile view: hide or move to bottom / Mobil görünümde alta al */
-@media (max-width: 768px) {
-    .floating-dock {
-        top: auto;
-        bottom: var(--spacing-4);
-        right: 50%;
-        transform: translateX(50%);
-        flex-direction: row;
-        border-radius: 30px;
-    }
-    
-    .dock-item::before {
-        right: auto;
-        left: 50%;
-        top: auto;
-        bottom: calc(100% + 15px);
-        transform: translateX(-50%) translateY(10px);
-    }
-    
-    .dock-item::after {
-        right: auto;
-        left: 50%;
-        top: auto;
-        bottom: calc(100% + 10px);
-        transform: translateX(-50%) translateY(10px);
-        border-color: rgba(20, 17, 19, 0.9) transparent transparent transparent;
-    }
-    
-    .dock-item:hover::before,
-    .dock-item:hover::after {
-        transform: translateX(-50%) translateY(0);
-    }
-}
-
 /* ==========================================================================
-   10. BACK TO TOP BUTTON / YUKARI ÇIK BUTONU
+   5. BACK TO TOP BUTTON / SAYFA BAŞINA DÖN BUTONU
    ========================================================================== */
 .back-to-top {
     position: fixed;
@@ -585,7 +537,7 @@
     justify-content: center;
     border: none;
     cursor: pointer;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow-md);
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
@@ -602,22 +554,22 @@
 .back-to-top:hover {
     background: var(--accent-solid);
     transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(126, 113, 96, 0.4);
+    box-shadow: 0 15px 30px var(--accent-solid-shadow);
+}
+
+.back-to-top:active {
+    transform: scale(0.92);
 }
 
 .back-to-top svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--color-white);
+    stroke-width: 2.5px;
+    display: block;
     transition: transform 0.3s ease;
 }
 
 .back-to-top:hover svg {
     transform: translateY(-3px);
-}
-
-@media (max-width: 768px) {
-    .back-to-top {
-        bottom: 90px; /* Mobilde yüzen dock'un üzerinde dursun */
-        right: 20px;
-        width: 45px;
-        height: 45px;
-    }
 }

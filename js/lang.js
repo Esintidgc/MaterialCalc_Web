@@ -1,33 +1,41 @@
+/**
+ * MaterialCalc - Language Management (lang.js) / Dil Yönetim Sistemi
+ * Handles multi-language switching (TR/EN) / Çoklu Dil Değiştirme ve Yerelleştirme
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Current language from local storage, default to 'tr'
+    // Current language from local storage, default to 'tr' / Varsayılan dil (tr)
     let currentLang = localStorage.getItem('materialcalc_lang') || 'tr';
     
-    // Set initial language
+    // Set initial language / Başlangıç dilini ayarla
     setLanguage(currentLang);
 
-    // Setup language toggle checkbox
-    const langCheckbox = document.getElementById('langToggleCheckbox');
-    if (langCheckbox) {
-        langCheckbox.checked = currentLang === 'en';
-        langCheckbox.addEventListener('change', (e) => {
+    // Setup all language toggle checkboxes / Tüm dil anahtar kutularını bağla
+    const langCheckboxes = document.querySelectorAll('.lang-checkbox');
+    langCheckboxes.forEach(checkbox => {
+        checkbox.checked = currentLang === 'en';
+        checkbox.addEventListener('change', (e) => {
             const selectedLang = e.target.checked ? 'en' : 'tr';
             setLanguage(selectedLang);
         });
-    }
+    });
 });
 
+/**
+ * Apply selected language translations across the DOM / Seçilen dili tüm sayfaya uygula
+ * @param {string} lang - 'tr' or 'en'
+ */
 function setLanguage(lang) {
     if (!translations || !translations[lang]) return;
 
-    // Save to local storage
+    // Save to local storage / Tercihi tarayıcı hafızasına kaydet
     localStorage.setItem('materialcalc_lang', lang);
 
-    // Update DOM elements
+    // Update text elements / Metin elemanlarını güncelle
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang][key]) {
-            // Check if element has HTML inside (like <br> in calc header)
             if (translations[lang][key].includes('<')) {
                 el.innerHTML = translations[lang][key];
             } else {
@@ -36,7 +44,7 @@ function setLanguage(lang) {
         }
     });
 
-    // Update Tooltips and Placeholders specifically
+    // Update input placeholders / Girdi yer tutucularını güncelle
     const elementsWithPlaceholder = document.querySelectorAll('[data-i18n-placeholder]');
     elementsWithPlaceholder.forEach(el => {
         const key = el.getAttribute('data-i18n-placeholder');
@@ -45,6 +53,7 @@ function setLanguage(lang) {
         }
     });
 
+    // Update tooltips / İpucu yazılarını güncelle
     const elementsWithTooltip = document.querySelectorAll('[data-i18n-tooltip]');
     elementsWithTooltip.forEach(el => {
         const key = el.getAttribute('data-i18n-tooltip');
@@ -54,13 +63,13 @@ function setLanguage(lang) {
         }
     });
 
-    // Ensure checkbox is synced if setLanguage is called programmatically
-    const langCheckbox = document.getElementById('langToggleCheckbox');
-    if (langCheckbox) {
-        langCheckbox.checked = lang === 'en';
-    }
+    // Sync all toggle switch states / Tüm anahtar kutularını senkronize et
+    const langCheckboxes = document.querySelectorAll('.lang-checkbox');
+    langCheckboxes.forEach(checkbox => {
+        checkbox.checked = lang === 'en';
+    });
 
-    // Dispatch event for other scripts (like app.js typewriter) to know
+    // Dispatch custom event for dynamic components / Dinamik bileşenler için dil değişti bildirimi
     const event = new CustomEvent('languageChanged', { detail: { lang: lang } });
     document.dispatchEvent(event);
 }

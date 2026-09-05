@@ -1,6 +1,6 @@
 # 📐 MaterialCalc - Akıllı ve Kesin Malzeme Hesaplama Platformu
 
-![MaterialCalc Banner](assets/images/livingroom_2.png)
+![MaterialCalc Banner](Images/livingroom_2.png)
 
 > **MaterialCalc**, mimarlar, iç mimarlar, ustalar ve evini yenileyenler için geliştirilmiş **Apple estetiğinde, minimalist ve ultra-hassas** bir web tabanlı inşaat/dekorasyon malzeme hesaplama platformudur.
 
@@ -17,7 +17,7 @@
   - 📏 **Süpürgelik:** Oda çevresi, kapı boşluğu (0.9m düşümü) ve boy adedi.
 - 🧮 **Şeffaf "Usta Hesabı" Matematiği:** Şantiyedeki gerçek ustalık standartlarına dayalı formüller ve açık tablolar.
 - 🌐 **İki Dilli Yapı (TR / EN):** Akıcı kayar butonla anında dil değiştirme motoru (i18n).
-- 📱 **Sıfır `!important` & %100 Duyarlı (Responsive):** iPhone SE'den 4K masaüstü ekranlara kadar kusursuz piksel uyumu.
+- 📱 **Sıfır `!important` & %100 Duyarlı (Responsive):** iPhone SE'den 4K masaüstü ekranlara kadar kusursuz piksel uyumu (Desktop > 1200px, Tablet 768px - 1200px, Mobil ≤ 767px).
 - 🚀 **Ultra-Akıcı Lenis & AOS Animasyonları:** GPU destekli pürüzsüz kaydırma ve süzülen kartlar.
 
 ---
@@ -33,12 +33,13 @@ MaterialCalc_Web/
 ├── README.md                   # Proje dokümantasyonu
 │
 ├── css/                        # Modüler & Bağımsız CSS Dosyaları
-│   ├── variables.css           # Tasarım sistemi, renkler ve değişkenler
-│   ├── style.css               # Temel sayfa stilleri ve tipografi
+│   ├── variables.css           # Tasarım sistemi, renkler ve tasarım token'ları
+│   ├── style.css               # Temel sayfa stilleri, tipografi ve masaüstü düzeni
 │   ├── components.css          # Dinamik Ada, butonlar ve dock bileşenleri
 │   ├── calculator.css          # Hesaplayıcı SPA panelleri ve kartları
 │   ├── usta-hesabi.css         # Usta hesabı formül kartları
-│   └── mobile.css              # Telefon, tablet ve dar ekran medya sorguları
+│   ├── tablet.css              # Tablet ekranları (768px - 1200px) stilleri
+│   └── mobile.css              # Mobil ekranlar (≤ 767px) medya sorguları
 │
 ├── js/                         # Modüler JavaScript Dosyaları
 │   ├── translations.js         # TR / EN dil sözlüğü
@@ -46,34 +47,17 @@ MaterialCalc_Web/
 │   ├── calculator.js           # Hesaplama algoritmaları ve anlık sonuç motoru
 │   └── app.js                  # Menü, Lenis scroll, arama ve animasyonlar
 │
-└── assets/                     # Medya ve Görsel Varlıklar
-    ├── images/                 # Arka plan görselleri (livingroom_2.png vb.)
-    ├── icons/                  # SVG ikonlar
-    └── fonts/                  # Özel yazı tipleri
+└── Images/                     # Arka Plan ve Proje Görselleri
+    ├── livingroom_2.png        # Hero ve ana arka plan görseli
+    └── livingroom_4.png        # Alternatif iç mekan görseli
 ```
-
----
-
-## 🚀 Cloudflare Pages ile Canlıya Alma Rehberi
-
-Bu proje **sıfır derleme gerektiren (Pure Static Web)** bir mimariye sahiptir.
-
-1. Bu depoyu **GitHub** hesabınıza `push` edin.
-2. [Cloudflare Dashboard](https://dash.cloudflare.com/)'a giriş yapın.
-3. **Workers & Pages** -> **Create application** -> **Pages** -> **Connect to Git** seçeneğine tıklayın.
-4. `MaterialCalc_Web` deponuzu seçin.
-5. Dağıtım Ayarları:
-   - **Framework preset:** `None`
-   - **Build command:** *(Boş bırakın)*
-   - **Build output directory:** `/` *(veya boş bırakın)*
-6. **Save and Deploy** butonuna tıklayın. Siteniz saniyeler içinde dünya çapında ücretsiz SSL ile yayında! 🌍
 
 ---
 
 ## 🛠️ Kullanılan Teknolojiler
 
 - **HTML5 & Vanilla CSS3** (CSS Değişkenleri, Flexbox, CSS Grid, Glassmorphism)
-- **Vanilla JavaScript (ES6+)** (Hafif ve bağımlılıksız)
+- **Vanilla JavaScript (ES6+)** (Hafif, bağımsız ve modüler)
 - **Lenis Smooth Scroll** (Akıcı kaydırma)
 - **AOS.js** (Scroll animasyonları)
 - **Google Fonts (Poppins)**
