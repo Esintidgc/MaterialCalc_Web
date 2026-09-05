@@ -1,6 +1,6 @@
 # 📐 MaterialCalc - Akıllı ve Kesin Malzeme Hesaplama Platformu
 
-![MaterialCalc Banner](Images/livingroom_2.png)
+![MaterialCalc Banner](Images/livingroom_2.webp)
 
 > **MaterialCalc**, mimarlar, iç mimarlar, ustalar ve evini yenileyenler için geliştirilmiş **Apple estetiğinde, minimalist ve ultra-hassas** bir web tabanlı inşaat/dekorasyon malzeme hesaplama platformudur.
 
