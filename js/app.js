@@ -290,15 +290,20 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================================================== */
     const quickBackBtn = document.getElementById('quickBack');
     if (quickBackBtn) {
-        quickBackBtn.addEventListener('click', (e) => {
-            e.preventDefault();
-            // Eğer aynı siteden önceki sayfa geçmişi varsa geri dön, aksi halde ana sayfaya yönlendir
+        const handleQuickBack = (e) => {
+            if (e) e.preventDefault();
+            quickBackBtn.blur();
             if (window.history.length > 1 && document.referrer && document.referrer.includes(window.location.host)) {
                 window.history.back();
             } else {
                 window.location.href = 'index.html';
             }
-        });
+        };
+
+        quickBackBtn.addEventListener('click', handleQuickBack);
+        quickBackBtn.addEventListener('touchend', () => {
+            setTimeout(() => quickBackBtn.blur(), 60);
+        }, { passive: true });
     }
 
     const backToTopBtn = document.getElementById('backToTop');
@@ -318,14 +323,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         handleBackToTopScroll();
 
-        backToTopBtn.addEventListener('click', () => {
-            if (lenis) {
-                lenis.scrollTo(0, { duration: 1.2 });
+        const handleBackToTopClick = (e) => {
+            if (e) e.preventDefault();
+            backToTopBtn.blur();
+            const isTouch = window.innerWidth <= 1024 || ('ontouchstart' in window);
+            if (lenis && !isTouch) {
+                lenis.scrollTo(0, { duration: 0.8 });
             } else {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
-        });
+        };
+
+        backToTopBtn.addEventListener('click', handleBackToTopClick);
+        backToTopBtn.addEventListener('touchend', () => {
+            setTimeout(() => backToTopBtn.blur(), 60);
+        }, { passive: true });
     }
+
+    // Mobil ve tablette dock butonlarının dokunma sonrası takılı kalmasını önleme
+    document.querySelectorAll('.dock-item').forEach(item => {
+        item.addEventListener('touchend', () => {
+            setTimeout(() => item.blur(), 60);
+        }, { passive: true });
+        item.addEventListener('click', () => {
+            item.blur();
+        });
+    });
 
     /* ==========================================================================
        9. SMART LIVE AUTOCOMPLETE SEARCH / AKILLI CANLI ARAMA VE VURGULAMA

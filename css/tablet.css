@@ -333,6 +333,9 @@
         height: 56px;
         bottom: 74px;
         box-shadow: var(--shadow-md);
+        touch-action: manipulation !important;
+        outline: none !important;
+        -webkit-tap-highlight-color: transparent !important;
     }
 
     body .quick-back-btn {
@@ -348,6 +351,25 @@
         width: 26px;
         height: 26px;
         stroke-width: 2.8px;
+    }
+
+    /* Tablet Touch Instant Reset / Tablette Dokunma Sonrası Anında Sıfırlanma (Takılı Kalmama) */
+    body .quick-back-btn:hover,
+    body .quick-back-btn:focus,
+    body .back-to-top:hover,
+    body .back-to-top:focus {
+        background: var(--color-dark) !important;
+        color: var(--color-white) !important;
+        transform: translateY(0) scale(1) !important;
+        box-shadow: var(--shadow-md) !important;
+    }
+
+    body .quick-back-btn:active,
+    body .back-to-top:active,
+    body .dock-item:active {
+        transform: scale(0.92) !important;
+        opacity: 0.85 !important;
+        transition: transform 0.08s ease !important;
     }
 
     /* --- 1.3.1 Modal, Drawer, Bottom Sheet & Keyboard Protection / Tablet Yüzen Elemanları Gizleme --- */

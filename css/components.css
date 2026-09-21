@@ -448,15 +448,27 @@
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.dock-item:hover {
-    background: var(--accent-solid);
-    color: var(--color-white);
-    transform: scale(1.1) translateX(-5px);
-    box-shadow: 0 0 20px var(--accent-solid-shadow-hover), inset 0 0 10px var(--overlay-white-20);
+.dock-item {
+    touch-action: manipulation;
+    outline: none;
+    -webkit-tap-highlight-color: transparent !important;
 }
 
-.dock-item:hover svg {
-    transform: scale(1.2) rotate(-10deg);
+.dock-item:active {
+    transform: scale(0.92);
+}
+
+@media (hover: hover) and (min-width: 1025px) {
+    .dock-item:hover {
+        background: var(--accent-solid);
+        color: var(--color-white);
+        transform: scale(1.1) translateX(-5px);
+        box-shadow: 0 0 20px var(--accent-solid-shadow-hover), inset 0 0 10px var(--overlay-white-20);
+    }
+
+    .dock-item:hover svg {
+        transform: scale(1.2) rotate(-10deg);
+    }
 }
 
 /* Scrolled state for white backgrounds / Beyaz arkaplanlar için kaydırma durumu */
@@ -470,9 +482,11 @@
     color: var(--color-dark);
 }
 
-.floating-dock.scrolled .dock-item:hover {
-    background: var(--accent-solid);
-    color: var(--color-white);
+@media (hover: hover) and (min-width: 1025px) {
+    .floating-dock.scrolled .dock-item:hover {
+        background: var(--accent-solid);
+        color: var(--color-white);
+    }
 }
 
 /* Tooltip on hover (Desktop only) / Hover yapıldığında ipucu (Sadece Masaüstü) */
@@ -543,6 +557,10 @@
     z-index: var(--z-dock);
     text-decoration: none;
     -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation;
+    outline: none;
+    user-select: none;
+    -webkit-user-select: none;
 }
 
 /* Quick Back - Left Alignment / Hızlı Geri Dön - Sol Hizalama */
@@ -569,16 +587,10 @@
     transform: translateY(0);
 }
 
-.quick-back-btn:hover,
-.back-to-top:hover {
-    background: var(--accent-solid);
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px var(--accent-solid-shadow);
-}
-
 .quick-back-btn:active,
 .back-to-top:active {
     transform: scale(0.92);
+    opacity: 0.9;
 }
 
 .quick-back-btn svg,
@@ -591,12 +603,21 @@
     transition: transform 0.3s ease;
 }
 
-.quick-back-btn:hover svg {
-    transform: translateX(-3px);
-}
+@media (hover: hover) and (min-width: 1025px) {
+    .quick-back-btn:hover,
+    .back-to-top:hover {
+        background: var(--accent-solid);
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px var(--accent-solid-shadow);
+    }
 
-.back-to-top:hover svg {
-    transform: translateY(-3px);
+    .quick-back-btn:hover svg {
+        transform: translateX(-3px);
+    }
+
+    .back-to-top:hover svg {
+        transform: translateY(-3px);
+    }
 }
 
 /* Tooltips on Hover (Desktop only) / Buton İpuçları (Sadece Masaüstü) */
