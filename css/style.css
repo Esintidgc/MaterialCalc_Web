@@ -17,6 +17,18 @@ html {
     scroll-padding-top: var(--spacing-25);
 }
 
+/* Remove default browser spin arrows from number inputs / Çirkin tarayıcı oklarını kaldır */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
 /* Custom Premium Scrollbar / Özel Şık Kaydırma Çubuğu */
 ::-webkit-scrollbar {
     width: var(--spacing-2);

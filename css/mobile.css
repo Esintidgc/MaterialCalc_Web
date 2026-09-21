@@ -1552,17 +1552,129 @@
         line-height: 1.5;
     }
 
-    body.calc-page .minimal-inputs {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-4, 16px);
-        margin-top: var(--spacing-5, 20px);
+    body.calc-page .calc-mode-switch-wrapper {
+        margin-bottom: var(--spacing-3, 12px);
     }
 
-    body.calc-page .min-field input,
-    body.calc-page .min-field select {
-        height: 48px;
-        font-size: 0.95rem;
-        padding: 0 var(--spacing-3-5, 14px);
+    body.calc-page .minimal-inputs {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: var(--spacing-4, 16px) var(--spacing-3, 12px) !important;
+        margin-top: var(--spacing-4, 16px) !important;
+        padding: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    body.calc-page .force-new-line {
+        grid-column: 1 / 2 !important;
+    }
+
+    body.calc-page .dim-input,
+    body.calc-page .parq-dim-input,
+    body.calc-page .paint-dim-input,
+    body.calc-page .wall-dim-input,
+    body.calc-page .base-dim-input {
+        grid-column: auto !important;
+    }
+
+    body.calc-page .area-input,
+    body.calc-page .parq-area-input,
+    body.calc-page .paint-area-input,
+    body.calc-page .wall-area-input,
+    body.calc-page .base-area-input {
+        grid-column: 1 / -1 !important;
+    }
+
+    body.calc-page .min-form-group {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: var(--spacing-2, 8px) !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    body.calc-page .min-form-group[style*="span 2"] {
+        grid-column: 1 / -1 !important;
+    }
+
+    body.calc-page .min-form-group > label,
+    body.calc-page .min-label-row {
+        min-height: 22px !important;
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    body.calc-page .min-form-group label,
+    body.calc-page .min-label-row label {
+        font-size: 0.72rem !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.5px !important;
+        text-transform: uppercase !important;
+        color: var(--text-muted, #6F7075) !important;
+        white-space: normal !important;
+        line-height: 1.2 !important;
+        margin: 0 !important;
+    }
+
+    body.calc-page .min-label-row {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+
+    body.calc-page .min-waste-badge {
+        font-size: 0.70rem !important;
+        font-weight: 700 !important;
+        height: 20px !important;
+        padding: 0 8px !important;
+        border-radius: 100px !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        line-height: 1 !important;
+        box-sizing: border-box !important;
+    }
+
+    body.calc-page .min-input-wrapper {
+        width: 100% !important;
+        min-width: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        position: relative !important;
+    }
+
+    body.calc-page .min-input-wrapper input[type="number"],
+    body.calc-page .min-form-group select {
+        width: 100% !important;
+        min-width: 0 !important;
+        height: 50px !important;
+        font-size: 1.15rem !important;
+        font-weight: 600 !important;
+        padding: 0 var(--spacing-3-5, 14px) !important;
+        border-radius: 14px !important;
+        box-sizing: border-box !important;
+    }
+
+    body.calc-page .min-range-container {
+        width: 100% !important;
+        min-width: 0 !important;
+        height: 50px !important;
+        padding: 0 var(--spacing-3-5, 14px) !important;
+        border-radius: 14px !important;
+        display: flex !important;
+        align-items: center !important;
+        box-sizing: border-box !important;
+    }
+
+    body.calc-page .min-range-input {
+        width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
     }
 
     /* --- 3.4 Calculation Summary & Result Cards / Sonuç Kartları --- */

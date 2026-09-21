@@ -1609,62 +1609,71 @@
     }
 
     body.calc-page .min-form-group {
-        gap: var(--spacing-3); /* 12px - Etiket ➔ Input Kutusu Boşluğu */
-        width: 100%;
-        box-sizing: border-box;
+        gap: var(--spacing-3, 12px) !important; /* 12px - Etiket ➔ Input Kutusu Boşluğu */
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
-    body.calc-page .min-form-group label {
-        font-size: 0.85rem; /* 13.6px */
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        color: var(--text-muted);
+    body.calc-page .min-form-group > label,
+    body.calc-page .min-label-row {
+        min-height: 24px !important;
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+    }
+
+    body.calc-page .min-form-group label,
+    body.calc-page .min-label-row label {
+        font-size: 0.85rem !important;
+        font-weight: 700 !important;
+        letter-spacing: 1px !important;
+        text-transform: uppercase !important;
+        color: var(--text-muted) !important;
+        margin: 0 !important;
+        line-height: 1.2 !important;
     }
 
     body.calc-page .min-input-wrapper {
-        width: 100%;
+        width: 100% !important;
     }
 
     body.calc-page .min-input-wrapper input[type="number"] {
-        height: 56px; /* 56px Lüks Dokunmatik Yükseklik */
-        padding: 0 20px;
-        font-size: 1.25rem; /* 20px */
-        font-weight: 600;
-        border-radius: 16px;
-        width: 100%;
-        box-sizing: border-box;
+        height: 56px !important; /* 56px Lüks Dokunmatik Yükseklik */
+        padding: 0 20px !important;
+        font-size: 1.25rem !important; /* 20px */
+        font-weight: 600 !important;
+        border-radius: 16px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
 
     body.calc-page .min-label-row {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 0;
-    }
-
-    body.calc-page .min-label-row label {
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        color: var(--text-muted);
+        width: 100% !important;
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        margin-bottom: 0 !important;
     }
 
     body.calc-page .min-waste-badge {
-        font-size: 0.85rem;
-        font-weight: 700;
-        padding: 3px 12px;
-        border-radius: var(--pill-radius);
+        font-size: 0.75rem !important;
+        font-weight: 700 !important;
+        height: 22px !important;
+        padding: 0 10px !important;
+        border-radius: var(--pill-radius) !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        line-height: 1 !important;
+        box-sizing: border-box !important;
     }
 
     body.calc-page .min-range-container {
-        height: 56px; /* Inputlarla 1:1 eşit 56px yükseklik */
-        width: 100%;
-        padding: 0 20px;
-        box-sizing: border-box;
-        border-radius: 16px;
+        height: 56px !important; /* Inputlarla 1:1 eşit 56px yükseklik */
+        width: 100% !important;
+        padding: 0 20px !important;
+        box-sizing: border-box !important;
+        border-radius: 16px !important;
     }
 
     /* --- 3.6 2-Column Result Cards / 2 Sütunlu Yan Yana Sonuç Kartları --- */

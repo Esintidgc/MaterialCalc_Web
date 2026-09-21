@@ -365,7 +365,8 @@
     /* 4.3 Form Inputs & Sliders / Form Girdileri ve Kaydırıcılar */
     --calc-form-bg: var(--bg-surface);
     --calc-input-radius: var(--radius-lg);
-    --calc-range-height: 48px;
+    --calc-input-height: 52px;
+    --calc-range-height: 52px;
     --calc-range-track-height: 6px;
     --calc-range-thumb-size: 20px;
 
