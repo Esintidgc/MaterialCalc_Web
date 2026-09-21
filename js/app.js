@@ -837,44 +837,25 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ==========================================================================
        13. MOBILE VIRTUAL KEYBOARD DETECTION / SANAL KLAVYE AÇILMA TESPİTİ
        ========================================================================== */
-    const handleInputFocusIn = (e) => {
-        if (window.innerWidth <= 1024 && ['INPUT', 'SELECT', 'TEXTAREA'].includes(e.target.tagName)) {
+    const isTextInput = (el) => {
+        return el && (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') && el.type !== 'checkbox' && el.type !== 'radio' && el.type !== 'range';
+    };
+
+    document.addEventListener('focusin', (e) => {
+        if (window.innerWidth <= 1024 && isTextInput(e.target)) {
             document.body.classList.add('keyboard-open');
         }
-    };
+    }, { passive: true });
 
-    const handleInputFocusOut = (e) => {
-        if (['INPUT', 'SELECT', 'TEXTAREA'].includes(e.target.tagName)) {
-            // Küçük bir gecikmeyle başka bir inputa geçildiyse sınıfı gereksiz yere kaldırmayı önle
+    document.addEventListener('focusout', (e) => {
+        if (isTextInput(e.target)) {
             setTimeout(() => {
-                const activeEl = document.activeElement;
-                if (!activeEl || !['INPUT', 'SELECT', 'TEXTAREA'].includes(activeEl.tagName)) {
+                if (!isTextInput(document.activeElement)) {
                     document.body.classList.remove('keyboard-open');
                 }
-            }, 120);
+            }, 100);
         }
-    };
-
-    document.addEventListener('focusin', handleInputFocusIn, { passive: true });
-    document.addEventListener('focusout', handleInputFocusOut, { passive: true });
-
-    // Modern Visual Viewport API ile klavye küçülmesini ek kontrol olarak dinle
-    if (window.visualViewport) {
-        let initialHeight = window.visualViewport.height;
-        window.visualViewport.addEventListener('resize', () => {
-            if (window.innerWidth <= 1024) {
-                // Eğer ekran yüksekliği 150px'den fazla daraldıysa klavye açık demektir
-                if (initialHeight - window.visualViewport.height > 150) {
-                    document.body.classList.add('keyboard-open');
-                } else {
-                    const activeEl = document.activeElement;
-                    if (!activeEl || !['INPUT', 'SELECT', 'TEXTAREA'].includes(activeEl.tagName)) {
-                        document.body.classList.remove('keyboard-open');
-                    }
-                }
-            }
-        });
-    }
+    }, { passive: true });
 
 });
 
