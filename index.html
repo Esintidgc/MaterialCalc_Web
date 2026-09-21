@@ -120,21 +120,21 @@
     }
     </script>
 
-    <!-- GOOGLE FONTS: POPPINS -->
+    <!-- GOOGLE FONTS: POPPINS / POPPINS FONTU -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- AOS ANIMATION LIBRARY -->
+    <!-- AOS ANIMATION LIBRARY / AOS ANİMASYON KÜTÜPHANESİ -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- CSS FILES / CSS DOSYALARIMIZ -->
-    <link rel="stylesheet" href="css/variables.css?v=1.1.4">
-    <link rel="stylesheet" href="css/style.css?v=1.1.4">
-    <link rel="stylesheet" href="css/components.css?v=1.1.4">
-    <link rel="stylesheet" href="css/mobile.css?v=1.1.4">
-    <link rel="stylesheet" href="css/tablet.css?v=1.1.4">
+    <!-- CSS FILES / CSS DOSYALARI -->
+    <link rel="stylesheet" href="css/variables.css?v=1.1.6">
+    <link rel="stylesheet" href="css/style.css?v=1.1.6">
+    <link rel="stylesheet" href="css/components.css?v=1.1.6">
+    <link rel="stylesheet" href="css/mobile.css?v=1.1.6">
+    <link rel="stylesheet" href="css/tablet.css?v=1.1.6">
 </head>
 
 <body class="home-page">
@@ -168,7 +168,7 @@
             <a href="#calculatorGrid" class="btn-pill-primary header-cta-btn" data-i18n="nav.start">Hemen Başla</a>
 
             <!-- Mobile Hamburger Button / Mobil Menü Butonu -->
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" data-i18n-aria="nav.menuToggleAria" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
                 <span class="hamburger-bar"></span>
                 <span class="hamburger-bar"></span>
                 <span class="hamburger-bar"></span>
@@ -229,7 +229,7 @@
                                 <input type="text" id="heroSearchInput" autocomplete="off"
                                     data-i18n-placeholder="hero.searchPlaceholder"
                                     placeholder="Malzeme veya uygulama arayın..." />
-                                <button class="search-btn" aria-label="Arama Yap">
+                                <button class="search-btn" data-i18n-aria="search.btnAria" aria-label="Arama Yap">
                                     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
                                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -270,7 +270,7 @@
                 </div>
             </section>
 
-            <!-- BRANDS SECTION / MARKALAR (GÜVENENLER) BÖLÜMÜ -->
+            <!-- 2.2 BRANDS SECTION / MARKALAR (GÜVENENLER) BÖLÜMÜ -->
             <section class="brands-section">
                 <div class="container">
                     <h2 class="brands-title" data-aos="fade-up" data-i18n="brands.title">Tüm yapı ve dekorasyon
@@ -320,7 +320,7 @@
             </section>
         </div>
 
-        <!-- 3. HOW IT WORKS / NASIL ÇALIŞIR -->
+        <!-- 3. HOW IT WORKS & 3D WALLET / NASIL ÇALIŞIR VE 3D CÜZDAN BÖLÜMÜ -->
         <section id="howItWorks" class="how-it-works container">
             <div class="hiw-header" data-aos="fade-up">
                 <span class="hiw-badge" data-i18n="hiw.badge">Kolay Kullanım</span>
@@ -402,7 +402,7 @@
                             <div class="pocket-brand-text">
                                 MaterialCalc
                             </div>
-                            <button class="eye-icon-wrapper" aria-label="Bakiye Göster/Gizle">
+                            <button class="eye-icon-wrapper" data-i18n-aria="hiw.pocket.eyeAria" aria-label="Bakiye Göster/Gizle">
                                 <svg class="eye-icon eye-slash" width="20" height="20" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round">
@@ -423,7 +423,7 @@
             </div>
         </section>
 
-        <!-- 4. SEARCH AND CALCULATORS / ARAMA VE HESAPLAYICILAR -->
+        <!-- 4. CALCULATORS ACCORDION / HESAPLAYICILAR AKORDİYON BÖLÜMÜ -->
         <section id="calculatorGrid" class="container calculators-section">
             <div class="calculators-header" data-aos="fade-up">
                 <div class="calculators-header-text">
@@ -522,10 +522,10 @@
             </div>
         </section>
 
-        <!-- 5. FAQ SECTION / SSS BÖLÜMÜ -->
+        <!-- 5. FAQ SECTION / SIKÇA SORULAN SORULAR (S.S.S) BÖLÜMÜ -->
         <section id="faq" class="container faq-section">
                 <div class="faq-header" data-aos="fade-up">
-                    <h2 data-i18n="faq.title">Questions, answered.</h2>
+                    <h2 data-i18n="faq.title">Aklınızdaki sorular, cevaplandı.</h2>
                 </div>
                 <div class="faq-container" data-aos="fade-up" data-aos-delay="150">
 
@@ -631,7 +631,7 @@
                     <form class="footer-subscribe" onsubmit="event.preventDefault()">
                         <input type="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="you@email.com"
                             required>
-                        <button type="submit" class="join-btn" data-i18n="footer.join">Join</button>
+                        <button type="submit" class="join-btn" data-i18n="footer.join">Katıl</button>
                     </form>
 
                 </div>
@@ -681,8 +681,8 @@
         </div>
     </footer>
 
-    <!-- 7. FLOATING ACTION DOCK / YÜZEN HIZLI İŞLEM MENÜSÜ -->
-    <aside class="floating-dock" aria-label="Hızlı Hesaplama Araçları">
+    <!-- 7. FLOATING ACTION DOCK / YÜZEN HIZLI ERİŞİM DOCK MENÜSÜ -->
+    <aside class="floating-dock" data-i18n-aria="dock.ariaLabel" aria-label="Hızlı Hesaplama Araçları">
         <a href="hesapla.html?type=ceramic" class="dock-item" data-i18n-tooltip="dock.ceramic" data-tooltip="Seramik"
             aria-label="Seramik Hesaplama">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
@@ -726,12 +726,12 @@
         </svg>
     </button>
 
-    <!-- 9. JAVASCRIPT FILES / JAVASCRIPT DOSYALARIMIZ (Modüler & Ayrı) -->
+    <!-- 9. JAVASCRIPT FILES / JAVASCRIPT DOSYALARI -->
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/translations.js?v=1.1.4"></script>
-    <script src="js/lang.js?v=1.1.4"></script>
-    <script src="js/app.js?v=1.1.4"></script>
+    <script src="js/translations.js?v=1.1.6"></script>
+    <script src="js/lang.js?v=1.1.6"></script>
+    <script src="js/app.js?v=1.1.6"></script>
 </body>
 
 </html>

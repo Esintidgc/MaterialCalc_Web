@@ -179,18 +179,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (accordionCards.length > 0) {
         accordionCards.forEach(card => {
-            // Masaüstü için fare ile üzerine gelme (hover)
+            // Masaüstü için fare ile üzerine gelme ve çıkma (hover enter / leave)
             card.addEventListener('mouseenter', () => {
-                if (window.innerWidth > 1200) {
+                if (window.innerWidth > 1024) {
                     accordionCards.forEach(c => c.classList.remove('active'));
                     card.classList.add('active');
                 }
             });
 
-            // Tablet ve dokunmatik cihazlar için dokunma / tıklama (tap/click)
+            card.addEventListener('mouseleave', () => {
+                if (window.innerWidth > 1024) {
+                    card.classList.remove('active');
+                }
+            });
+
+            // Tablet ve dokunmatik cihazlar için dokunma / tıklama (tap/click toggle)
             card.addEventListener('click', (e) => {
                 // Eğer doğrudan "Hesapla" link/butonuna tıklandıysa sayfa geçişine izin ver
-                if (e.target.closest('.btn-pill-primary') || e.target.closest('button')) {
+                if (e.target.closest('.btn-pill-primary') || e.target.closest('a') || e.target.closest('button')) {
                     return;
                 }
 
@@ -207,14 +213,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        // Sayfa dışına tıklandığında açık kartı kapatma (Tablet/Mobil için)
-        document.addEventListener('click', (e) => {
+        // Masaüstünde tüm akordiyon alanından fare tamamen çıktığında tüm kartları sıfırla
+        if (accordionContainer) {
+            accordionContainer.addEventListener('mouseleave', () => {
+                accordionCards.forEach(c => c.classList.remove('active'));
+            });
+        }
+
+        // Sayfa dışına tıklandığında veya dokunulduğunda açık kartı kapatma (Tablet/Mobil için)
+        const closeAccordionOutside = (e) => {
             if (accordionContainer && !accordionContainer.contains(e.target)) {
-                if (window.innerWidth <= 1200) {
-                    accordionCards.forEach(c => c.classList.remove('active'));
-                }
+                accordionCards.forEach(c => c.classList.remove('active'));
             }
-        });
+        };
+        document.addEventListener('click', closeAccordionOutside);
+        document.addEventListener('touchend', closeAccordionOutside);
     }
 
     /* ==========================================================================

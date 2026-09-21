@@ -351,7 +351,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(window.translations && window.translations[currentLang] && window.translations[currentLang]['calc.result.packageLabel']) {
             packageLabel = window.translations[currentLang]['calc.result.packageLabel'];
         } else {
-            packageLabel = currentLang === 'en' ? 'Pack' : 'Paket';
+            packageLabel = currentLang === 'en' ? 'Packs' : 'Paket';
         }
         if(parqResBoxes) parqResBoxes.innerHTML = `${boxes} <small data-i18n="calc.result.packageLabel">${packageLabel}</small>`;
     }
@@ -582,7 +582,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(window.translations && window.translations[currentLang] && window.translations[currentLang]['calc.result.pieceLabel']) {
             pieceLabel = window.translations[currentLang]['calc.result.pieceLabel'];
         } else {
-            pieceLabel = currentLang === 'en' ? 'Pcs' : 'Adet';
+            pieceLabel = currentLang === 'en' ? 'Pieces' : 'Adet';
         }
         if(baseResPieces) baseResPieces.innerHTML = `${pieces} <small data-i18n="calc.result.pieceLabel">${pieceLabel}</small>`;
     }

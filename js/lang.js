@@ -32,6 +32,17 @@ function setLanguage(lang) {
     localStorage.setItem('materialcalc_lang', lang);
     document.documentElement.lang = lang;
 
+    // Update document title dynamically / Sayfa sekme başlığını güncelle
+    if (document.body.classList.contains('home-page') && translations[lang]['page.title.home']) {
+        document.title = translations[lang]['page.title.home'];
+    } else if (document.body.classList.contains('calc-page') && translations[lang]['page.title.calc']) {
+        document.title = translations[lang]['page.title.calc'];
+    } else if (document.body.classList.contains('usta-page') && translations[lang]['page.title.usta']) {
+        document.title = translations[lang]['page.title.usta'];
+    } else if (document.body.classList.contains('error-page') && translations[lang]['page.title.404']) {
+        document.title = translations[lang]['page.title.404'];
+    }
+
     // Update text elements / Metin elemanlarını güncelle
     const elements = document.querySelectorAll('[data-i18n]');
     elements.forEach(el => {
@@ -60,7 +71,9 @@ function setLanguage(lang) {
         const key = el.getAttribute('data-i18n-tooltip');
         if (translations[lang][key]) {
             el.setAttribute('data-tooltip', translations[lang][key]);
-            el.setAttribute('aria-label', translations[lang][key] + (lang === 'en' ? ' Calculator' : ' Hesaplama'));
+            if (!el.hasAttribute('data-i18n-aria')) {
+                el.setAttribute('aria-label', translations[lang][key] + (lang === 'en' ? ' Calculator' : ' Hesaplama'));
+            }
         }
     });
 

@@ -63,24 +63,24 @@
     }
     </script>
 
-    <!-- GOOGLE FONTS -->
+    <!-- GOOGLE FONTS / GOOGLE FONTLARI -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- CSS FILES / CSS DOSYALARIMIZ -->
-    <link rel="stylesheet" href="css/variables.css?v=1.1.4">
-    <link rel="stylesheet" href="css/style.css?v=1.1.4">
-    <link rel="stylesheet" href="css/components.css?v=1.1.4">
-    <link rel="stylesheet" href="css/calculator.css?v=1.1.4">
-    <link rel="stylesheet" href="css/mobile.css?v=1.1.4">
-    <link rel="stylesheet" href="css/tablet.css?v=1.1.4">
+    <!-- CSS FILES / CSS DOSYALARI -->
+    <link rel="stylesheet" href="css/variables.css?v=1.1.6">
+    <link rel="stylesheet" href="css/style.css?v=1.1.6">
+    <link rel="stylesheet" href="css/components.css?v=1.1.6">
+    <link rel="stylesheet" href="css/calculator.css?v=1.1.6">
+    <link rel="stylesheet" href="css/mobile.css?v=1.1.6">
+    <link rel="stylesheet" href="css/tablet.css?v=1.1.6">
 </head>
 
 <body class="calc-page">
 
-    <!-- 1. FLOATING NAVBAR -->
+    <!-- 1. FLOATING NAVBAR / YÜZEN GEZİNME ÇUBUĞU -->
     <header class="floating-header scrolled">
         <div class="header-pill logo-pill" data-aos="fade-down">
             <a href="index.html" class="logo"><span class="logo-full">Material<span>Calc</span></span><span class="logo-short">M<span>C</span></span></a>
@@ -107,8 +107,8 @@
             </div>
             <a href="index.html#calculatorGrid" class="btn-pill-primary header-cta-btn" data-i18n="nav.start">Hemen Başla</a>
 
-            <!-- Mobil Menü Butonu -->
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menüyü Aç/Kapat">
+            <!-- Mobile Menu Button / Mobil Menü Butonu -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" data-i18n-aria="nav.menuToggleAria" aria-label="Menüyü Aç/Kapat">
                 <span class="hamburger-bar"></span>
                 <span class="hamburger-bar"></span>
                 <span class="hamburger-bar"></span>
@@ -116,7 +116,7 @@
         </div>
     </header>
 
-    <!-- MOBİL TAM EKRAN MENÜ OVERLAY -->
+    <!-- 2. FULL-SCREEN MOBILE DRAWER MENU / MOBİL TAM EKRAN MENÜ -->
     <div class="mobile-menu-overlay" id="mobileMenuDrawer">
         <div class="mobile-overlay-inner">
             <nav class="mobile-overlay-nav">
@@ -141,11 +141,11 @@
         </div>
     </div>
 
-    <!-- MAIN SPA CALCULATOR WRAPPER -->
+    <!-- 3. MAIN SPA CALCULATOR WRAPPER / ANA SPA HESAPLAYICI GÖVDESİ -->
     <main class="calc-main-wrapper">
         <div class="calc-spa-container">
 
-            <!-- SIDEBAR NAVIGATION & MOBILE BOTTOM SHEET -->
+            <!-- 3.1 SIDEBAR NAVIGATION & MOBILE BOTTOM SHEET / YAN MENÜ VE MOBİL ALT PANEL -->
             <aside class="calc-sidebar">
                 <h2 data-i18n="calc.sidebar.title">Hesaplayıcılar</h2>
 
@@ -176,7 +176,7 @@
                             <h3 data-i18n="calc.sidebar.title">Kategoriler</h3>
                             <p data-i18n="calc.sidebar.subtitle">Hesaplamak istediğiniz malzemeyi seçin</p>
                         </div>
-                        <button type="button" class="calc-sheet-close-btn" id="calcSheetCloseBtn" aria-label="Kapat">
+                        <button type="button" class="calc-sheet-close-btn" id="calcSheetCloseBtn" data-i18n-aria="calc.sheet.close" aria-label="Kapat">
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
                         </button>
                     </div>
@@ -230,10 +230,10 @@
                 </div>
             </aside>
 
-            <!-- CONTENT AREA -->
+            <!-- 3.2 CONTENT AREA & CALCULATION PANELS / İÇERİK ALANI VE HESAPLAMA PANELLERİ -->
             <section class="calc-content-area">
 
-                <!-- 1. SERAMİK & FAYANS -->
+                <!-- 3.2.1 CERAMIC & TILE PANEL / SERAMİK VE FAYANS PANELİ -->
                 <div id="panel-ceramic" class="calc-panel active">
                     <div class="calc-header-block">
                         <h1 data-i18n="calc.ceramic.fullTitle">Seramik Hesaplama</h1>
@@ -305,7 +305,7 @@
                     </div>
                 </div>
 
-                <!-- 2. PARKE -->
+                <!-- 3.2.2 PARQUET PANEL / PARKE PANELİ -->
                 <div id="panel-parquet" class="calc-panel">
                     <div class="calc-header-block">
                         <h1 data-i18n="calc.parquet.fullTitle">Parke Hesaplama</h1>
@@ -377,7 +377,7 @@
                     </div>
                 </div>
 
-                <!-- 3. BOYA -->
+                <!-- 3.2.3 PAINT PANEL / BOYA PANELİ -->
                 <div id="panel-paint" class="calc-panel">
                     <div class="calc-header-block">
                         <h1 data-i18n="calc.paint.fullTitle">Boya Hesaplama</h1>
@@ -455,7 +455,7 @@
                     </div>
                 </div>
 
-                <!-- 4. DUVAR KAĞIDI -->
+                <!-- 3.2.4 WALLPAPER PANEL / DUVAR KAĞIDI PANELİ -->
                 <div id="panel-wallpaper" class="calc-panel">
                     <div class="calc-header-block">
                         <h1 data-i18n="calc.wallpaper.fullTitle">Duvar Kağıdı Hesaplama</h1>
@@ -518,7 +518,7 @@
                     </div>
                 </div>
 
-                <!-- 5. SÜPÜRGELİK -->
+                <!-- 3.2.5 BASEBOARD PANEL / SÜPÜRGELİK PANELİ -->
                 <div id="panel-baseboard" class="calc-panel">
                     <div class="calc-header-block">
                         <h1 data-i18n="calc.baseboard.fullTitle">Süpürgelik Hesaplama</h1>
@@ -600,7 +600,7 @@
         </div>
     </main>
 
-    <!-- 6. FOOTER / ALT BİLGİ BÖLÜMÜ -->
+    <!-- 4. FOOTER / ALT BİLGİ BÖLÜMÜ -->
     <footer id="contact" class="site-footer">
         <div class="container">
             <div class="footer-top" data-aos="fade-up">
@@ -611,7 +611,7 @@
                     <form class="footer-subscribe" onsubmit="event.preventDefault()">
                         <input type="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="you@email.com"
                             required>
-                        <button type="submit" class="join-btn" data-i18n="footer.join">Join</button>
+                        <button type="submit" class="join-btn" data-i18n="footer.join">Katıl</button>
                     </form>
 
                 </div>
@@ -661,8 +661,8 @@
         </div>
     </footer>
 
-    <!-- FLOATING DOCK -->
-    <aside class="floating-dock dock-scrolled scrolled" aria-label="Hızlı Hesaplama Araçları">
+    <!-- 5. FLOATING DOCK / YÜZEN HIZLI ERİŞİM DOCK MENÜSÜ -->
+    <aside class="floating-dock dock-scrolled scrolled" data-i18n-aria="dock.ariaLabel" aria-label="Hızlı Hesaplama Araçları">
         <a href="hesapla.html?type=ceramic" class="dock-item" data-i18n-tooltip="dock.ceramic" data-tooltip="Seramik"
             aria-label="Seramik Hesaplama">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
@@ -697,7 +697,7 @@
         </a>
     </aside>
 
-    <!-- QUICK BACK & BACK TO TOP BUTTONS -->
+    <!-- 6. QUICK BACK & BACK TO TOP BUTTONS / HIZLI GERİ VE YUKARI ÇIK BUTONLARI -->
     <button id="quickBack" class="quick-back-btn" data-i18n-tooltip="common.back" data-tooltip="Geri Dön" data-i18n-aria="common.backAria" aria-label="Önceki sayfaya dön">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
             stroke-linejoin="round">
@@ -713,13 +713,13 @@
         </svg>
     </button>
 
-    <!-- JAVASCRIPT DOSYALARI -->
+    <!-- 7. JAVASCRIPT FILES / JAVASCRIPT DOSYALARI -->
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/translations.js?v=1.1.4"></script>
-    <script src="js/lang.js?v=1.1.4"></script>
-    <script src="js/calculator.js?v=1.1.4"></script>
-    <script src="js/app.js?v=1.1.4"></script>
+    <script src="js/translations.js?v=1.1.6"></script>
+    <script src="js/lang.js?v=1.1.6"></script>
+    <script src="js/calculator.js?v=1.1.6"></script>
+    <script src="js/app.js?v=1.1.6"></script>
 </body>
 
 </html>

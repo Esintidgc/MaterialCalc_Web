@@ -305,7 +305,7 @@ const translations = {
         "usta.card.baseboard.tip": "Dış köşelerde gönye kesimlerin açılmaması için hızlı yapıştırıcı (akrilik sprey) ve arkasına montaj silikonu kombinasyonu kullanın.",
 
         // 8. FAQ Section / Sıkça Sorulan Sorular (S.S.S)
-        "faq.title": "Questions, answered.", // As is in the original
+        "faq.title": "Aklınızdaki sorular, cevaplandı.",
         "faq.q1": "MaterialCalc uygulamasını kullanmak tamamen ücretsiz mi?",
         "faq.a1": "Evet, MaterialCalc'in tüm temel hesaplama özellikleri tamamen ücretsizdir. Projeleriniz için ihtiyacınız olan malzeme miktarını anında, hiçbir ücret ödemeden hesaplayabilirsiniz.",
         "faq.q2": "Hesaplamalar ne kadar doğru sonuç veriyor?",
@@ -318,7 +318,7 @@ const translations = {
         // 9. Footer & Newsletter / Alt Bilgi ve E-Bülten
         "footer.slogan": "Projeleriniz için en doğru hesaplamalar.",
         "footer.emailPlaceholder": "eposta@adresiniz.com",
-        "footer.join": "Join",
+        "footer.join": "Katıl",
         "footer.explore": "Keşfet",
         "footer.howItWorks": "Nasıl Çalışır",
         "footer.features": "Özellikler",
@@ -338,11 +338,21 @@ const translations = {
         "error.404.btnHome": "Ana Sayfaya Dön",
         "error.404.btnCalc": "Hesaplayıcılara Git",
 
-        // 11. Common Floating Navigation / Ortak Yüzen Navigasyon Butonları
+        // 11. Common Floating Navigation & Accessibility / Ortak Yüzen Navigasyon ve Erişilebilirlik
         "common.back": "Geri Dön",
         "common.backAria": "Önceki sayfaya dön",
         "common.backToTop": "Sayfa Başına Çık",
-        "common.backToTopAria": "Sayfanın en üstüne çık"
+        "common.backToTopAria": "Sayfanın en üstüne çık",
+        "nav.menuToggleAria": "Menüyü Aç/Kapat",
+        "search.btnAria": "Arama Yap",
+        "hiw.pocket.eyeAria": "Bakiye Göster/Gizle",
+        "dock.ariaLabel": "Hızlı Hesaplama Araçları",
+
+        // 12. Dynamic Page Titles / Sayfa Sekme Başlıkları
+        "page.title.home": "MaterialCalc - Kesin Malzeme Hesaplama",
+        "page.title.calc": "Hesaplayıcılar | MaterialCalc",
+        "page.title.usta": "Usta Hesabı & Pratik Formüller | MaterialCalc",
+        "page.title.404": "404 - Sayfa Bulunamadı | MaterialCalc"
     },
     en: {
         // 1. Floating Navbar / Gezinme Çubuğu
@@ -678,10 +688,20 @@ const translations = {
         "error.404.btnHome": "Back to Home",
         "error.404.btnCalc": "Go to Calculators",
 
-        // 11. Common Floating Navigation / Ortak Yüzen Navigasyon Butonları
+        // 11. Common Floating Navigation & Accessibility / Ortak Yüzen Navigasyon ve Erişilebilirlik
         "common.back": "Go Back",
         "common.backAria": "Go back to previous page",
         "common.backToTop": "Back to Top",
-        "common.backToTopAria": "Scroll to top of page"
+        "common.backToTopAria": "Scroll to top of page",
+        "nav.menuToggleAria": "Toggle Navigation Menu",
+        "search.btnAria": "Search",
+        "hiw.pocket.eyeAria": "Show/Hide Balance",
+        "dock.ariaLabel": "Quick Calculation Tools",
+
+        // 12. Dynamic Page Titles / Sayfa Sekme Başlıkları
+        "page.title.home": "MaterialCalc - Precise Material Calculation",
+        "page.title.calc": "Calculators | MaterialCalc",
+        "page.title.usta": "Pro Estimator & Jobsite Formulas | MaterialCalc",
+        "page.title.404": "404 - Page Not Found | MaterialCalc"
     }
 };
