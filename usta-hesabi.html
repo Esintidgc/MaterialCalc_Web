@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
+    <title>Usta Hesabı & Pratik Formüller | MaterialCalc</title>
+    <meta name="description" content="İnşaat ve dekorasyon ustalarının şantiyede kullandığı pratik malzeme hesaplama formülleri ve altın kurallar.">
+    <meta name="theme-color" content="#141113">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="keywords" content="usta hesabı, şantiye formülleri, kalekim hesabı, fayans fire oranı, laminat parke firesi, boya sarfiyatı m2, süpürgelik gönye kesim, usta kuralları">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="MaterialCalc">
+
+    <!-- CANONICAL & MULTILINGUAL HREFLANG / KOPYA İÇERİK ÖNLEME VE DİL SEO'SU -->
+    <link rel="canonical" href="https://materialcalc.pages.dev/usta-hesabi.html" />
+    <link rel="alternate" hreflang="tr" href="https://materialcalc.pages.dev/usta-hesabi.html" />
+    <link rel="alternate" hreflang="en" href="https://materialcalc.pages.dev/usta-hesabi.html" />
+    <link rel="alternate" hreflang="x-default" href="https://materialcalc.pages.dev/usta-hesabi.html" />
+
+    <!-- JSON-LD STRUCTURED DATA / GOOGLE ZENGİN ARAMA SONUÇLARI (SCHEMA.ORG) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Article",
+          "@id": "https://materialcalc.pages.dev/usta-hesabi.html#article",
+          "headline": "Usta Hesabı & Şantiye Malzeme Hesaplama Formülleri",
+          "description": "Yılların şantiye tecrübesiyle şekillenmiş seramik, parke, boya, duvar kağıdı ve süpürgelik pratik usta formülleri.",
+          "inLanguage": ["tr", "en"],
+          "publisher": {
+            "@type": "Organization",
+            "name": "MaterialCalc",
+            "url": "https://materialcalc.pages.dev/"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://materialcalc.pages.dev/usta-hesabi.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Ana Sayfa",
+              "item": "https://materialcalc.pages.dev/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Usta Hesabı",
+              "item": "https://materialcalc.pages.dev/usta-hesabi.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
+    <!-- GOOGLE FONTS / GOOGLE YAZI TİPLERİ -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS FILES / CSS DOSYALARIMIZ -->
+    <link rel="stylesheet" href="css/variables.css?v=1.1.4">
+    <link rel="stylesheet" href="css/style.css?v=1.1.4">
+    <link rel="stylesheet" href="css/components.css?v=1.1.4">
+    <link rel="stylesheet" href="css/usta-hesabi.css?v=1.1.4">
+    <link rel="stylesheet" href="css/mobile.css?v=1.1.4">
+    <link rel="stylesheet" href="css/tablet.css?v=1.1.4">
+</head>
+
+<body class="usta-page">
+
+    <!-- 1. FLOATING NAVBAR / YÜZEN GEZİNME ÇUBUĞU -->
+    <header class="floating-header scrolled">
+        <div class="header-pill logo-pill" data-aos="fade-down">
+            <a href="index.html" class="logo"><span class="logo-full">Material<span>Calc</span></span><span class="logo-short">M<span>C</span></span></a>
+        </div>
+
+        <div class="header-pill nav-pill" data-aos="fade-down" data-aos-delay="100">
+            <nav class="main-nav">
+                <a href="index.html#calculatorGrid" class="nav-link" data-i18n="nav.calculators">Hesaplayıcılar</a>
+                <a href="index.html#howItWorks" class="nav-link" data-i18n="nav.howItWorks">Nasıl Çalışır?</a>
+                <a href="usta-hesabi.html" class="nav-link active" data-i18n="nav.ustaHesabi">Usta Hesabı</a>
+                <a href="index.html#faq" class="nav-link" data-i18n="nav.faq">S.S.S</a>
+                <a href="index.html#contact" class="nav-link" data-i18n="nav.contact">İletişim</a>
+            </nav>
+        </div>
+
+        <div class="header-pill action-pill" data-aos="fade-down" data-aos-delay="200">
+            <div class="lang-switch-wrapper">
+                <input type="checkbox" id="langToggleCheckbox" class="lang-checkbox">
+                <label for="langToggleCheckbox" class="lang-slider">
+                    <span class="lang-label tr-label">TR</span>
+                    <span class="lang-label en-label">EN</span>
+                    <div class="slider-thumb"></div>
+                </label>
+            </div>
+            <a href="index.html#calculatorGrid" class="btn-pill-primary header-cta-btn" data-i18n="nav.start">Hemen Başla</a>
+
+            <!-- Mobile Menu Toggle Button / Mobil Menü Açma/Kapama Butonu -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menüyü Aç/Kapat">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- 2. MOBILE FULLSCREEN MENU OVERLAY / MOBİL TAM EKRAN MENÜ OVERLAY -->
+    <div class="mobile-menu-overlay" id="mobileMenuDrawer">
+        <div class="mobile-overlay-inner">
+            <nav class="mobile-overlay-nav">
+                <a href="index.html#calculatorGrid" class="overlay-link" data-i18n="nav.calculators">Hesaplayıcılar</a>
+                <a href="index.html#howItWorks" class="overlay-link" data-i18n="nav.howItWorks">Nasıl Çalışır?</a>
+                <a href="usta-hesabi.html" class="overlay-link active" data-i18n="nav.ustaHesabi">Usta Hesabı</a>
+                <a href="index.html#faq" class="overlay-link" data-i18n="nav.faq">S.S.S</a>
+                <a href="index.html#contact" class="overlay-link" data-i18n="nav.contact">İletişim</a>
+            </nav>
+
+            <div class="mobile-overlay-footer">
+                <a href="index.html#calculatorGrid" class="btn-solid-white overlay-cta" data-i18n="nav.start">Hemen Başla</a>
+                <div class="mobile-overlay-lang">
+                    <input type="checkbox" id="mobileLangToggleCheckbox" class="lang-checkbox">
+                    <label for="mobileLangToggleCheckbox" class="lang-slider mobile-lang-slider">
+                        <span class="lang-label tr-label">TR</span>
+                        <span class="lang-label en-label">EN</span>
+                        <div class="slider-thumb"></div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. MAIN CONTENT / ANA İÇERİK BÖLÜMÜ -->
+    <main class="usta-main-wrapper">
+        <div class="usta-container">
+            <!-- Header Block / Başlık ve Açıklama Bloğu -->
+            <div class="usta-header" data-aos="fade-up">
+                <span class="usta-badge" data-i18n="usta.badge">Şantiye İpuçları & Formüller</span>
+                <h1 class="usta-title" data-i18n="usta.title">Usta Hesabı & Pratik Kurallar</h1>
+                <p class="usta-desc" data-i18n="usta.desc">Yılların şantiye tecrübesiyle şekillenmiş, sahada ustaların ezbere bildiği pratik hesaplama formülleri ve fire oranları.</p>
+            </div>
+
+            <!-- Pro Cards Grid / Usta Hesap Kartları Izgarası -->
+            <div class="usta-grid" data-aos="fade-up" data-aos-delay="100">
+                <!-- 1. CERAMICS & TILES / 1. SERAMİK VE FAYANS -->
+                <div class="usta-card">
+                    <div class="usta-card-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <path d="M3 12h18M12 3v18" />
+                        </svg>
+                    </div>
+                    <h3 data-i18n="usta.card.ceramic.title">Seramik & Fayans Usta Hesabı</h3>
+                    <p class="usta-card-text" data-i18n="usta.card.ceramic.desc">Karo seramik döşemesinde düz döşeme için standart <strong>%10</strong>, diyagonal (çapraz) döşemede <strong>%15</strong> fire eklenir. Yapıştırıcı sarfiyatı m² başına ortalama 4-5 kg'dır.</p>
+                    
+                    <div class="formula-box">
+                        <strong data-i18n="usta.card.ceramic.formulaTitle">Adım Adım Usta Formülü:</strong>
+                        <span data-i18n="usta.card.ceramic.formulaDesc">1. Net Alan = En × Boy<br>2. Brüt İhtiyaç = Net Alan × 1.10 (%10 Fire)<br>3. Kutu Sayısı = [Brüt Alan / Kutu m²] (Yukarı Yuvarlanır)<br>4. Kalekim / Yapıştırıcı = Brüt Alan × 4.5 kg</span>
+                    </div>
+
+                    <div class="usta-example-block">
+                        <h4 class="usta-example-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17v-6M13 17v-4M17 17v-2M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                            <span data-i18n="usta.card.ceramic.exampleTitle">Örnek Şantiye Hesabı:</span>
+                        </h4>
+                        <div class="usta-table-wrapper">
+                            <table class="usta-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n="usta.table.param">Parametre</th>
+                                        <th data-i18n="usta.table.sample">Örnek Ölçü</th>
+                                        <th data-i18n="usta.table.calc">Şantiye Hesabı</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-i18n="usta.card.ceramic.r1.p">Oda Boyutu</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.ceramic.r1.s">4.00m × 5.00m</span></td>
+                                        <td data-i18n="usta.card.ceramic.r1.c">Net Alan: 20.00 m²</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="usta.card.ceramic.r2.p">Döşeme & Fire</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.ceramic.r2.s">%10 (Düz Döşeme)</span></td>
+                                        <td data-i18n="usta.card.ceramic.r2.c">Brüt Alan: 22.00 m²</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="usta.card.ceramic.r3.p">Kutu Ebatı</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.ceramic.r3.s">1.44 m² / Kutu</span></td>
+                                        <td data-i18n="usta.card.ceramic.r3.c">60×60 Standart Paket</td>
+                                    </tr>
+                                    <tr class="highlight-row">
+                                        <td data-i18n="usta.card.ceramic.r4.p">Kutu İhtiyacı</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.ceramic.r4.s">22 ÷ 1.44 = 15.28</span></td>
+                                        <td data-i18n="usta.card.ceramic.r4.c">16 Kutu Seramik</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="usta.card.ceramic.r5.p">Yapıştırıcı & Derz</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.ceramic.r5.s">22 m² × 4.5 kg</span></td>
+                                        <td data-i18n="usta.card.ceramic.r5.c">4 Torba (25kg) Kalekim + 1 Torba Derz</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="usta-pro-tip">
+                        <strong data-i18n="usta.proTipLabel">Ustanın Altın İpucu:</strong>
+                        <span data-i18n="usta.card.ceramic.tip">Süpürgelik seramikten kesilecekse ekstra 1 kutu seramik payı ayrılması tavsiye edilir.</span>
+                    </div>
+                </div>
+
+                <!-- 2. LAMINATE PARQUET / 2. LAMİNAT PARKE -->
+                <div class="usta-card">
+                    <div class="usta-card-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                            <path d="M4 4h16v16H4zM4 12h16M12 4v16" />
+                        </svg>
+                    </div>
+                    <h3 data-i18n="usta.card.parquet.title">Laminat Parke Usta Formülü</h3>
+                    <p class="usta-card-text" data-i18n="usta.card.parquet.desc">Düz odalarda standart <strong>%7</strong>, girintili çıkıntılı, koridorlu veya açılı alanlarda <strong>%10</strong> fire payı alınır. Parke altına mutlaka kapron veya şilte serilmelidir.</p>
+                    
+                    <div class="formula-box">
+                        <strong data-i18n="usta.card.parquet.formulaTitle">Adım Adım Usta Formülü:</strong>
+                        <span data-i18n="usta.card.parquet.formulaDesc">1. Net Alan = En × Boy<br>2. Brüt İhtiyaç = Net Alan × 1.07 (%7 Fire)<br>3. Paket Sayısı = [Brüt Alan / Paket m²] (Yukarı Yuvarlanır)<br>4. Alt Şilte / Kapron = Net Alan × 1.05</span>
+                    </div>
+
+                    <div class="usta-example-block">
+                        <h4 class="usta-example-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17v-6M13 17v-4M17 17v-2M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                            <span data-i18n="usta.card.parquet.exampleTitle">Örnek Şantiye Hesabı:</span>
+                        </h4>
+                        <div class="usta-table-wrapper">
+                            <table class="usta-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n="usta.table.param">Parametre</th>
+                                        <th data-i18n="usta.table.sample">Örnek Ölçü</th>
+                                        <th data-i18n="usta.table.calc">Şantiye Hesabı</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-i18n="usta.card.parquet.r1.p">Salon Ölçüsü</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.parquet.r1.s">4.50m × 6.00m</span></td>
+                                        <td data-i18n="usta.card.parquet.r1.c">Net Alan: 27.00 m²</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="usta.card.parquet.r2.p">Fire Payı</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.parquet.r2.s">%7 Standart Fire</span></td>
+                                        <td data-i18n="usta.card.parquet.r2.c">Brüt Alan: 28.89 m²</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="usta.card.parquet.r3.p">Paket Alanı</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.parquet.r3.s">1.83 m² / Paket</span></td>
+                                        <td data-i18n="usta.card.parquet.r3.c">Standart 8mm AC4 Paket Metrajı</td>
+                                    </tr>
+                                    <tr class="highlight-row">
+                                        <td data-i18n="usta.card.parquet.r4.p">Paket İhtiyacı</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.parquet.r4.s">28.89 ÷ 1.83 = 15.78</span></td>
+                                        <td data-i18n="usta.card.parquet.r4.c">16 Paket Laminat Parke</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="usta.card.parquet.r5.p">Şilte / Kapron</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.parquet.r5.s">27 m² × 1.05</span></td>
+                                        <td data-i18n="usta.card.parquet.r5.c">28.5 m² (3 Rulo Kapron)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="usta-pro-tip">
+                        <strong data-i18n="usta.proTipLabel">Ustanın Altın İpucu:</strong>
+                        <span data-i18n="usta.card.parquet.tip">Duvar kenarlarında parkenin genleşebilmesi için mutlaka 10-15 mm genleşme boşluğu bırakılmalıdır.</span>
+                    </div>
+                </div>
+
+                <!-- 3. INTERIOR PAINT / 3. İÇ CEPHE BOYA -->
+                <div class="usta-card">
+                    <div class="usta-card-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                        </svg>
+                    </div>
+                    <h3 data-i18n="usta.card.paint.title">İç Cephe Boya Usta Kuralı</h3>
+                    <p class="usta-card-text" data-i18n="usta.card.paint.desc">1 Litre kaliteli plastik/silikonlu iç cephe boyası 2 katta ortalama <strong>6 - 7 m²</strong> (Tek katta ~13-14 m²) alan kapatır. Tavan boyasında sarfiyat 2 katta ortalama <strong>7 - 8 m²/L</strong>'dir.</p>
+                    
+                    <div class="formula-box">
+                        <strong data-i18n="usta.card.paint.formulaTitle">Adım Adım Usta Formülü:</strong>
+                        <span data-i18n="usta.card.paint.formulaDesc">1. Net Duvar = (Oda Çevresi × Tavan Yüksekliği) - Kapı & Pencere<br>2. Boyama Yüzeyi = Net Alan × 2 Kat<br>3. Litre İhtiyacı = [Boyama Yüzeyi / Sarfiyat (7 m²/L)] + %5 Fire<br>4. Teneke Sayısı = Litre / 15L (Standart Büyük Teneke)</span>
+                    </div>
+
+                    <div class="usta-example-block">
+                        <h4 class="usta-example-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17v-6M13 17v-4M17 17v-2M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                            <span data-i18n="usta.card.paint.exampleTitle">Örnek Şantiye Hesabı:</span>
+                        </h4>
+                        <div class="usta-table-wrapper">
+                            <table class="usta-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n="usta.table.param">Parametre</th>
+                                        <th data-i18n="usta.table.sample">Örnek Ölçü</th>
+                                        <th data-i18n="usta.table.calc">Şantiye Hesabı</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-i18n="usta.card.paint.r1.p">Net Duvar Alanı</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.paint.r1.s">100 m² Duvar</span></td>
+                                        <td data-i18n="usta.card.paint.r1.c">2 Kat = 200 m² Boyama Yüzeyi</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="usta.card.paint.r2.p">Boya Sarfiyatı</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.paint.r2.s">7 m² / Litre (2 Kat)</span></td>
+                                        <td data-i18n="usta.card.paint.r2.c">Net İhtiyaç: ~14.3 Litre</td>
+                                    </tr>
+                                    <tr class="highlight-row">
+                                        <td data-i18n="usta.card.paint.r3.p">Boya İhtiyacı</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.paint.r3.s">15L Standart Kova</span></td>
+                                        <td data-i18n="usta.card.paint.r3.c">1 Teneke (15 Litre) Duvar Boyası</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="usta.card.paint.r4.p">Astar & Tavan</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.paint.r4.s">Astar: 10L / Tavan: 35 m²</span></td>
+                                        <td data-i18n="usta.card.paint.r4.c">1 Kova Astar + 10 kg Tavan Boyası</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="usta-pro-tip">
+                        <strong data-i18n="usta.proTipLabel">Ustanın Altın İpucu:</strong>
+                        <span data-i18n="usta.card.paint.tip">Koyu renkten açık renge geçişlerde kapatıcılığı artırmak ve boyadan tasarruf etmek için mutlaka 1 kat dönüşüm astarı uygulayın.</span>
+                    </div>
+                </div>
+
+                <!-- 4. WALLPAPER / 4. DUVAR KAĞIDI -->
+                <div class="usta-card">
+                    <div class="usta-card-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                            <rect x="4" y="4" width="16" height="16" rx="2" />
+                            <path d="M4 12h16" />
+                        </svg>
+                    </div>
+                    <h3 data-i18n="usta.card.wallpaper.title">Duvar Kağıdı Rulo Hesabı</h3>
+                    <p class="usta-card-text" data-i18n="usta.card.wallpaper.desc">Standart rulo ölçüsü: <strong>0.53m en × 10.05m boydur (5.3 m²)</strong>. 2.80 metreye kadar tavan yüksekliğinde 1 rulodan tam <strong>3 boy (şerit)</strong> çıkar ve duvarda <strong>1.59 m en</strong> kaplar.</p>
+                    
+                    <div class="formula-box">
+                        <strong data-i18n="usta.card.wallpaper.formulaTitle">Adım Adım Usta Formülü:</strong>
+                        <span data-i18n="usta.card.wallpaper.formulaDesc">1. Rulodan Çıkan Boy = 10.05m ÷ (Tavan Yüksekliği + 0.10m Pay) = 3 Boy<br>2. 1 Rulonun Eni = 3 Boy × 0.53m = 1.59 m<br>3. Rulo Sayısı = [Toplam Duvar Genişliği / 1.59m] (Yukarı Yuvarlanır)<br>4. Desen Tekrarı (Raport): +%10-15 Desen Eşleme Payı</span>
+                    </div>
+
+                    <div class="usta-example-block">
+                        <h4 class="usta-example-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17v-6M13 17v-4M17 17v-2M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                            <span data-i18n="usta.card.wallpaper.exampleTitle">Örnek Şantiye Hesabı:</span>
+                        </h4>
+                        <div class="usta-table-wrapper">
+                            <table class="usta-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n="usta.table.param">Parametre</th>
+                                        <th data-i18n="usta.table.sample">Örnek Ölçü</th>
+                                        <th data-i18n="usta.table.calc">Şantiye Hesabı</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-i18n="usta.card.wallpaper.r1.p">Duvar Ölçüsü</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.wallpaper.r1.s">4.50m Genişlik × 2.70m Yükseklik</span></td>
+                                        <td data-i18n="usta.card.wallpaper.r1.c">Toplam Duvar Alanı: 12.15 m²</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="usta.card.wallpaper.r2.p">Boy Kesim Verimi</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.wallpaper.r2.s">10.05m ÷ 2.80m = 3 Şerit</span></td>
+                                        <td data-i18n="usta.card.wallpaper.r2.c">1 Rulo Kapsama Eni: 1.59 Metre</td>
+                                    </tr>
+                                    <tr class="highlight-row">
+                                        <td data-i18n="usta.card.wallpaper.r3.p">Rulo İhtiyacı</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.wallpaper.r3.s">4.50m ÷ 1.59m = 2.83</span></td>
+                                        <td data-i18n="usta.card.wallpaper.r3.c">3 Rulo Duvar Kağıdı</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="usta.card.wallpaper.r4.p">Tutkal İhtiyacı</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.wallpaper.r4.s">1 Paket Duvar Kağıdı Tutkalı</span></td>
+                                        <td data-i18n="usta.card.wallpaper.r4.c">1 Paket Tutkal (4-5 Ruloya Yeter)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="usta-pro-tip">
+                        <strong data-i18n="usta.proTipLabel">Ustanın Altın İpucu:</strong>
+                        <span data-i18n="usta.card.wallpaper.tip">Büyük desenli kağıtlarda desen eşleme (raport) payı için rulo ihtiyacına her 4-5 ruloda 1 ekstra rulo ekleyin.</span>
+                    </div>
+                </div>
+
+                <!-- 5. BASEBOARD & MITER CUT / 5. SÜPÜRGELİK VE KÖŞE KESİM -->
+                <div class="usta-card">
+                    <div class="usta-card-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none">
+                            <path d="M4 20h16M4 20L4 20M20 20L20 4" />
+                        </svg>
+                    </div>
+                    <h3 data-i18n="usta.card.baseboard.title">Süpürgelik & Köşe Kesim Hesabı</h3>
+                    <p class="usta-card-text" data-i18n="usta.card.baseboard.desc">Toplam oda çevresinden kapı geçiş boşlukları (kapı başı ortalama <strong>0.90 m</strong>) düşülür. 45° gönye köşe kesimleri ve ek yeri fireleri için net uzunluğa <strong>%10</strong> eklenir.</p>
+                    
+                    <div class="formula-box">
+                        <strong data-i18n="usta.card.baseboard.formulaTitle">Adım Adım Usta Formülü:</strong>
+                        <span data-i18n="usta.card.baseboard.formulaDesc">1. Toplam Çevre = (En + Boy) × 2<br>2. Net Metretül = Toplam Çevre - (Kapı Adedi × 0.90m)<br>3. Brüt Metretül = Net Metretül × 1.10 (%10 Köşe Kesim Firesi)<br>4. Profil Adedi = [Brüt Metretül / Profil Boyu (2.40m)] (Yukarı Yuvarlanır)</span>
+                    </div>
+
+                    <div class="usta-example-block">
+                        <h4 class="usta-example-title">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 17v-6M13 17v-4M17 17v-2M5 21h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                            <span data-i18n="usta.card.baseboard.exampleTitle">Örnek Şantiye Hesabı:</span>
+                        </h4>
+                        <div class="usta-table-wrapper">
+                            <table class="usta-table">
+                                <thead>
+                                    <tr>
+                                        <th data-i18n="usta.table.param">Parametre</th>
+                                        <th data-i18n="usta.table.sample">Örnek Ölçü</th>
+                                        <th data-i18n="usta.table.calc">Şantiye Hesabı</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-i18n="usta.card.baseboard.r1.p">Oda Ölçüsü</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.baseboard.r1.s">4.00m × 5.00m (2 Kapı)</span></td>
+                                        <td data-i18n="usta.card.baseboard.r1.c">Toplam Çevre: 18.00 Metre</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="usta.card.baseboard.r2.p">Kapı Düşümü</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.baseboard.r2.s">2 Kapı × 0.90m = 1.80m</span></td>
+                                        <td data-i18n="usta.card.baseboard.r2.c">Net Çevre: 16.20 Metre</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="usta.card.baseboard.r3.p">Köşe Kesim Firesi</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.baseboard.r3.s">16.20m × 1.10 (%10 Fire)</span></td>
+                                        <td data-i18n="usta.card.baseboard.r3.c">Brüt Uzunluk: 17.82 Metre</td>
+                                    </tr>
+                                    <tr class="highlight-row">
+                                        <td data-i18n="usta.card.baseboard.r4.p">Profil İhtiyacı</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.baseboard.r4.s">17.82m ÷ 2.40m = 7.425</span></td>
+                                        <td data-i18n="usta.card.baseboard.r4.c">8 Boy (Adet) Süpürgelik</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-i18n="usta.card.baseboard.r5.p">Montaj Yapıştırıcısı</td>
+                                        <td><span class="val-badge" data-i18n="usta.card.baseboard.r5.s">1 Tüp Mastik / Silikon</span></td>
+                                        <td data-i18n="usta.card.baseboard.r5.c">1 Tüp Montaj Yapıştırıcısı (15-20mt)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="usta-pro-tip">
+                        <strong data-i18n="usta.proTipLabel">Ustanın Altın İpucu:</strong>
+                        <span data-i18n="usta.card.baseboard.tip">Dış köşelerde gönye kesimlerin açılmaması için hızlı yapıştırıcı (akrilik sprey) ve arkasına montaj silikonu kombinasyonu kullanın.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 4. FOOTER / ALT BİLGİ BÖLÜMÜ -->
+    <footer id="contact" class="site-footer">
+        <div class="container">
+            <div class="footer-top" data-aos="fade-up">
+                <div class="footer-brand">
+                    <div class="footer-logo">MATERIALCALC</div>
+                    <p class="footer-slogan" data-i18n="footer.slogan">Projeleriniz için en doğru hesaplamalar.</p>
+
+                    <form class="footer-subscribe" onsubmit="event.preventDefault()">
+                        <input type="email" data-i18n-placeholder="footer.emailPlaceholder" placeholder="you@email.com"
+                            required>
+                        <button type="submit" class="join-btn" data-i18n="footer.join">Join</button>
+                    </form>
+
+                </div>
+
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4 data-i18n="footer.explore">Keşfet</h4>
+                        <div class="footer-col-links">
+                            <a href="index.html#howItWorks" data-i18n="footer.howItWorks">Nasıl Çalışır</a>
+                            <a href="usta-hesabi.html" data-i18n="nav.ustaHesabi">Usta Hesabı</a>
+                            <a href="#" data-i18n="footer.features">Özellikler</a>
+                            <a href="#" data-i18n="footer.about">Hakkımızda</a>
+                            <a href="index.html#faq" data-i18n="footer.faq">SSS</a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="footer.calculators">Hesaplayıcılar</h4>
+                        <div class="footer-col-links">
+                            <a href="hesapla.html?type=ceramic" data-i18n="calc.ceramic.title">Seramik</a>
+                            <a href="hesapla.html?type=parquet" data-i18n="calc.parquet.title">Parke</a>
+                            <a href="hesapla.html?type=paint" data-i18n="calc.paint.title">Boya</a>
+                            <a href="hesapla.html?type=wallpaper" data-i18n="calc.wallpaper.title">Duvar Kağıdı</a>
+                            <a href="hesapla.html?type=baseboard" data-i18n="calc.baseboard.title">Süpürgelik</a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4 data-i18n="footer.contact">İletişim</h4>
+                        <div class="footer-col-links">
+                            <a href="#" data-i18n="footer.support">Destek</a>
+                            <a href="#">Email</a>
+                            <a href="#">Instagram</a>
+                            <a href="#">X</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom" data-aos="fade-up" data-aos-delay="200">
+                <div class="footer-copyright" data-i18n="footer.rights">
+                    © 2026 MaterialCalc. Tüm hakları saklıdır.
+                </div>
+                <div class="footer-legal">
+                    <a href="#" data-i18n="footer.privacy">Gizlilik</a>
+                    <a href="#" data-i18n="footer.terms">Şartlar & İade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 5. FLOATING DOCK / YÜZEN HIZLI ERİŞİM DOCK MENÜSÜ -->
+    <aside class="floating-dock dock-scrolled scrolled" aria-label="Hızlı Hesaplama Araçları">
+        <a href="hesapla.html?type=ceramic" class="dock-item" data-i18n-tooltip="dock.ceramic" data-tooltip="Seramik"
+            aria-label="Seramik Hesaplama">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M3 12h18M12 3v18" />
+            </svg>
+        </a>
+        <a href="hesapla.html?type=parquet" class="dock-item" data-i18n-tooltip="dock.parquet" data-tooltip="Parke"
+            aria-label="Parke Hesaplama">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M4 4h16v16H4zM4 12h16M12 4v16" />
+            </svg>
+        </a>
+        <a href="hesapla.html?type=paint" class="dock-item" data-i18n-tooltip="dock.paint" data-tooltip="Boya"
+            aria-label="Boya Hesaplama">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+            </svg>
+        </a>
+        <a href="hesapla.html?type=wallpaper" class="dock-item" data-i18n-tooltip="dock.wallpaper"
+            data-tooltip="Duvar Kağıdı" aria-label="Duvar Kağıdı Hesaplama">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <rect x="4" y="4" width="16" height="16" rx="2" />
+                <path d="M4 12h16" />
+            </svg>
+        </a>
+        <a href="hesapla.html?type=baseboard" class="dock-item" data-i18n-tooltip="dock.baseboard"
+            data-tooltip="Süpürgelik" aria-label="Süpürgelik Hesaplama">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                <path d="M4 20h16M4 20L4 20M20 20L20 4" />
+            </svg>
+        </a>
+    </aside>
+
+    <!-- 6. QUICK BACK & BACK TO TOP BUTTONS / HIZLI GERİ VE YUKARI ÇIK BUTONLARI -->
+    <button id="quickBack" class="quick-back-btn" data-i18n-tooltip="common.back" data-tooltip="Geri Dön" data-i18n-aria="common.backAria" aria-label="Önceki sayfaya dön">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+        </svg>
+    </button>
+    <button id="backToTop" class="back-to-top" data-i18n-tooltip="common.backToTop" data-tooltip="Sayfa Başına Çık" data-i18n-aria="common.backToTopAria" aria-label="Sayfanın en üstüne çık">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round">
+            <line x1="12" y1="19" x2="12" y2="5"></line>
+            <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+    </button>
+
+    <!-- 7. JAVASCRIPT FILES / JAVASCRIPT DOSYALARI -->
+    <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="js/translations.js?v=1.1.4"></script>
+    <script src="js/lang.js?v=1.1.4"></script>
+    <script src="js/app.js?v=1.1.4"></script>
+</body>
+
+</html>

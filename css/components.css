@@ -448,27 +448,15 @@
     transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
-.dock-item {
-    touch-action: manipulation;
-    outline: none;
-    -webkit-tap-highlight-color: transparent !important;
+.dock-item:hover {
+    background: var(--accent-solid);
+    color: var(--color-white);
+    transform: scale(1.1) translateX(-5px);
+    box-shadow: 0 0 20px var(--accent-solid-shadow-hover), inset 0 0 10px var(--overlay-white-20);
 }
 
-.dock-item:active {
-    transform: scale(0.92);
-}
-
-@media (hover: hover) and (min-width: 1025px) {
-    .dock-item:hover {
-        background: var(--accent-solid);
-        color: var(--color-white);
-        transform: scale(1.1) translateX(-5px);
-        box-shadow: 0 0 20px var(--accent-solid-shadow-hover), inset 0 0 10px var(--overlay-white-20);
-    }
-
-    .dock-item:hover svg {
-        transform: scale(1.2) rotate(-10deg);
-    }
+.dock-item:hover svg {
+    transform: scale(1.2) rotate(-10deg);
 }
 
 /* Scrolled state for white backgrounds / Beyaz arkaplanlar için kaydırma durumu */
@@ -482,11 +470,9 @@
     color: var(--color-dark);
 }
 
-@media (hover: hover) and (min-width: 1025px) {
-    .floating-dock.scrolled .dock-item:hover {
-        background: var(--accent-solid);
-        color: var(--color-white);
-    }
+.floating-dock.scrolled .dock-item:hover {
+    background: var(--accent-solid);
+    color: var(--color-white);
 }
 
 /* Tooltip on hover (Desktop only) / Hover yapıldığında ipucu (Sadece Masaüstü) */
@@ -556,20 +542,20 @@
     box-shadow: var(--shadow-md);
     z-index: var(--z-dock);
     text-decoration: none;
-    -webkit-tap-highlight-color: transparent !important;
     touch-action: manipulation;
-    outline: none;
     user-select: none;
     -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent !important;
+    outline: none;
 }
 
 /* Quick Back - Left Alignment / Hızlı Geri Dön - Sol Hizalama */
 .quick-back-btn {
     left: var(--quick-back-left, 30px);
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: background-color 0.25s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
 }
 
 /* Back to Top - Right Alignment / Sayfa Başına Dön - Sağ Hizalama */
@@ -578,19 +564,21 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: background-color 0.25s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.35s ease;
 }
 
+.quick-back-btn.visible,
 .back-to-top.visible {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
+/* Active Instant Tap Feedback / Anlık Dokunma Tepkisi (Tüm Cihazlar) */
 .quick-back-btn:active,
 .back-to-top:active {
-    transform: scale(0.92);
-    opacity: 0.9;
+    transform: scale(0.90) !important;
+    transition: transform 0.08s ease !important;
 }
 
 .quick-back-btn svg,
@@ -600,9 +588,11 @@
     stroke: var(--color-white);
     stroke-width: 2.5px;
     display: block;
-    transition: transform 0.3s ease;
+    transition: transform 0.25s ease;
+    pointer-events: none;
 }
 
+/* Desktop Hover Effects (Only on devices with real hover / Sadece Masaüstü Fare Etkisi) */
 @media (hover: hover) and (min-width: 1025px) {
     .quick-back-btn:hover,
     .back-to-top:hover {

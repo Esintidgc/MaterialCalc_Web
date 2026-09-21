@@ -128,6 +128,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleMobileMenu(false);
             });
         });
+
+        // Click on dark overlay backdrop to close mobile header menu / Karartmaya tıklandığında üst menüyü kapat
+        mobileMenuOverlay.addEventListener('click', (e) => {
+            if (e.target === mobileMenuOverlay) {
+                toggleMobileMenu(false);
+            }
+        });
     }
 
     /* ==========================================================================
@@ -289,66 +296,62 @@ document.addEventListener('DOMContentLoaded', () => {
        8. QUICK BACK & BACK TO TOP BUTTONS / HIZLI GERİ DÖN VE YUKARI ÇIK
        ========================================================================== */
     const quickBackBtn = document.getElementById('quickBack');
+    const backToTopBtn = document.getElementById('backToTop');
+
+    const handleFloatingNavButtonsScroll = () => {
+        const scrollY = window.scrollY || document.documentElement.scrollTop;
+        const shouldShow = scrollY > 200;
+
+        if (quickBackBtn) {
+            if (shouldShow) {
+                quickBackBtn.classList.add('visible');
+            } else {
+                quickBackBtn.classList.remove('visible');
+            }
+        }
+
+        if (backToTopBtn) {
+            if (shouldShow) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        }
+    };
+
+    window.addEventListener('scroll', handleFloatingNavButtonsScroll, { passive: true });
+    if (lenis) {
+        lenis.on('scroll', handleFloatingNavButtonsScroll);
+    }
+    handleFloatingNavButtonsScroll();
+
     if (quickBackBtn) {
         const handleQuickBack = (e) => {
-            if (e) e.preventDefault();
+            e.preventDefault();
             quickBackBtn.blur();
+            // Eğer aynı siteden önceki sayfa geçmişi varsa geri dön, aksi halde ana sayfaya yönlendir
             if (window.history.length > 1 && document.referrer && document.referrer.includes(window.location.host)) {
                 window.history.back();
             } else {
                 window.location.href = 'index.html';
             }
         };
-
         quickBackBtn.addEventListener('click', handleQuickBack);
-        quickBackBtn.addEventListener('touchend', () => {
-            setTimeout(() => quickBackBtn.blur(), 60);
-        }, { passive: true });
     }
 
-    const backToTopBtn = document.getElementById('backToTop');
     if (backToTopBtn) {
-        const handleBackToTopScroll = () => {
-            const scrollY = window.scrollY || document.documentElement.scrollTop;
-            if (scrollY > 400) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
-        };
-
-        window.addEventListener('scroll', handleBackToTopScroll, { passive: true });
-        if (lenis) {
-            lenis.on('scroll', handleBackToTopScroll);
-        }
-        handleBackToTopScroll();
-
         const handleBackToTopClick = (e) => {
-            if (e) e.preventDefault();
+            e.preventDefault();
             backToTopBtn.blur();
-            const isTouch = window.innerWidth <= 1024 || ('ontouchstart' in window);
-            if (lenis && !isTouch) {
-                lenis.scrollTo(0, { duration: 0.8 });
+            const isMobile = window.innerWidth <= 768;
+            if (lenis) {
+                lenis.scrollTo(0, { duration: isMobile ? 0.45 : 0.75, immediate: false });
             } else {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         };
-
         backToTopBtn.addEventListener('click', handleBackToTopClick);
-        backToTopBtn.addEventListener('touchend', () => {
-            setTimeout(() => backToTopBtn.blur(), 60);
-        }, { passive: true });
     }
-
-    // Mobil ve tablette dock butonlarının dokunma sonrası takılı kalmasını önleme
-    document.querySelectorAll('.dock-item').forEach(item => {
-        item.addEventListener('touchend', () => {
-            setTimeout(() => item.blur(), 60);
-        }, { passive: true });
-        item.addEventListener('click', () => {
-            item.blur();
-        });
-    });
 
     /* ==========================================================================
        9. SMART LIVE AUTOCOMPLETE SEARCH / AKILLI CANLI ARAMA VE VURGULAMA

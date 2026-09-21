@@ -333,9 +333,22 @@
         height: 56px;
         bottom: 74px;
         box-shadow: var(--shadow-md);
-        touch-action: manipulation !important;
-        outline: none !important;
+        touch-action: manipulation;
         -webkit-tap-highlight-color: transparent !important;
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(20px);
+        transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                    visibility 0.35s ease,
+                    box-shadow 0.2s ease;
+    }
+
+    body .quick-back-btn.visible,
+    body .back-to-top.visible {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
     }
 
     body .quick-back-btn {
@@ -346,30 +359,29 @@
         right: var(--spacing-7-5);
     }
 
+    body .quick-back-btn.visible:hover,
+    body .quick-back-btn.visible:focus,
+    body .back-to-top.visible:hover,
+    body .back-to-top.visible:focus {
+        background: var(--color-dark) !important;
+        transform: translateY(0) scale(1) !important;
+        box-shadow: var(--shadow-md) !important;
+        outline: none !important;
+    }
+
+    body .quick-back-btn:active,
+    body .back-to-top:active {
+        transform: scale(0.90) !important;
+        background: var(--color-dark) !important;
+        transition: transform 0.08s ease !important;
+    }
+
     body .quick-back-btn svg,
     body .back-to-top svg {
         width: 26px;
         height: 26px;
         stroke-width: 2.8px;
-    }
-
-    /* Tablet Touch Instant Reset / Tablette Dokunma Sonrası Anında Sıfırlanma (Takılı Kalmama) */
-    body .quick-back-btn:hover,
-    body .quick-back-btn:focus,
-    body .back-to-top:hover,
-    body .back-to-top:focus {
-        background: var(--color-dark) !important;
-        color: var(--color-white) !important;
-        transform: translateY(0) scale(1) !important;
-        box-shadow: var(--shadow-md) !important;
-    }
-
-    body .quick-back-btn:active,
-    body .back-to-top:active,
-    body .dock-item:active {
-        transform: scale(0.92) !important;
-        opacity: 0.85 !important;
-        transition: transform 0.08s ease !important;
+        pointer-events: none;
     }
 
     /* --- 1.3.1 Modal, Drawer, Bottom Sheet & Keyboard Protection / Tablet Yüzen Elemanları Gizleme --- */
