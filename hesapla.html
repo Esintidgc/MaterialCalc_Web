@@ -3,9 +3,65 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
     <title>Hesaplayıcılar | MaterialCalc</title>
     <meta name="description" content="Parke, Boya, Seramik, Duvar Kağıdı ve Süpürgelik malzeme ihtiyaçlarınızı net verilerle anında hesaplayın.">
+    <meta name="theme-color" content="#141113">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="keywords" content="parke hesaplama, boya hesaplama, seramik hesaplama, duvar kağıdı hesaplama, süpürgelik hesaplama, malzeme hesaplayıcı, m2 hesaplama, paket hesabı, litre hesabı">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="MaterialCalc">
+
+    <!-- CANONICAL & MULTILINGUAL HREFLANG / KOPYA İÇERİK ÖNLEME VE DİL SEO'SU -->
+    <link rel="canonical" href="https://materialcalc.pages.dev/hesapla.html" />
+    <link rel="alternate" hreflang="tr" href="https://materialcalc.pages.dev/hesapla.html" />
+    <link rel="alternate" hreflang="en" href="https://materialcalc.pages.dev/hesapla.html" />
+    <link rel="alternate" hreflang="x-default" href="https://materialcalc.pages.dev/hesapla.html" />
+
+    <!-- JSON-LD STRUCTURED DATA / GOOGLE ZENGİN ARAMA SONUÇLARI (SCHEMA.ORG) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://materialcalc.pages.dev/hesapla.html#webapp",
+          "name": "MaterialCalc - Malzeme Hesaplayıcıları",
+          "url": "https://materialcalc.pages.dev/hesapla.html",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "All",
+          "inLanguage": ["tr", "en"],
+          "description": "Seramik, Parke, Boya, Duvar Kağıdı ve Süpürgelik için net ölçü, fire oranı ve kutu/paket sarfiyat hesaplama aracı.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://materialcalc.pages.dev/hesapla.html#breadcrumb",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Ana Sayfa",
+              "item": "https://materialcalc.pages.dev/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Hesaplayıcılar",
+              "item": "https://materialcalc.pages.dev/hesapla.html"
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,12 +70,12 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- CSS FILES / CSS DOSYALARIMIZ -->
-    <link rel="stylesheet" href="css/variables.css?v=154.0">
-    <link rel="stylesheet" href="css/style.css?v=154.0">
-    <link rel="stylesheet" href="css/components.css?v=154.0">
-    <link rel="stylesheet" href="css/calculator.css?v=154.0">
-    <link rel="stylesheet" href="css/mobile.css?v=154.0">
-    <link rel="stylesheet" href="css/tablet.css?v=154.0">
+    <link rel="stylesheet" href="css/variables.css?v=1.0.0">
+    <link rel="stylesheet" href="css/style.css?v=1.0.0">
+    <link rel="stylesheet" href="css/components.css?v=1.0.0">
+    <link rel="stylesheet" href="css/calculator.css?v=1.0.0">
+    <link rel="stylesheet" href="css/mobile.css?v=1.0.0">
+    <link rel="stylesheet" href="css/tablet.css?v=1.0.0">
 </head>
 
 <body class="calc-page">
@@ -89,30 +145,88 @@
     <main class="calc-main-wrapper">
         <div class="calc-spa-container">
 
-            <!-- SIDEBAR NAVIGATION -->
+            <!-- SIDEBAR NAVIGATION & MOBILE BOTTOM SHEET -->
             <aside class="calc-sidebar">
                 <h2 data-i18n="calc.sidebar.title">Hesaplayıcılar</h2>
-                <div class="calc-nav-list">
-                    <button class="calc-nav-btn active" data-target="ceramic">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-                        <span data-i18n="calc.ceramic.title">Seramik</span>
-                    </button>
-                    <button class="calc-nav-btn" data-target="parquet">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 4v16M17 4v16M2 12h20"/></svg>
-                        <span data-i18n="calc.parquet.title">Parke</span>
-                    </button>
-                    <button class="calc-nav-btn" data-target="paint">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
-                        <span data-i18n="calc.paint.title">Boya</span>
-                    </button>
-                    <button class="calc-nav-btn" data-target="wallpaper">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-                        <span data-i18n="calc.wallpaper.title">Duvar Kağıdı</span>
-                    </button>
-                    <button class="calc-nav-btn" data-target="baseboard">
-                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 18h20v4H2zM2 14l20-4"/></svg>
-                        <span data-i18n="calc.baseboard.title">Süpürgelik</span>
-                    </button>
+
+                <!-- Mobile Trigger Button / Mobil Tetikleyici Kapsül Buton (<= 767px) -->
+                <button type="button" class="calc-mobile-dropdown-btn" id="calcMobileDropdownBtn" aria-expanded="false" aria-haspopup="dialog">
+                    <div class="calc-mobile-selected-item">
+                        <span class="calc-mobile-selected-icon" id="calcMobileSelectedIcon">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                        </span>
+                        <div class="calc-mobile-selected-meta">
+                            <span class="calc-mobile-label-hint" data-i18n="calc.sidebar.hint">KATEGORİ</span>
+                            <span class="calc-mobile-selected-text" id="calcMobileSelectedText" data-i18n="calc.ceramic.title">Seramik</span>
+                        </div>
+                    </div>
+                    <div class="calc-dropdown-chevron-wrapper">
+                        <svg class="calc-dropdown-chevron" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+                    </div>
+                </button>
+
+                <!-- Mobile Bottom Sheet Backdrop / Arka Plan Karartması -->
+                <div class="calc-bottom-sheet-backdrop" id="calcSheetBackdrop"></div>
+
+                <!-- Bottom Sheet / Desktop Sidebar List -->
+                <div class="calc-nav-list" id="calcNavList" role="dialog" aria-modal="true">
+                    <div class="calc-sheet-drag-handle" id="calcSheetDragHandle"></div>
+                    <div class="calc-sheet-header">
+                        <div class="calc-sheet-title-group">
+                            <h3 data-i18n="calc.sidebar.title">Kategoriler</h3>
+                            <p data-i18n="calc.sidebar.subtitle">Hesaplamak istediğiniz malzemeyi seçin</p>
+                        </div>
+                        <button type="button" class="calc-sheet-close-btn" id="calcSheetCloseBtn" aria-label="Kapat">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                        </button>
+                    </div>
+                    <div class="calc-sheet-items">
+                        <button class="calc-nav-btn active" data-target="ceramic">
+                            <div class="calc-btn-left">
+                                <span class="calc-btn-icon">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                                </span>
+                                <span data-i18n="calc.ceramic.title">Seramik</span>
+                            </div>
+                            <svg class="calc-active-check" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        </button>
+                        <button class="calc-nav-btn" data-target="parquet">
+                            <div class="calc-btn-left">
+                                <span class="calc-btn-icon">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M7 4v16M17 4v16M2 12h20"/></svg>
+                                </span>
+                                <span data-i18n="calc.parquet.title">Parke</span>
+                            </div>
+                            <svg class="calc-active-check" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        </button>
+                        <button class="calc-nav-btn" data-target="paint">
+                            <div class="calc-btn-left">
+                                <span class="calc-btn-icon">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
+                                </span>
+                                <span data-i18n="calc.paint.title">Boya</span>
+                            </div>
+                            <svg class="calc-active-check" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        </button>
+                        <button class="calc-nav-btn" data-target="wallpaper">
+                            <div class="calc-btn-left">
+                                <span class="calc-btn-icon">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                                </span>
+                                <span data-i18n="calc.wallpaper.title">Duvar Kağıdı</span>
+                            </div>
+                            <svg class="calc-active-check" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        </button>
+                        <button class="calc-nav-btn" data-target="baseboard">
+                            <div class="calc-btn-left">
+                                <span class="calc-btn-icon">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 18h20v4H2zM2 14l20-4"/></svg>
+                                </span>
+                                <span data-i18n="calc.baseboard.title">Süpürgelik</span>
+                            </div>
+                            <svg class="calc-active-check" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                        </button>
+                    </div>
                 </div>
             </aside>
 
@@ -161,11 +275,13 @@
                                     <input type="number" id="cer-box-area" placeholder="1.44" step="0.01" value="1.44">
                                 </div>
                             </div>
-                            <div class="min-form-group">
-                                <label data-i18n="calc.input.waste">Fire Payı (%)</label>
-                                <div class="min-waste-selector">
-                                    <input type="range" id="cer-waste" min="0" max="25" value="10">
-                                    <span class="min-waste-val" id="cer-waste-val">%10</span>
+                            <div class="min-form-group" data-lenis-prevent="true">
+                                <div class="min-label-row" data-lenis-prevent="true">
+                                    <label data-i18n="calc.input.waste">Fire Payı (%)</label>
+                                    <span class="min-waste-badge" id="cer-waste-val">%10</span>
+                                </div>
+                                <div class="min-range-container" data-lenis-prevent="true">
+                                    <input type="range" id="cer-waste" min="0" max="25" value="10" class="min-range-input">
                                 </div>
                             </div>
                         </div>
@@ -231,11 +347,13 @@
                                     <input type="number" id="parq-box-area" placeholder="1.84" step="0.01" value="1.84">
                                 </div>
                             </div>
-                            <div class="min-form-group">
-                                <label data-i18n="calc.input.waste">Fire Payı (%)</label>
-                                <div class="min-waste-selector">
-                                    <input type="range" id="parq-waste" min="0" max="25" value="7">
-                                    <span class="min-waste-val" id="parq-waste-val">%7</span>
+                            <div class="min-form-group" data-lenis-prevent="true">
+                                <div class="min-label-row" data-lenis-prevent="true">
+                                    <label data-i18n="calc.input.waste">Fire Payı (%)</label>
+                                    <span class="min-waste-badge" id="parq-waste-val">%7</span>
+                                </div>
+                                <div class="min-range-container" data-lenis-prevent="true">
+                                    <input type="range" id="parq-waste" min="0" max="25" value="7" class="min-range-input">
                                 </div>
                             </div>
                         </div>
@@ -278,19 +396,19 @@
 
                         <div class="minimal-inputs">
                             <div class="min-form-group paint-dim-input">
-                                <label data-i18n="calc.input.width">Oda Eni (m)</label>
+                                <label data-i18n="calc.input.roomWidth">Oda Eni (m)</label>
                                 <div class="min-input-wrapper">
                                     <input type="number" id="paint-width" placeholder="4.0" step="0.1" value="4.0">
                                 </div>
                             </div>
                             <div class="min-form-group paint-dim-input">
-                                <label data-i18n="calc.input.length">Oda Boyu (m)</label>
+                                <label data-i18n="calc.input.roomLength">Oda Boyu (m)</label>
                                 <div class="min-input-wrapper">
                                     <input type="number" id="paint-length" placeholder="5.0" step="0.1" value="5.0">
                                 </div>
                             </div>
                             <div class="min-form-group paint-area-input" style="display: none; grid-column: span 2;">
-                                <label data-i18n="calc.input.totalArea">Toplam Duvar Alanı (m²)</label>
+                                <label data-i18n="calc.input.totalWallArea">Toplam Duvar Alanı (m²)</label>
                                 <div class="min-input-wrapper">
                                     <input type="number" id="paint-total-area" placeholder="45.0" step="0.1">
                                 </div>
@@ -307,11 +425,13 @@
                                     <input type="number" id="paint-coats" placeholder="2" min="1" max="5" value="2">
                                 </div>
                             </div>
-                            <div class="min-form-group" style="grid-column: span 2;">
-                                <label data-i18n="calc.input.waste">Fire / Emicilik Payı (%)</label>
-                                <div class="min-waste-selector">
-                                    <input type="range" id="paint-waste" min="0" max="25" value="5">
-                                    <span class="min-waste-val" id="paint-waste-val">%5</span>
+                            <div class="min-form-group" style="grid-column: span 2;" data-lenis-prevent="true">
+                                <div class="min-label-row" data-lenis-prevent="true">
+                                    <label data-i18n="calc.paint.waste">Fire / Emicilik Payı (%)</label>
+                                    <span class="min-waste-badge" id="paint-waste-val">%5</span>
+                                </div>
+                                <div class="min-range-container" data-lenis-prevent="true">
+                                    <input type="range" id="paint-waste" min="0" max="25" value="5" class="min-range-input">
                                 </div>
                             </div>
                         </div>
@@ -323,7 +443,7 @@
                                     <div class="min-res-value" id="paint-res-area">20.00 <small>m²</small></div>
                                 </div>
                                 <div class="min-result-item">
-                                    <h3 data-i18n="calc.result.grossArea">Fireli Alan</h3>
+                                    <h3 data-i18n="calc.result.grossAreaPaint">Fireli Alan</h3>
                                     <div class="min-res-value" id="paint-res-gross">21.00 <small>m²</small></div>
                                 </div>
                             </div>
@@ -368,11 +488,13 @@
                                     <input type="number" id="roll-length" placeholder="10.0" step="0.5" value="10.0">
                                 </div>
                             </div>
-                            <div class="min-form-group" style="grid-column: span 2;">
-                                <label data-i18n="calc.input.waste">Desen Eşleme / Fire (%)</label>
-                                <div class="min-waste-selector">
-                                    <input type="range" id="wall-waste" min="0" max="30" value="10">
-                                    <span class="min-waste-val" id="wall-waste-val">%10</span>
+                            <div class="min-form-group" style="grid-column: span 2;" data-lenis-prevent="true">
+                                <div class="min-label-row" data-lenis-prevent="true">
+                                    <label data-i18n="calc.wallpaper.waste">Desen Eşleme / Fire (%)</label>
+                                    <span class="min-waste-badge" id="wall-waste-val">%10</span>
+                                </div>
+                                <div class="min-range-container" data-lenis-prevent="true">
+                                    <input type="range" id="wall-waste" min="0" max="30" value="10" class="min-range-input">
                                 </div>
                             </div>
                         </div>
@@ -415,13 +537,13 @@
 
                         <div class="minimal-inputs">
                             <div class="min-form-group base-dim-input">
-                                <label data-i18n="calc.input.width">Oda Eni (m)</label>
+                                <label data-i18n="calc.input.roomWidth">Oda Eni (m)</label>
                                 <div class="min-input-wrapper">
                                     <input type="number" id="base-width" placeholder="4.0" step="0.1" value="4.0">
                                 </div>
                             </div>
                             <div class="min-form-group base-dim-input">
-                                <label data-i18n="calc.input.length">Oda Boyu (m)</label>
+                                <label data-i18n="calc.input.roomLength">Oda Boyu (m)</label>
                                 <div class="min-input-wrapper">
                                     <input type="number" id="base-length" placeholder="5.0" step="0.1" value="5.0">
                                 </div>
@@ -444,11 +566,13 @@
                                     <input type="number" id="base-length-item" placeholder="2.40" step="0.1" value="2.40">
                                 </div>
                             </div>
-                            <div class="min-form-group" style="grid-column: span 2;">
-                                <label data-i18n="calc.input.waste">Köşe Kesim / Fire (%)</label>
-                                <div class="min-waste-selector">
-                                    <input type="range" id="base-waste" min="0" max="20" value="5">
-                                    <span class="min-waste-val" id="base-waste-val">%5</span>
+                            <div class="min-form-group" style="grid-column: span 2;" data-lenis-prevent="true">
+                                <div class="min-label-row" data-lenis-prevent="true">
+                                    <label data-i18n="calc.baseboard.waste">Köşe Kesim / Fire (%)</label>
+                                    <span class="min-waste-badge" id="base-waste-val">%5</span>
+                                </div>
+                                <div class="min-range-container" data-lenis-prevent="true">
+                                    <input type="range" id="base-waste" min="0" max="20" value="5" class="min-range-input">
                                 </div>
                             </div>
                         </div>
@@ -585,10 +709,10 @@
     <!-- JAVASCRIPT DOSYALARI -->
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/translations.js?v=152.0"></script>
-    <script src="js/lang.js?v=152.0"></script>
-    <script src="js/calculator.js?v=152.0"></script>
-    <script src="js/app.js?v=152.0"></script>
+    <script src="js/translations.js?v=1.0.0"></script>
+    <script src="js/lang.js?v=1.0.0"></script>
+    <script src="js/calculator.js?v=1.0.0"></script>
+    <script src="js/app.js?v=1.0.0"></script>
 </body>
 
 </html>

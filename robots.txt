@@ -1,0 +1,9 @@
+# ==============================================================================
+# MaterialCalc - Search Engine Crawlers Policy (robots.txt)
+# ==============================================================================
+
+User-agent: *
+Allow: /
+
+# Sitemaps / Site Haritaları
+Sitemap: https://materialcalc.pages.dev/sitemap.xml

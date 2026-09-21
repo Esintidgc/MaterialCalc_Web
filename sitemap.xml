@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- 1. Homepage / Ana Sayfa -->
+  <url>
+    <loc>https://materialcalc.pages.dev/</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://materialcalc.pages.dev/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://materialcalc.pages.dev/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://materialcalc.pages.dev/" />
+  </url>
+
+  <!-- 2. SPA Calculators / Hesaplayıcılar -->
+  <url>
+    <loc>https://materialcalc.pages.dev/hesapla.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://materialcalc.pages.dev/hesapla.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://materialcalc.pages.dev/hesapla.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://materialcalc.pages.dev/hesapla.html" />
+  </url>
+
+  <!-- 3. Pro Estimator (Usta Hesabı) / Usta Hesabı ve Pratik Formüller -->
+  <url>
+    <loc>https://materialcalc.pages.dev/usta-hesabi.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="tr" href="https://materialcalc.pages.dev/usta-hesabi.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://materialcalc.pages.dev/usta-hesabi.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://materialcalc.pages.dev/usta-hesabi.html" />
+  </url>
+
+</urlset>

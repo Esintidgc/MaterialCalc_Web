@@ -1,5 +1,6 @@
 /* ==========================================================================
-   MaterialCalc - Premium Dark Mode & Glassmorphism Design System
+   MaterialCalc - Premium Dark Mode & Glassmorphism Design System (style.css)
+   MaterialCalc - Ana Masaüstü Tasarım Sistemi ve Görsel Stiller
    ========================================================================== */
 
 /* ==========================================================================
@@ -13,12 +14,12 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px;
+    scroll-padding-top: var(--spacing-25);
 }
 
 /* Custom Premium Scrollbar / Özel Şık Kaydırma Çubuğu */
 ::-webkit-scrollbar {
-    width: 8px;
+    width: var(--spacing-2);
 }
 
 ::-webkit-scrollbar-track {
@@ -27,7 +28,7 @@ html {
 
 ::-webkit-scrollbar-thumb {
     background: var(--color-gray-700);
-    border-radius: 10px;
+    border-radius: var(--radius-sm-md);
     transition: background var(--transition-fast);
 }
 
@@ -131,7 +132,7 @@ button {
 .btn-pill-primary {
     height: var(--btn-primary-height);
     padding: 0 var(--spacing-5);
-    font-size: 0.95rem;
+    font-size: var(--font-size-md);
     line-height: 1;
     margin: 0;
     display: flex;
@@ -151,7 +152,7 @@ button {
 
 .btn-pill-primary:hover {
     transform: translateY(-4px) translateX(-2px);
-    box-shadow: 2px 5px 0 0 var(--color-dark);
+    box-shadow: var(--shadow-neo-btn);
 }
 
 .btn-pill-primary:active {
@@ -161,7 +162,7 @@ button {
 
 .btn-hero-primary {
     padding: var(--spacing-4) var(--spacing-9);
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
     box-shadow: 0 8px 25px var(--accent-solid-shadow);
 }
 
@@ -177,9 +178,10 @@ button {
     padding: var(--spacing-4) var(--spacing-9);
     border-radius: var(--pill-radius);
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
     transition: var(--transition-smooth);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-sm));
+    -webkit-backdrop-filter: blur(var(--blur-sm));
 }
 
 .btn-outline:hover {
@@ -236,7 +238,7 @@ button {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, var(--overlay-black-10) 0%, var(--overlay-black-40) 100%);
+    background: var(--gradient-hero-overlay);
     z-index: 1;
 }
 
@@ -247,12 +249,12 @@ button {
     max-width: var(--container-width);
     margin: 0 auto;
     position: relative;
-    z-index: 10;
+    z-index: var(--z-elevated);
 }
 
 .hero-search-area {
     position: relative;
-    z-index: 200;
+    z-index: var(--z-dropdown);
     align-self: flex-start;
     width: var(--search-bar-width);
     max-width: 100%;
@@ -262,12 +264,13 @@ button {
     position: relative;
     width: 100%;
     margin-bottom: var(--spacing-15);
-    z-index: 200;
+    z-index: var(--z-dropdown);
 }
 
 .hero-search-bar {
     background: var(--overlay-white-10);
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(var(--blur-md));
+    -webkit-backdrop-filter: blur(var(--blur-md));
     border: 1px solid var(--color-white);
     border-radius: var(--pill-radius);
     padding: var(--spacing-2) var(--spacing-3) var(--spacing-2) var(--spacing-5);
@@ -277,13 +280,13 @@ button {
     margin-bottom: 0;
     width: 100%;
     transition: all var(--transition-smooth);
-    box-shadow: 6px 6px 0 0 var(--color-white);
+    box-shadow: var(--shadow-search-neo);
 }
 
 /* Smart Autocomplete Dropdown / Akıllı Canlı Arama Açılır Menüsü */
 .hero-search-dropdown {
     position: absolute;
-    top: calc(100% + 10px);
+    top: calc(100% + var(--spacing-2-5));
     left: 0;
     width: 100%;
     min-width: 100%;
@@ -291,34 +294,34 @@ button {
     box-sizing: border-box;
     background: var(--color-white);
     border: 1px solid var(--overlay-black-10);
-    border-radius: 18px;
-    box-shadow: 0 24px 60px var(--overlay-black-30), 0 4px 16px var(--overlay-black-08);
-    padding: 6px;
+    border-radius: var(--search-dropdown-radius);
+    box-shadow: var(--shadow-2xl), var(--shadow-sm);
+    padding: var(--spacing-1-5);
     max-height: var(--search-dropdown-max-height);
     overflow-y: auto;
     overscroll-behavior: contain;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
-    z-index: 99999;
+    z-index: var(--z-modal);
     display: none;
     flex-direction: column;
-    gap: 3px;
+    gap: var(--spacing-0-5);
     scrollbar-width: thin;
     scrollbar-color: var(--overlay-black-20) transparent;
 }
 
 .hero-search-dropdown::-webkit-scrollbar {
-    width: 6px;
+    width: var(--spacing-1-5);
 }
 
 .hero-search-dropdown::-webkit-scrollbar-thumb {
     background: var(--overlay-black-20);
-    border-radius: 10px;
+    border-radius: var(--radius-sm-md);
 }
 
 .hero-search-dropdown.active {
     display: flex;
-    animation: searchDropFadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: searchDropFadeIn 0.25s var(--ease-apple);
 }
 
 @keyframes searchDropFadeIn {
@@ -336,11 +339,11 @@ button {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 7px 10px;
-    border-radius: 11px;
+    padding: var(--spacing-1-5) var(--spacing-2-5);
+    border-radius: var(--search-item-radius);
     text-decoration: none;
     color: var(--color-dark);
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.35s var(--ease-apple);
     cursor: pointer;
     background: transparent;
 }
@@ -354,25 +357,25 @@ button {
 .search-item-left {
     display: flex;
     align-items: center;
-    gap: 9px;
+    gap: var(--spacing-2);
     min-width: 0;
     flex: 1;
 }
 
 .search-item-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
+    width: var(--search-icon-size);
+    height: var(--search-icon-size);
+    border-radius: var(--radius-sm);
     background: var(--accent-solid-light);
     color: var(--accent-solid);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    transition: background-color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-                color 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-                box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: background-color 0.45s var(--ease-apple),
+                color 0.45s var(--ease-apple),
+                transform 0.45s var(--ease-apple),
+                box-shadow 0.45s var(--ease-apple);
 }
 
 .search-result-item:hover .search-item-icon,
@@ -384,12 +387,12 @@ button {
 }
 
 .search-item-icon svg {
-    width: 16px;
-    height: 16px;
+    width: var(--spacing-4);
+    height: var(--spacing-4);
     stroke: currentColor;
     fill: none;
-    transition: stroke 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: stroke 0.45s var(--ease-apple),
+                transform 0.45s var(--ease-apple);
 }
 
 .search-item-info {
@@ -398,7 +401,7 @@ button {
     text-align: left;
     min-width: 0;
     flex: 1;
-    margin-right: 6px;
+    margin-right: var(--spacing-1-5);
 }
 
 .search-item-title {
@@ -424,14 +427,14 @@ button {
 .search-item-right {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: var(--spacing-1-5);
     flex-shrink: 0;
 }
 
 .search-item-badge {
-    font-size: 0.65rem;
+    font-size: var(--font-size-2xs);
     font-weight: 600;
-    padding: 2px 7px;
+    padding: 2px var(--spacing-1-5);
     border-radius: var(--pill-radius);
     background: var(--overlay-black-05);
     color: var(--overlay-black-60);
@@ -440,11 +443,11 @@ button {
 }
 
 .search-item-arrow {
-    width: 15px;
-    height: 15px;
-    min-width: 15px;
+    width: var(--spacing-3-5);
+    height: var(--spacing-3-5);
+    min-width: var(--spacing-3-5);
     color: var(--overlay-black-40);
-    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.35s var(--ease-apple);
     display: block;
     flex-shrink: 0;
 }
@@ -469,7 +472,7 @@ button {
 
 /* Empty State / Sonuç Bulunamadı Durumu */
 .search-empty-state {
-    padding: 16px 14px;
+    padding: var(--spacing-4) var(--spacing-3-5);
     text-align: center;
     display: flex;
     align-items: center;
@@ -486,7 +489,7 @@ button {
 
 .hero-search-bar:hover {
     transform: translate(-4px, -4px);
-    box-shadow: 10px 10px 0 0 var(--color-white);
+    box-shadow: var(--shadow-search-neo-hover);
 }
 
 .hero-search-bar:focus-within {
@@ -499,7 +502,6 @@ button {
     100% {
         transform: translateX(0);
     }
-
     10%,
     30%,
     50%,
@@ -507,7 +509,6 @@ button {
     90% {
         transform: translateX(-5px);
     }
-
     20%,
     40%,
     60%,
@@ -524,7 +525,7 @@ button {
     background: transparent;
     border: none;
     color: var(--color-white);
-    font-size: 0.95rem;
+    font-size: var(--font-size-md);
     font-family: inherit;
     width: 100%;
     outline: none;
@@ -542,9 +543,9 @@ button {
 .hero-search-bar .search-btn {
     background: var(--color-white);
     color: var(--color-dark);
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+    width: var(--spacing-8);
+    height: var(--spacing-8);
+    border-radius: var(--radius-round);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -572,7 +573,7 @@ button {
 }
 
 .hero-left h1 {
-    font-size: 4rem;
+    font-size: var(--font-size-hero);
     line-height: var(--line-height-heading);
     letter-spacing: -1.5px;
     white-space: nowrap;
@@ -591,7 +592,7 @@ button {
     width: 2px;
     height: 1.1em;
     background-color: var(--color-white);
-    margin-left: 5px;
+    margin-left: var(--spacing-1);
     vertical-align: middle;
     animation: blink 1s infinite step-end;
 }
@@ -615,7 +616,7 @@ button {
 }
 
 .hero-right p {
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
     color: var(--text-white-dim);
     margin-top: 0;
     margin-bottom: var(--spacing-10);
@@ -647,7 +648,7 @@ button {
 
 .btn-solid-white:hover {
     transform: translateY(-4px) translateX(-2px);
-    box-shadow: 2px 5px 0 0 var(--color-dark);
+    box-shadow: var(--shadow-neo-btn);
 }
 
 .btn-solid-white:active {
@@ -668,7 +669,8 @@ button {
     padding: var(--spacing-3-5) var(--spacing-7);
     border-radius: var(--pill-radius);
     font-size: 1.05rem;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(var(--blur-sm));
+    -webkit-backdrop-filter: blur(var(--blur-sm));
     transition: var(--transition-smooth);
     box-shadow: 0 0 0 0 var(--color-white);
 }
@@ -676,7 +678,7 @@ button {
 .btn-glass-outline:hover {
     background: var(--overlay-white-10);
     transform: translateY(-4px) translateX(-2px);
-    box-shadow: 2px 5px 0 0 var(--color-white);
+    box-shadow: var(--shadow-neo-btn-white);
 }
 
 .btn-glass-outline:active {
@@ -730,13 +732,13 @@ button {
 }
 
 .brand-logo svg {
-    width: 28px;
-    height: 28px;
+    width: var(--spacing-7);
+    height: var(--spacing-7);
 }
 
 .brand-logo span {
     font-weight: 600;
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
 }
 
 /* ==========================================================================
@@ -760,21 +762,21 @@ button {
     background: var(--overlay-black-05);
     color: var(--color-dark);
     padding: var(--spacing-1-5) var(--spacing-4);
-    border-radius: 20px;
-    font-size: 0.85rem;
+    border-radius: var(--radius-xl);
+    font-size: var(--font-size-sm);
     font-weight: 600;
     margin-bottom: var(--spacing-md);
 }
 
 .hiw-header h2 {
-    font-size: 2.5rem;
+    font-size: var(--font-size-4xl);
     font-weight: 700;
     color: var(--color-dark);
     margin-bottom: var(--spacing-md);
 }
 
 .hiw-header p {
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
     color: var(--overlay-black-60);
 }
 
@@ -807,7 +809,7 @@ button {
     top: calc(100% + var(--spacing-5));
     font-style: italic;
     color: var(--overlay-black-40);
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     font-weight: 500;
 }
 
@@ -817,7 +819,6 @@ button {
         transform: translateY(-120px);
         opacity: 0;
     }
-
     100% {
         transform: translateY(0);
         opacity: 1;
@@ -829,30 +830,23 @@ button {
     position: absolute;
     bottom: 0;
     width: var(--wallet-width);
-    height: 310px;
+    height: var(--wallet-back-height);
     background: var(--color-gray-400);
-    /* Light gray inner lining / Açık gri iç astar */
-    border-radius: 30px 30px 85px 85px;
+    border-radius: var(--wallet-back-radius);
     z-index: 5;
-    box-shadow:
-        var(--shadow-inset-lg),
-        var(--shadow-inset-sm);
+    box-shadow: var(--shadow-inset-lg), var(--shadow-inset-sm);
 }
 
-/* Cards things / Kart işlevleri */
+/* Cards elements / Kart işlevleri */
 .wallet-card {
     position: absolute;
-    width: 410px;
-    height: 225px;
+    width: var(--wallet-card-width);
+    height: var(--wallet-card-height);
     left: var(--spacing-4);
     border-radius: var(--card-radius);
     color: var(--color-dark-muted);
-    /* Default dark gray text / Varsayılan koyu gri yazı */
-    box-shadow:
-        0 -5px 18px var(--overlay-black-08);
-    transition:
-        transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
-        z-index 0s;
+    box-shadow: 0 -5px 18px var(--overlay-black-08);
+    transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1), z-index 0s;
     animation: slideIntoPocket 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) backwards;
     overflow: hidden;
 }
@@ -877,22 +871,22 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.125rem;
+    font-size: var(--font-size-lg);
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
 }
 
 .hiw-step-badge {
-    width: 32px;
-    height: 32px;
+    width: var(--spacing-8);
+    height: var(--spacing-8);
     background: var(--overlay-black-05);
     color: var(--color-dark-muted);
-    border-radius: 50%;
+    border-radius: var(--radius-round);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     font-weight: 700;
 }
 
@@ -911,14 +905,14 @@ button {
 }
 
 .card-info .value {
-    font-size: 1.125rem;
+    font-size: var(--font-size-lg);
     font-weight: 800;
     letter-spacing: 0.5px;
 }
 
 /* Card variants / Kart varyasyonları */
 .step-3 {
-    background: linear-gradient(135deg, var(--color-gray-300) 0%, var(--color-gray-500) 100%);
+    background: var(--gradient-card-step3);
     bottom: var(--spacing-35);
     z-index: 10;
     animation-delay: 0.1s;
@@ -932,7 +926,7 @@ button {
 }
 
 .step-1 {
-    background: linear-gradient(135deg, var(--color-dark-alt) 0%, var(--color-dark-muted) 100%);
+    background: var(--gradient-card-step1);
     color: var(--color-white);
     bottom: var(--spacing-15);
     z-index: 30;
@@ -974,7 +968,7 @@ button {
 
 .balance-wrapper {
     position: relative;
-    height: 34px;
+    height: var(--spacing-8-5, 34px);
     width: 100%;
 }
 
@@ -983,14 +977,14 @@ button {
     font-size: 34px;
     letter-spacing: 5px;
     line-height: 1;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all var(--transition-fast);
     transform: translateY(0) scale(1);
     transform-origin: center;
 }
 
 .balance-real {
     color: var(--color-dark-muted);
-    font-size: 26px;
+    font-size: var(--spacing-6-5);
     font-weight: 800;
     line-height: 1;
     opacity: 0;
@@ -998,7 +992,7 @@ button {
     top: 0;
     left: 50%;
     transform: translate(-50%, 15px) scale(0.9);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all var(--transition-fast);
 }
 
 .pocket-brand-text {
@@ -1012,8 +1006,8 @@ button {
 /* Eye Logic / Göz İkonu Mantığı */
 .eye-icon-wrapper {
     margin-top: var(--spacing-3);
-    height: 28px;
-    width: 28px;
+    height: var(--spacing-7);
+    width: var(--spacing-7);
     position: relative;
     opacity: 0.5;
     transition: 0.3s;
@@ -1030,8 +1024,8 @@ button {
     left: 0;
     stroke: var(--color-dark-muted);
     transition: 0.3s;
-    width: 28px;
-    height: 28px;
+    width: var(--spacing-7);
+    height: var(--spacing-7);
 }
 
 /* Hovers works here / Üzerine gelme efektleri burada başlar */
@@ -1068,7 +1062,7 @@ button {
     transform: translateY(0) rotate(0deg) !important;
 }
 
-/* Indi card hover & focus / Tekil kart üzerine gelme ve odaklanma */
+/* Single card hover & focus / Tekil kart üzerine gelme ve odaklanma */
 .wallet-card:hover,
 .wallet-card.card-focused {
     z-index: 100 !important;
@@ -1134,7 +1128,7 @@ button {
 }
 
 .calculators-header-text h2 {
-    font-size: 2.5rem;
+    font-size: var(--font-size-4xl);
     font-weight: 700;
     line-height: var(--line-height-heading);
     color: var(--color-dark);
@@ -1143,7 +1137,7 @@ button {
 
 .calculators-header-text p {
     color: var(--text-secondary);
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
 }
 
 /* Accordion Container / Akordiyon Kapsayıcısı */
@@ -1160,7 +1154,7 @@ button {
     border-radius: var(--card-radius);
     position: relative;
     overflow: hidden;
-    transition: flex 0.75s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s ease;
+    transition: flex 0.75s var(--ease-apple), box-shadow 0.5s ease;
     cursor: pointer;
     text-decoration: none;
     will-change: flex;
@@ -1183,7 +1177,7 @@ button {
     background-repeat: no-repeat;
     background-color: var(--color-dark);
     filter: brightness(0.92);
-    transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+    transition: transform 0.85s var(--ease-apple), filter 0.5s ease;
     will-change: transform, filter;
     transform: translateZ(0) scale(1);
 }
@@ -1191,7 +1185,7 @@ button {
 .calc-accordion-card:hover,
 .calc-accordion-card.active {
     flex: 5;
-    box-shadow: 0 16px 40px var(--overlay-black-20);
+    box-shadow: var(--shadow-2xl);
 }
 
 .calc-accordion-card:hover .calc-accordion-bg,
@@ -1213,7 +1207,7 @@ button {
     justify-content: space-between;
     padding: var(--spacing-8) 0 var(--spacing-10) 0;
     pointer-events: none;
-    transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1) 0.1s, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+    transition: opacity 0.4s var(--ease-apple) 0.1s, transform 0.45s var(--ease-apple) 0.1s;
     opacity: 1;
     transform: translateY(0) scale(1);
     z-index: 2;
@@ -1233,7 +1227,7 @@ button {
 .calc-accordion-collapsed-title span {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    font-size: 1.25rem;
+    font-size: var(--font-size-xl);
     font-weight: 700;
     color: var(--color-white);
     letter-spacing: 3px;
@@ -1261,7 +1255,7 @@ button {
     color: var(--color-white);
     opacity: 0;
     transform: translateY(24px) translateZ(0);
-    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: opacity 0.3s var(--ease-apple), transform 0.35s var(--ease-apple);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -1277,7 +1271,7 @@ button {
     opacity: 1;
     transform: translateY(0) translateZ(0);
     pointer-events: auto;
-    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1) 0.18s, transform 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.18s;
+    transition: opacity 0.55s var(--ease-apple) 0.18s, transform 0.65s var(--ease-apple) 0.18s;
 }
 
 .calc-accordion-expanded-content h3 {
@@ -1288,7 +1282,7 @@ button {
 }
 
 .calc-accordion-expanded-content p {
-    font-size: 0.95rem;
+    font-size: var(--font-size-md);
     opacity: 0.85;
     margin: 0;
     line-height: 1.5;
@@ -1303,7 +1297,7 @@ button {
     padding: var(--spacing-2-5) var(--spacing-6);
     border-radius: var(--pill-radius);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: var(--font-size-md);
     cursor: pointer;
     text-decoration: none;
     box-shadow: 0 4px 14px var(--overlay-black-30);
@@ -1351,14 +1345,14 @@ button {
 .faq-container {
     width: 100%;
     background: var(--color-white);
-    border: 1px solid var(--color-gray-600);
-    border-radius: 16px;
+    border: 1px solid var(--faq-border);
+    border-radius: var(--faq-radius);
     box-shadow: 0 4px 20px var(--overlay-black-03);
     overflow: hidden;
 }
 
 .faq-item {
-    border-bottom: 1px solid var(--color-gray-600);
+    border-bottom: 1px solid var(--faq-border);
 }
 
 .faq-item:last-child {
@@ -1403,12 +1397,12 @@ button {
 }
 
 .faq-icon-plus {
-    font-size: 1.5rem;
+    font-size: var(--font-size-2xl);
     color: var(--text-light-999);
     font-weight: 300;
     line-height: 1;
     display: inline-block;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+    transition: transform 0.4s var(--ease-apple), color 0.3s ease;
 }
 
 .faq-item.active .faq-icon-plus {
@@ -1421,7 +1415,7 @@ button {
     overflow: hidden;
     opacity: 0;
     transform: translateY(-6px);
-    transition: max-height 0.42s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.42s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: max-height 0.42s var(--ease-apple), opacity 0.35s var(--ease-apple), transform 0.42s var(--ease-apple);
     background: var(--color-white);
     will-change: max-height, opacity, transform;
 }
@@ -1435,7 +1429,7 @@ button {
     padding: var(--spacing-4) var(--spacing-7) var(--spacing-6) var(--spacing-15-5);
     margin: 0;
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    font-size: var(--font-size-md);
     line-height: var(--line-height-base);
 }
 
@@ -1447,6 +1441,7 @@ button {
     border-bottom: 1px solid var(--border-glass);
     background: var(--overlay-black-80);
     backdrop-filter: blur(var(--blur-lg));
+    -webkit-backdrop-filter: blur(var(--blur-lg));
     position: sticky;
     top: 0;
     z-index: var(--z-sticky);
@@ -1493,7 +1488,7 @@ button {
 }
 
 .calc-header p {
-    font-size: 1.25rem;
+    font-size: var(--font-size-xl);
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
@@ -1512,7 +1507,8 @@ button {
     border: 1px solid var(--border-glass);
     border-radius: var(--card-radius);
     padding: var(--spacing-10);
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(var(--blur-md));
+    -webkit-backdrop-filter: blur(var(--blur-md));
 }
 
 .form-group {
@@ -1524,7 +1520,7 @@ button {
     margin-bottom: var(--spacing-2-5);
     font-weight: 600;
     color: var(--text-secondary);
-    font-size: 0.95rem;
+    font-size: var(--font-size-md);
 }
 
 .form-group input,
@@ -1533,9 +1529,9 @@ button {
     padding: var(--spacing-4) var(--spacing-5);
     background: var(--overlay-black-20);
     border: 1px solid var(--border-glass);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     color: var(--color-white);
-    font-size: 1rem;
+    font-size: var(--font-size-base);
     font-family: inherit;
     transition: var(--transition-fast);
 }
@@ -1556,9 +1552,9 @@ button {
 .calc-form .btn-primary {
     width: 100%;
     padding: var(--spacing-4-5);
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
     margin-top: var(--spacing-2-5);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
 }
 
 /* Result Styles / Sonuç Stilleri */
@@ -1567,7 +1563,8 @@ button {
     border: 1px solid var(--border-glass);
     border-radius: var(--card-radius);
     padding: var(--spacing-10);
-    backdrop-filter: blur(16px);
+    backdrop-filter: blur(var(--blur-md));
+    -webkit-backdrop-filter: blur(var(--blur-md));
     min-height: 100%;
     display: flex;
     flex-direction: column;
@@ -1585,14 +1582,14 @@ button {
 }
 
 .empty-state p {
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
     max-width: 300px;
     margin: 0 auto;
     line-height: var(--line-height-base);
 }
 
 .result-card h3 {
-    font-size: 1.5rem;
+    font-size: var(--font-size-2xl);
     margin-bottom: var(--spacing-7-5);
     font-weight: 700;
 }
@@ -1603,7 +1600,7 @@ button {
     align-items: center;
     padding: var(--spacing-4) 0;
     border-bottom: 1px solid var(--overlay-white-05);
-    font-size: 1.1rem;
+    font-size: var(--font-size-lg);
 }
 
 .result-row span {
@@ -1611,7 +1608,7 @@ button {
 }
 
 .result-row strong {
-    font-size: 1.25rem;
+    font-size: var(--font-size-xl);
     font-weight: 600;
 }
 
@@ -1629,7 +1626,7 @@ button {
     border: none;
     background: var(--accent-purple-bg);
     padding: var(--spacing-6);
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     border: 1px solid var(--accent-purple-border);
 }
 
@@ -1639,7 +1636,7 @@ button {
 }
 
 .result-row.box-count strong {
-    font-size: 2rem;
+    font-size: var(--font-size-3xl);
     color: var(--accent-purple);
     background: var(--accent-gradient);
     -webkit-text-fill-color: transparent;
@@ -1652,5 +1649,3 @@ button {
     font-style: italic;
     line-height: 1.5;
 }
-
-

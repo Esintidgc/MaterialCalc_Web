@@ -1,33 +1,44 @@
-/* Calculator SPA Layout / Hesaplayıcı SPA Düzeni */
+/* ==========================================================================
+   MaterialCalc - Calculator SPA Layout & Styles (calculator.css)
+   HESAPLAYICI TEK SAYFA (SPA) DÜZENİ VE BİLEŞEN STİLLERİ
+   ========================================================================== */
 
+/* ==========================================================================
+   1. PAGE LAYOUT & MAIN WRAPPER / SAYFA DÜZENİ VE ANA KAPSAYICI
+   ========================================================================== */
 .calc-page {
-    background: var(--calc-page-bg);
+    background: var(--calc-page-bg, #f8f9fa);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 .calc-main-wrapper {
-    padding-top: 180px;
-    padding-bottom: 120px;
+    padding-top: var(--desktop-header-clearance, 200px); /* Desktop Header Clearance: 120px Net Gap (24px top + 56px header + 120px) / Header altından Menüye tam 120px net boşluk */
+    padding-bottom: var(--desktop-bottom-clearance, 120px); /* Symmetrical Bottom Clearance: 120px Net Gap / Sonuç kartlarından Footer çizgisine 120px eşit ve dengeli kapanış */
     flex: 1;
     display: block;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .calc-spa-container {
-    max-width: var(--container-width);
+    max-width: var(--container-width, 1200px);
     width: 100%;
     margin: 0 auto;
-    padding: 0 var(--spacing-lg);
+    padding: 0 var(--spacing-lg, 24px);
     display: flex;
-    gap: 50px;
+    gap: var(--calc-container-gap, var(--spacing-12-5, 50px));
     position: relative;
-    z-index: 2;
+    z-index: var(--z-base, 1);
+    box-sizing: border-box;
 }
 
-/* Sidebar / Yan Menü */
+/* ==========================================================================
+   2. SIDEBAR & CATEGORY NAVIGATION / YAN MENÜ VE KATEGORİ GEZİNTİSİ
+   ========================================================================== */
 .calc-sidebar {
-    width: 250px;
+    width: var(--calc-sidebar-width, 250px);
     flex-shrink: 0;
     position: relative;
     height: fit-content;
@@ -35,61 +46,120 @@
 
 .calc-sidebar h2 {
     font-size: 1.1rem;
-    color: var(--text-muted);
-    margin-top: 15px;
-    margin-bottom: var(--spacing-4);
-    padding-left: var(--spacing-3);
+    color: var(--text-muted, #6F7075);
+    margin-top: 0;
+    margin-bottom: var(--spacing-4, 16px);
+    padding-left: var(--spacing-3, 12px);
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-.calc-nav-list {
+.calc-mobile-dropdown-btn,
+.calc-bottom-sheet-backdrop,
+.calc-sheet-drag-handle,
+.calc-sheet-header,
+.calc-active-check {
+    display: none; /* Hidden on desktop / Masaüstünde gizli */
+}
+
+.calc-nav-list,
+.calc-sheet-items {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-2);
+    gap: var(--spacing-2, 8px);
+    width: 100%;
+}
+
+.calc-btn-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3, 12px);
+    width: 100%;
+}
+
+.calc-btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+@keyframes navBtnFadeSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-14px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 .calc-nav-btn {
     display: flex;
     align-items: center;
-    gap: var(--spacing-3);
+    gap: var(--spacing-3, 12px);
     width: 100%;
     background: transparent;
     border: 1px solid transparent;
-    padding: var(--spacing-4);
-    border-radius: var(--pill-radius);
-    color: var(--text-secondary);
+    padding: var(--spacing-4, 16px);
+    border-radius: var(--calc-nav-btn-radius, var(--pill-radius, 100px));
+    color: var(--text-secondary, #58575A);
     font-size: 1.05rem;
     font-weight: 500;
     cursor: pointer;
     text-align: left;
-    transition: all 0.3s var(--ease-fluid);
+    transition: transform 0.25s var(--ease-apple),
+                background 0.25s var(--ease-apple),
+                color 0.25s var(--ease-apple),
+                border-color 0.25s var(--ease-apple),
+                box-shadow 0.25s var(--ease-apple);
+    animation: navBtnFadeSlide 0.45s var(--ease-apple) backwards;
+    box-sizing: border-box;
 }
 
+.calc-nav-btn:nth-child(1) { animation-delay: 0.10s; }
+.calc-nav-btn:nth-child(2) { animation-delay: 0.16s; }
+.calc-nav-btn:nth-child(3) { animation-delay: 0.22s; }
+.calc-nav-btn:nth-child(4) { animation-delay: 0.28s; }
+.calc-nav-btn:nth-child(5) { animation-delay: 0.34s; }
+
 .calc-nav-btn:hover {
-    background: var(--overlay-black-03);
-    color: var(--text-primary);
-    transform: translateX(5px);
+    background: var(--overlay-black-03, rgba(0, 0, 0, 0.03));
+    color: var(--text-primary, #141113);
+    transform: translateX(6px);
 }
 
 .calc-nav-btn.active {
-    background: var(--color-dark);
-    border-color: var(--color-dark);
-    color: var(--color-white);
-    box-shadow: var(--shadow-sm);
+    background: var(--color-dark, #141113);
+    border-color: var(--color-dark, #141113);
+    color: var(--color-white, #ffffff);
+    box-shadow: var(--shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.1));
+    transform: translateX(0);
+}
+
+.calc-nav-btn.active:hover {
+    transform: translateX(2px);
 }
 
 .calc-nav-btn svg {
     flex-shrink: 0;
-    color: var(--accent-solid);
-    transition: var(--transition-fast);
+    color: var(--accent-solid, #7E7160);
+    transition: color 0.25s var(--ease-apple), transform 0.25s var(--ease-apple);
+}
+
+.calc-nav-btn:hover svg {
+    transform: scale(1.1);
 }
 
 .calc-nav-btn.active svg {
-    color: var(--color-white);
+    color: var(--color-white, #ffffff);
+    transform: none;
 }
 
-/* Content Area / İçerik Alanı */
+/* ==========================================================================
+   3. CONTENT AREA & ANIMATIONS / İÇERİK ALANI VE ANİMASYONLAR
+   ========================================================================== */
 .calc-content-area {
     flex: 1;
     max-width: 900px;
@@ -110,7 +180,6 @@
         opacity: 0;
         transform: translateY(20px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -118,36 +187,36 @@
 }
 
 .calc-header-block {
-    margin-bottom: var(--spacing-6);
+    margin-bottom: var(--spacing-6, 24px);
 }
 
 .calc-header-block h1 {
     font-size: 2.5rem;
-    color: var(--text-primary);
+    color: var(--text-primary, #141113);
     margin-top: 0;
-    margin-bottom: var(--spacing-2);
+    margin-bottom: var(--spacing-2, 8px);
     letter-spacing: -1px;
 }
 
 .calc-header-block p {
-    color: var(--text-secondary);
+    color: var(--text-secondary, #58575A);
     font-size: 1.1rem;
     line-height: 1.5;
 }
 
-/* Form and Result Grid / Form ve Sonuç Izgarası */
-/* Minimal Form & Result Grid / Minimal Form ve Sonuç Düzeni */
 .minimal-calc-grid {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-8);
+    gap: var(--spacing-8, 32px);
 }
 
-/* Mode Toggle Switch (Matches Lang Toggle exactly) */
+/* ==========================================================================
+   4. MODE TOGGLE SWITCH (DIMENSION / AREA) / HESAPLAMA MODU GEÇİŞ BUTONU
+   ========================================================================== */
 .calc-mode-switch-wrapper {
     position: relative;
     display: inline-block;
-    margin-bottom: var(--spacing-4);
+    margin-bottom: var(--spacing-4, 16px);
 }
 
 .calc-mode-checkbox {
@@ -158,13 +227,13 @@
     position: relative;
     display: flex;
     align-items: center;
-    background: var(--overlay-black-05);
-    border-radius: var(--radius-xl);
-    padding: var(--spacing-xs);
-    width: 240px;
-    height: 40px;
+    background: var(--overlay-black-05, rgba(0, 0, 0, 0.05));
+    border-radius: var(--calc-mode-switch-radius, var(--radius-xl, 20px));
+    padding: var(--spacing-xs, 4px);
+    width: var(--calc-mode-switch-width, 240px);
+    height: var(--calc-mode-switch-height, 40px);
     cursor: pointer;
-    box-shadow: var(--shadow-inset-sm);
+    box-shadow: var(--shadow-inset-sm, inset 0 1px 3px rgba(0, 0, 0, 0.05));
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -173,8 +242,9 @@
     text-align: center;
     font-size: 0.85rem;
     font-weight: 700;
-    color: var(--text-muted);
-    z-index: var(--z-base);
+    color: var(--text-muted, #6F7075);
+    position: relative;
+    z-index: 2;
     transition: color 0.4s ease;
     user-select: none;
 }
@@ -185,48 +255,50 @@
     left: 4px;
     width: calc(50% - 4px);
     height: calc(100% - 8px);
-    background: var(--accent-solid);
-    border-radius: var(--radius-lg);
-    transition: transform var(--transition-spring);
-    z-index: var(--z-base);
-    box-shadow: var(--shadow-sm);
+    background: var(--accent-solid, #7E7160);
+    border-radius: var(--calc-mode-thumb-radius, var(--radius-lg, 16px));
+    transition: transform var(--transition-spring, 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275));
+    z-index: 1;
+    box-shadow: var(--shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.1));
 }
 
-/* Checked state (Area Mode) */
-.calc-mode-checkbox:checked+.calc-mode-slider .calc-slider-thumb {
+/* Checked state (Area Mode) / Alan Modu Aktif Durumu */
+.calc-mode-checkbox:checked + .calc-mode-slider .calc-slider-thumb {
     transform: translateX(100%);
 }
 
-.calc-mode-checkbox:not(:checked)+.calc-mode-slider .dim-label {
-    color: var(--color-white);
+.calc-mode-checkbox:not(:checked) + .calc-mode-slider .dim-label {
+    color: var(--color-white, #ffffff);
 }
 
-.calc-mode-checkbox:checked+.calc-mode-slider .area-label {
-    color: var(--color-white);
+.calc-mode-checkbox:checked + .calc-mode-slider .area-label {
+    color: var(--color-white, #ffffff);
 }
 
+/* ==========================================================================
+   5. FORM INPUTS & DIMENSION CONTROLS / FORM GİRDİLERİ VE ÖLÇÜ ALANLARI
+   ========================================================================== */
 .minimal-inputs {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-8) var(--spacing-10);
-    padding: var(--spacing-4) 0;
+    gap: var(--spacing-8, 32px) var(--spacing-10, 40px);
+    padding: var(--spacing-4, 16px) 0;
 }
 
 .force-new-line {
     grid-column: 1;
 }
 
-/* Inputs / Girdiler */
 .min-form-group {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-2);
+    gap: var(--spacing-2, 8px);
     position: relative;
 }
 
 .min-form-group label {
     font-size: 0.85rem;
-    color: var(--text-muted);
+    color: var(--text-muted, #6F7075);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -238,100 +310,199 @@
     align-items: center;
 }
 
-.min-input-wrapper input[type="number"] {
+.min-input-wrapper input[type="number"],
+.min-form-group select {
     width: 100%;
-    background: var(--overlay-black-05);
+    background: var(--overlay-black-05, rgba(0, 0, 0, 0.05));
     border: 2px solid transparent;
-    border-radius: var(--calc-input-radius);
-    color: var(--text-primary);
-    padding: var(--spacing-3) var(--spacing-4);
+    border-radius: var(--calc-input-radius, 16px);
+    color: var(--text-primary, #141113);
+    padding: var(--spacing-3, 12px) var(--spacing-4, 16px);
     font-size: 1.25rem;
     font-weight: 600;
-    font-family: var(--font-main);
+    font-family: var(--font-main, 'Poppins', sans-serif);
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
-.min-input-wrapper input[type="number"]:focus {
+.min-input-wrapper input[type="number"]:focus,
+.min-form-group select:focus {
     outline: none;
-    background: var(--color-white);
-    border-color: var(--accent-solid);
-    box-shadow: var(--accent-solid-shadow);
+    background: var(--color-white, #ffffff);
+    border-color: var(--accent-solid, #7E7160);
+    box-shadow: var(--accent-solid-shadow, 0 0 0 4px rgba(126, 113, 96, 0.15));
 }
 
 .min-input-wrapper input[type="number"]::placeholder {
-    color: var(--text-light-gray);
+    color: var(--text-light-gray, #8e8e93);
     font-weight: 500;
 }
 
-/* Range Slider Minimal */
-.min-waste-selector {
+/* ==========================================================================
+   6. APPLE-STYLE MINIMAL RANGE SLIDERS / APPLE TARZI HASSAS KAYDIRMA ÇUBUKLARI
+   ========================================================================== */
+.min-label-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.min-waste-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-dark, #141113);
+    color: var(--color-white, #ffffff);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 2px var(--spacing-2-5, 10px);
+    border-radius: var(--pill-radius, 100px);
+    letter-spacing: 0.3px;
+    box-shadow: var(--shadow-xs, 0 2px 6px rgba(0, 0, 0, 0.18));
+    transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.2s ease;
+    user-select: none;
+}
+
+.min-waste-badge.wheel-pulse {
+    transform: scale(1.15);
+    background: var(--accent-solid, #7E7160);
+}
+
+.min-range-container {
+    position: relative;
+    width: 100%;
+    height: var(--calc-range-height, 48px);
+    background: var(--overlay-black-05, rgba(0, 0, 0, 0.05));
+    border: 2px solid transparent;
+    border-radius: var(--calc-input-radius, 16px);
+    padding: 0 var(--spacing-4, 16px);
     display: flex;
     align-items: center;
-    gap: var(--spacing-4);
-    padding-top: var(--spacing-2);
-}
-
-.min-waste-selector input[type="range"] {
-    flex: 1;
-    background: transparent;
-}
-
-.min-waste-selector input[type="range"]:focus {
-    outline: none;
-}
-
-.min-waste-selector input[type="range"]::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 4px;
-    background: var(--overlay-black-10);
-    border-radius: 2px;
-}
-
-.min-waste-selector input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    height: 16px;
-    width: 16px;
-    border-radius: var(--radius-round);
-    background: var(--accent-solid);
-    margin-top: -6px;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    box-shadow: var(--shadow-sm);
-    transition: transform 0.2s ease;
+    box-sizing: border-box;
 }
 
-.min-waste-selector input[type="range"]::-webkit-slider-thumb:hover {
+.min-range-container:hover {
+    background: var(--overlay-black-07, rgba(0, 0, 0, 0.07));
+}
+
+.min-range-container:focus-within {
+    background: var(--color-white, #ffffff);
+    border-color: var(--accent-solid, #7E7160);
+    box-shadow: var(--accent-solid-shadow, 0 0 0 4px rgba(126, 113, 96, 0.15));
+}
+
+.min-range-input {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: var(--calc-range-track-height, 6px);
+    background: var(--overlay-black-10, rgba(0, 0, 0, 0.1));
+    border-radius: var(--pill-radius, 100px);
+    outline: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* WebKit Track & Thumb */
+.min-range-input::-webkit-slider-runnable-track {
+    width: 100%;
+    height: var(--calc-range-track-height, 6px);
+    background: var(--overlay-black-10, rgba(0, 0, 0, 0.1));
+    border-radius: var(--pill-radius, 100px);
+    cursor: pointer;
+}
+
+.min-range-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: var(--calc-range-thumb-size, 20px);
+    height: var(--calc-range-thumb-size, 20px);
+    border-radius: var(--radius-round, 50%);
+    background: var(--color-white, #ffffff);
+    border: 2.5px solid var(--color-dark, #141113);
+    cursor: pointer;
+    margin-top: -7px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.15s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.min-range-input::-webkit-slider-thumb:hover {
     transform: scale(1.2);
+    background: var(--color-dark, #141113);
+    border-color: var(--color-white, #ffffff);
 }
 
-.min-waste-val {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--accent-solid);
-    min-width: 40px;
-    text-align: right;
+.min-range-input:active::-webkit-slider-thumb {
+    transform: scale(1.25);
+    background: var(--color-dark, #141113);
+    border-color: var(--color-white, #ffffff);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Minimal Result Box */
+/* Firefox Track & Thumb */
+.min-range-input::-moz-range-track {
+    width: 100%;
+    height: var(--calc-range-track-height, 6px);
+    background: var(--overlay-black-10, rgba(0, 0, 0, 0.1));
+    border-radius: var(--pill-radius, 100px);
+    border: none;
+    cursor: pointer;
+}
+
+.min-range-input::-moz-range-thumb {
+    width: var(--calc-range-thumb-size, 20px);
+    height: var(--calc-range-thumb-size, 20px);
+    border-radius: var(--radius-round, 50%);
+    background: var(--color-white, #ffffff);
+    border: 2.5px solid var(--color-dark, #141113);
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.15s cubic-bezier(0.25, 0.8, 0.25, 1), background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.min-range-input::-moz-range-thumb:hover {
+    transform: scale(1.2);
+    background: var(--color-dark, #141113);
+    border-color: var(--color-white, #ffffff);
+}
+
+.min-range-input:active::-moz-range-thumb {
+    transform: scale(1.25);
+    background: var(--color-dark, #141113);
+    border-color: var(--color-white, #ffffff);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   7. CALCULATION RESULTS & VALUE CARDS / HESAPLAMA SONUÇLARI VE DEĞER KARTLARI
+   ========================================================================== */
 .calc-results-wrapper {
     display: flex;
-    gap: var(--spacing-6);
-    margin-top: var(--spacing-6);
+    gap: var(--spacing-6, 24px);
+    margin-top: var(--spacing-6, 24px);
     flex-wrap: wrap;
 }
 
 .min-info-card {
     flex: 1;
     min-width: 300px;
-    background: var(--calc-card-glass);
-    backdrop-filter: blur(var(--blur-lg));
-    border: 1px solid var(--overlay-black-05);
-    border-radius: var(--radius-xl);
-    padding: var(--spacing-6) var(--spacing-8);
+    background: var(--calc-card-glass, rgba(255, 255, 255, 0.85));
+    backdrop-filter: blur(var(--blur-lg, 20px));
+    -webkit-backdrop-filter: blur(var(--blur-lg, 20px));
+    border: 1px solid var(--overlay-black-05, rgba(0, 0, 0, 0.05));
+    border-radius: var(--calc-card-radius, var(--radius-xl, 20px));
+    padding: var(--spacing-6, 24px) var(--spacing-8, 32px);
     display: flex;
     align-items: center;
     justify-content: space-around;
-    gap: var(--spacing-6);
-    box-shadow: 0 10px 30px var(--overlay-black-03), inset 0 2px 5px var(--overlay-white-50);
+    gap: var(--spacing-6, 24px);
+    box-shadow: 0 10px 30px var(--overlay-black-03, rgba(0, 0, 0, 0.03)), inset 0 2px 5px var(--overlay-white-50, rgba(255, 255, 255, 0.5));
+    box-sizing: border-box;
 }
 
 .min-result-item {
@@ -342,93 +513,57 @@
 
 .min-result-item h3 {
     font-size: 0.8rem;
-    color: var(--text-muted);
+    color: var(--text-muted, #6F7075);
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
+    margin: 0;
 }
 
 .min-res-value {
     font-size: 2rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--text-primary, #141113);
     display: flex;
     align-items: baseline;
-    gap: 6px;
+    gap: var(--spacing-1-5, 6px);
 }
 
 .min-res-value small {
     font-size: 1rem;
-    color: var(--text-muted);
+    color: var(--text-muted, #6F7075);
     font-weight: 500;
 }
 
-/* Final Result Card */
+/* Final Highlight Result Card / Büyük Vurgulu Sonuç Kartı */
 .min-final-card {
-    background: var(--accent-solid);
-    border-radius: var(--radius-xl);
-    padding: var(--spacing-6) var(--spacing-10);
+    background: var(--accent-solid, #7E7160);
+    border-radius: var(--calc-card-radius, var(--radius-xl, 20px));
+    padding: var(--spacing-6, 24px) var(--spacing-10, 40px);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: var(--spacing-2);
-    box-shadow: var(--accent-solid-shadow);
+    gap: var(--spacing-2, 8px);
+    box-shadow: var(--accent-solid-shadow, 0 8px 24px rgba(126, 113, 96, 0.3));
+    box-sizing: border-box;
 }
 
 .min-final-card h3 {
-    color: var(--text-white-dim);
+    color: var(--text-white-dim, rgba(255, 255, 255, 0.9));
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 600;
+    margin: 0;
 }
 
 .min-final-card .min-res-value {
-    color: var(--color-white);
+    color: var(--color-white, #ffffff);
     font-size: 3.5rem;
     line-height: 1;
 }
 
 .min-final-card .min-res-value small {
-    color: var(--text-white-dim);
-}
-
-/* Responsive / Mobil Uyumluluk */
-@media (max-width: 992px) {
-    .calc-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 768px) {
-    .calc-spa-container {
-        flex-direction: column;
-    }
-
-    .calc-sidebar {
-        width: 100%;
-        position: static;
-        margin-bottom: var(--spacing-4);
-    }
-
-    .calc-nav-list {
-        flex-direction: row;
-        overflow-x: auto;
-        padding-bottom: var(--spacing-2);
-    }
-
-    .calc-nav-btn {
-        width: auto;
-        white-space: nowrap;
-        padding: var(--spacing-2) var(--spacing-4);
-    }
-
-    .calc-nav-btn:hover {
-        transform: translateY(-2px);
-    }
-
-    .calc-header-block h1 {
-        font-size: 2rem;
-    }
+    color: var(--text-white-dim, rgba(255, 255, 255, 0.9));
 }

@@ -5,6 +5,7 @@ node_modules/
 pages/
 md/
 docs/
+_img_optimizer/
 *.md
 !README.md
 optimize_images.js

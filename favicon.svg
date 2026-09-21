@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1c191a" />
+      <stop offset="100%" stop-color="#0f0d0e" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dbbe97" />
+      <stop offset="100%" stop-color="#a68c67" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Clean Luxury Dark Badge / Pürüzsüz Minimalist Koyu Zemin -->
+  <rect x="2" y="2" width="124" height="124" rx="34" fill="url(#bgGrad)" stroke="#2b2523" stroke-width="2.5" />
+  
+  <!-- Monogram MC Typography / Net & Temiz MC Logosu -->
+  <text x="64" y="84" font-family="'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="56" font-weight="900" text-anchor="middle" letter-spacing="-1">
+    <tspan fill="#ffffff">M</tspan><tspan fill="url(#accentGrad)">C</tspan>
+  </text>
+</svg>

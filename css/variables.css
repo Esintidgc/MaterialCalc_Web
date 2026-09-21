@@ -1,12 +1,15 @@
 /* ==========================================================================
-   MaterialCalc - CSS Variables / CSS Değişkenleri
+   VARIABLES.CSS - MaterialCalc Master Design Tokens & System Variables
+   MaterialCalc Ana Tasarım Değişkenleri ve Sistem Jetonları (Design Tokens)
    ========================================================================== */
 
 /* ==========================================================================
-   1. GLOBAL VARIABLES / KÜRESEL DEĞİŞKENLER
+   PART 1: GLOBAL & BASE DESIGN TOKENS / GENEL & TEMEL TASARIM JETONLARI
    ========================================================================== */
 :root {
-    /* 1.1 Base Colors / Temel Renkler */
+    /* --------------------------------------------------------------------------
+       1.1 Base Palette / Temel Renk Paleti
+       -------------------------------------------------------------------------- */
     --color-white: #ffffff;
     --color-black: #000000;
     --color-dark: #141113;
@@ -20,16 +23,24 @@
     --color-gray-600: #eaeaea;
     --color-gray-700: #D1D1D1;
 
-    /* 1.2 Semantic Text Colors / Anlamsal Metin Renkleri */
+    /* Base Surfaces & Glass Borders / Temel Yüzeyler ve Cam Kenarlıkları */
+    --bg-main: var(--color-white);
+    --bg-surface: rgba(255, 255, 255, 0.05);
+    --bg-surface-hover: rgba(255, 255, 255, 0.10);
+    --border-glass: rgba(255, 255, 255, 0.15);
+
+    /* --------------------------------------------------------------------------
+       1.2 Semantic Text Colors / Anlamsal Metin Renkleri
+       -------------------------------------------------------------------------- */
     --text-primary: var(--color-dark);
     --text-secondary: #58575A;
     --text-muted: #6F7075;
     --text-light-gray: #8e8e93;
-    --text-light-999: #999;
+    --text-light-999: #999999;
     --text-white: var(--color-white);
-    --text-white-dim: rgba(255, 255, 255, 0.9);
-    --text-white-muted: rgba(255, 255, 255, 0.6);
-    --text-white-ghost: rgba(255, 255, 255, 0.5);
+    --text-white-dim: rgba(255, 255, 255, 0.90);
+    --text-white-muted: rgba(255, 255, 255, 0.65);
+    --text-white-ghost: rgba(255, 255, 255, 0.45);
     
     /* Legacy / Semantic Aliases / Geriye Dönük Uyumluluk */
     --text-dark: var(--text-primary);
@@ -38,14 +49,97 @@
     --color-primary: var(--accent-solid);
     --color-bg: var(--color-gray-200);
 
-    /* 1.3 Typography & Fonts / Tipografi & Fontlar */
+    /* --------------------------------------------------------------------------
+       1.3 Brand, Gold & Accent Colors / Marka, Altın & Vurgusal Renkler
+       -------------------------------------------------------------------------- */
+    --accent-solid: #7E7160;
+    --accent-solid-dark: #5D523F;
+    --accent-solid-darker: #38311E;
+    --accent-solid-light: rgba(126, 113, 96, 0.15);
+    --accent-solid-ghost: rgba(126, 113, 96, 0.08);
+    --accent-solid-shadow: rgba(126, 113, 96, 0.40);
+    --accent-solid-shadow-hover: rgba(93, 82, 63, 0.50);
+    --color-logo-gold: #dfcaa8;
+    
+    --accent-purple: #D946EF;
+    --accent-purple-bg: rgba(139, 92, 246, 0.10);
+    --accent-purple-border: rgba(139, 92, 246, 0.20);
+
+    /* --------------------------------------------------------------------------
+       1.4 Overlay Backgrounds & Glass Tints / Saydam Katman ve Cam Tonları
+       -------------------------------------------------------------------------- */
+    --overlay-black-02: rgba(0, 0, 0, 0.02);
+    --overlay-black-03: rgba(0, 0, 0, 0.03);
+    --overlay-black-04: rgba(0, 0, 0, 0.04);
+    --overlay-black-05: rgba(0, 0, 0, 0.05);
+    --overlay-black-06: rgba(0, 0, 0, 0.06);
+    --overlay-black-07: rgba(0, 0, 0, 0.07);
+    --overlay-black-08: rgba(0, 0, 0, 0.08);
+    --overlay-black-10: rgba(0, 0, 0, 0.10);
+    --overlay-black-12: rgba(0, 0, 0, 0.12);
+    --overlay-black-15: rgba(0, 0, 0, 0.15);
+    --overlay-black-20: rgba(0, 0, 0, 0.20);
+    --overlay-black-30: rgba(0, 0, 0, 0.30);
+    --overlay-black-40: rgba(0, 0, 0, 0.40);
+    --overlay-black-50: rgba(0, 0, 0, 0.50);
+    --overlay-black-60: rgba(0, 0, 0, 0.60);
+    --overlay-black-70: rgba(0, 0, 0, 0.70);
+    --overlay-black-80: rgba(0, 0, 0, 0.80);
+    --overlay-black-85: rgba(0, 0, 0, 0.85);
+    --overlay-black-90: rgba(0, 0, 0, 0.90);
+
+    --overlay-white-05: rgba(255, 255, 255, 0.05);
+    --overlay-white-08: rgba(255, 255, 255, 0.08);
+    --overlay-white-10: rgba(255, 255, 255, 0.10);
+    --overlay-white-15: rgba(255, 255, 255, 0.15);
+    --overlay-white-20: rgba(255, 255, 255, 0.20);
+    --overlay-white-30: rgba(255, 255, 255, 0.30);
+    --overlay-white-40: rgba(255, 255, 255, 0.40);
+    --overlay-white-50: rgba(255, 255, 255, 0.50);
+    --overlay-white-60: rgba(255, 255, 255, 0.60);
+    --overlay-white-70: rgba(255, 255, 255, 0.70);
+    --overlay-white-80: rgba(255, 255, 255, 0.80);
+    --overlay-white-85: rgba(255, 255, 255, 0.85);
+    --overlay-white-90: rgba(255, 255, 255, 0.90);
+    --overlay-white-95: rgba(255, 255, 255, 0.95);
+
+    /* --------------------------------------------------------------------------
+       1.5 Gradients / Geçişli Renkler
+       -------------------------------------------------------------------------- */
+    --accent-gradient: linear-gradient(135deg, #7E7160, #5D523F);
+    --accent-gradient-hover: linear-gradient(135deg, #5D523F, #38311E);
+    --gradient-hero: linear-gradient(to top, var(--overlay-black-85), var(--overlay-black-50) 70%, transparent);
+    --gradient-hero-overlay: linear-gradient(180deg, var(--overlay-black-10) 0%, var(--overlay-black-40) 100%);
+    --gradient-glass: linear-gradient(135deg, var(--overlay-white-20), rgba(255, 255, 255, 0));
+    --gradient-card-overlay: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.2) 60%, transparent 100%);
+    --gradient-card-step3: linear-gradient(135deg, var(--color-gray-300) 0%, var(--color-gray-500) 100%);
+    --gradient-card-step1: linear-gradient(135deg, var(--color-dark-alt) 0%, var(--color-dark-muted) 100%);
+
+    /* --------------------------------------------------------------------------
+       1.6 Typography & Fonts / Tipografi & Fontlar
+       -------------------------------------------------------------------------- */
     --font-main: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
-    --font-mono: monospace;
+    --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
     --line-height-base: 1.6;
     --line-height-tight: 1.2;
-    --line-height-heading: 1.1;
+    --line-height-heading: 1.15;
 
-    /* 1.4 Spacing System / Boşluk Sistemi */
+    /* Font Sizes / Yazı Tipi Boyutları */
+    --font-size-2xs: 0.65rem;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.85rem;
+    --font-size-md: 0.95rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 2rem;
+    --font-size-4xl: 2.5rem;
+    --font-size-hero: 4rem;
+
+    /* --------------------------------------------------------------------------
+       1.7 Universal Spacing System / Evrensel Boşluk Sistemi
+       -------------------------------------------------------------------------- */
     --spacing-xs: 4px;
     --spacing-sm: 8px;
     --spacing-md: 16px;
@@ -54,6 +148,7 @@
     --spacing-2xl: 48px;
     --spacing-3xl: 64px;
     
+    --spacing-0-5: 2px;
     --spacing-1: 4px;
     --spacing-1-5: 6px;
     --spacing-2: 8px;
@@ -85,94 +180,84 @@
     --spacing-35: 140px;
     --spacing-50: 200px;
 
-    /* 1.5 Semantic Backgrounds / Anlamsal Arka Planlar */
-    --bg-main: var(--color-white);
-    --bg-surface: rgba(53, 50, 50, 0.4);
-    --bg-surface-hover: rgba(88, 87, 90, 0.4);
-    
-    /* 1.6 Overlay Backgrounds / Kaplama Arka Planları */
-    --overlay-black-03: rgba(0, 0, 0, 0.03);
-    --overlay-black-05: rgba(0, 0, 0, 0.05);
-    --overlay-black-08: rgba(0, 0, 0, 0.08);
-    --overlay-black-10: rgba(0, 0, 0, 0.1);
-    --overlay-black-20: rgba(0, 0, 0, 0.2);
-    --overlay-black-30: rgba(0, 0, 0, 0.3);
-    --overlay-black-40: rgba(0, 0, 0, 0.4);
-    --overlay-black-50: rgba(0, 0, 0, 0.5);
-    --overlay-black-60: rgba(0, 0, 0, 0.6);
-    --overlay-black-70: rgba(0, 0, 0, 0.7);
-    --overlay-black-80: rgba(0, 0, 0, 0.8);
-    --overlay-black-85: rgba(0, 0, 0, 0.85);
+    /* --------------------------------------------------------------------------
+       1.8 Viewport Clearance Standards / Ekran Boyutuna Göre Boşluk Standartları
+       -------------------------------------------------------------------------- */
+    --desktop-header-clearance: 200px;  /* 120px Net Boşluk (24px top + 56px header + 120px) */
+    --desktop-bottom-clearance: 120px;  /* 120px Net Kapanış Boşluğu */
+    --tablet-header-clearance: 100px;   /* 32px Net Boşluk (20px top + 48px header + 32px) */
+    --tablet-bottom-clearance: 64px;    /* 64px Net Kapanış Boşluğu */
+    --mobile-header-clearance: 94px;    /* 32px Net Boşluk (20px top + 42px header + 32px) */
+    --mobile-bottom-clearance: 64px;    /* 64px Net Kapanış Boşluğu */
 
-    --overlay-white-05: rgba(255, 255, 255, 0.05);
-    --overlay-white-10: rgba(255, 255, 255, 0.1);
-    --overlay-white-15: rgba(255, 255, 255, 0.15);
-    --overlay-white-20: rgba(255, 255, 255, 0.2);
-    --overlay-white-30: rgba(255, 255, 255, 0.3);
-    --overlay-white-40: rgba(255, 255, 255, 0.4);
-    --overlay-white-50: rgba(255, 255, 255, 0.5);
-    --overlay-white-60: rgba(255, 255, 255, 0.6);
-    --overlay-white-70: rgba(255, 255, 255, 0.7);
-    --overlay-white-90: rgba(255, 255, 255, 0.9);
-
-    /* 1.7 Accents & Brand / Vurgular & Marka */
-    --accent-solid: #7E7160;
-    --accent-solid-light: rgba(126, 113, 96, 0.2);
-    --accent-solid-shadow: rgba(126, 113, 96, 0.4);
-    --accent-solid-shadow-hover: rgba(93, 82, 63, 0.5);
-    --color-logo-gold: #dfcaa8;
-    
-    --accent-purple: #D946EF;
-    --accent-purple-bg: rgba(139, 92, 246, 0.1);
-    --accent-purple-border: rgba(139, 92, 246, 0.2);
-
-    /* 1.8 Gradients / Geçişli Renkler */
-    --accent-gradient: linear-gradient(135deg, #7E7160, #5D523F);
-    --accent-gradient-hover: linear-gradient(135deg, #5D523F, #38311E);
-    --gradient-hero: linear-gradient(to top, var(--overlay-black-85), var(--overlay-black-50) 70%, transparent);
-    --gradient-glass: linear-gradient(135deg, var(--overlay-white-20), rgba(255, 255, 255, 0));
-
-    /* 1.9 Borders / Kenarlıklar */
-    --border-glass: var(--overlay-black-10);
-    --border-glass-light: var(--overlay-white-20);
-    --border-light: var(--color-gray-600);
-
-    /* 1.10 Shadows / Gölgeler */
-    --shadow-sm: 0 4px 15px var(--overlay-black-10);
-    --shadow-md: 0 10px 20px var(--overlay-black-20);
-    --shadow-lg: 0 18px 36px var(--overlay-black-08);
-    --shadow-inset-lg: inset 0 30px 45px var(--overlay-black-05);
-    --shadow-inset-sm: inset 0 6px 18px var(--overlay-black-03);
-    --shadow-white-glow: 0 4px 15px var(--overlay-white-20);
-
-    /* 1.11 Layout & Border Radius / Düzen & Yuvarlaklık */
+    /* --------------------------------------------------------------------------
+       1.9 Layout & Border Radius / Düzen & Yuvarlaklık
+       -------------------------------------------------------------------------- */
     --container-width: 1200px;
     --radius-xs: 4px;
     --radius-sm: 8px;
+    --radius-sm-md: 10px;
     --radius-md: 12px;
+    --radius-md-lg: 14px;
     --radius-lg: 16px;
+    --radius-lg-xl: 18px;
     --radius-xl: 20px;
     --radius-2xl: 24px;
+    --radius-3xl: 28px;
     --radius-round: 50%;
     --pill-radius: 100px;
     --card-radius: var(--radius-2xl);
 
-    /* 1.12 Glassmorphism & Blurs / Cam Efekti Bulanıklıkları */
+    /* --------------------------------------------------------------------------
+       1.10 Shadows, Insets & Glows / Gölgeler & İç Işıklar
+       -------------------------------------------------------------------------- */
+    --shadow-xs: 0 2px 6px var(--overlay-black-05);
+    --shadow-sm: 0 4px 15px var(--overlay-black-10);
+    --shadow-md: 0 10px 20px var(--overlay-black-20);
+    --shadow-lg: 0 18px 36px var(--overlay-black-08);
+    --shadow-xl: 0 20px 45px var(--overlay-black-08);
+    --shadow-2xl: 0 24px 60px var(--overlay-black-30);
+    
+    --shadow-inset-lg: inset 0 30px 45px var(--overlay-black-05);
+    --shadow-inset-sm: inset 0 6px 18px var(--overlay-black-03);
+    --shadow-inset-glass: inset 0 1.5px 2px rgba(255, 255, 255, 0.9);
+    --shadow-white-glow: 0 4px 15px var(--overlay-white-20);
+    
+    /* Neo-Brutal & Flat Box Shadows */
+    --shadow-neo-btn: 2px 5px 0 0 var(--color-dark);
+    --shadow-neo-btn-white: 2px 5px 0 0 var(--color-white);
+    --shadow-search-neo: 6px 6px 0 0 var(--color-white);
+    --shadow-search-neo-hover: 10px 10px 0 0 var(--color-white);
+
+    /* --------------------------------------------------------------------------
+       1.11 Glassmorphism & Blurs / Cam Efekti Bulanıklıkları
+       -------------------------------------------------------------------------- */
+    --blur-xs: 4px;
     --blur-sm: 10px;
     --blur-md: 16px;
     --blur-lg: 20px;
-    --blur-xl: 30px;
+    --blur-xl: 24px;
+    --blur-2xl: 30px;
 
-    /* 1.13 Z-Index Hierarchy / Katman Sıralaması */
+    /* --------------------------------------------------------------------------
+       1.12 Z-Index Hierarchy / Katman Sıralaması
+       -------------------------------------------------------------------------- */
+    --z-negative: -1;
     --z-base: 1;
     --z-elevated: 10;
+    --z-dropdown: 200;
     --z-card-stack: 50;
     --z-sticky: 100;
+    --z-drawer: 999;
     --z-dock: 999;
     --z-header: 1000;
+    --z-backdrop: 1050;
+    --z-bottom-sheet: 1100;
     --z-modal: 99999;
     
-    /* 1.14 Animations & Transitions / Animasyonlar & Geçişler */
+    /* --------------------------------------------------------------------------
+       1.13 Animations & Transitions / Animasyonlar & Geçişler
+       -------------------------------------------------------------------------- */
     --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
     --ease-spring: cubic-bezier(0.68, -0.55, 0.265, 1.55);
     --ease-bounce: cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -184,71 +269,142 @@
 }
 
 /* ==========================================================================
-   2. SHARED COMPONENTS VARIABLES / ORTAK BİLEŞEN DEĞİŞKENLERİ
+   PART 2: SHARED & GLOBAL COMPONENTS / ORTAK VE KÜRESEL BİLEŞEN JETONLARI
    ========================================================================== */
 :root {
-    /* 2.1 Navbar / Gezinme Çubuğu */
+    /* 2.1 Dynamic Island Header / Yüzen Dinamik Ada */
     --navbar-height: 56px;
+    --navbar-height-tablet: 48px;
+    --navbar-height-mobile: 42px;
     --navbar-scrolled-bg: var(--color-white);
     --navbar-glass-bg: var(--overlay-white-05);
     
-    /* 2.2 Footer / Alt Bilgi */
-    --footer-bg: var(--color-white);
-    
-    /* 2.3 Buttons / Butonlar */
-    --btn-primary-height: 40px;
+    /* 2.2 Language Slider Switch / TR-EN Kayan Dil Seçici */
+    --lang-switch-width: 86px;
+    --lang-switch-height: 34px;
+    --lang-switch-radius: 20px;
+    --lang-thumb-radius: 16px;
 
-    /* 2.4 Floating Dock / Yüzen Hızlı Menü */
+    /* 2.3 Mega Footer & Newsletter / Alt Bilgi ve E-Bülten */
+    --footer-bg: var(--color-white);
+    --footer-border: var(--overlay-black-08);
+    --footer-subscribe-radius: 40px;
+    
+    /* 2.4 Buttons & Controls / Butonlar ve Kontroller */
+    --btn-primary-height: 40px;
+    --btn-mobile-height: 48px;
+
+    /* 2.5 Floating Action Dock & Back-to-Top / Yüzen Hızlı Menü ve Yukarı Çık */
     --dock-bg: var(--overlay-white-15);
     --dock-border: var(--overlay-white-20);
     --dock-scrolled-bg: var(--color-white);
+    --dock-mobile-bg: var(--overlay-white-15);
+    --dock-mobile-border: var(--overlay-white-20);
+    --dock-item-size: 48px;
+    --dock-radius: 30px;
+    --back-to-top-size: 50px;
+    --back-to-top-bottom: 30px;
+    --back-to-top-right: 30px;
 }
 
 /* ==========================================================================
-   3. INDEX.HTML - ANA SAYFA DEĞİŞKENLERİ / HOME PAGE VARIABLES
+   PART 3: INDEX.HTML (HOME PAGE) TOKENS / ANA SAYFA JETONLARI
    ========================================================================== */
 :root {
     /* 3.1 Hero & Brands Island / Karşılama ve Markalar Adası */
     --bg-island: #F3F3F3;
     --hero-min-height: calc(100vh - 48px);
     
-    /* 3.2 Smart Search / Akıllı Arama Çubuğu */
+    /* 3.2 Smart Live Search / Akıllı Canlı Arama */
     --search-bar-width: 360px;
+    --search-bar-height: 48px;
     --search-dropdown-max-height: 320px;
+    --search-dropdown-radius: 18px;
+    --search-item-radius: 11px;
+    --search-icon-size: 30px;
     
-    /* 3.3 3D Wallet / 3D İnteraktif Cüzdan */
+    /* 3.3 3D Interactive Wallet / 3D İnteraktif Cüzdan */
     --wallet-width: 440px;
     --wallet-height: 360px;
     --wallet-pocket-height: 250px;
+    --wallet-card-width: 410px;
+    --wallet-card-height: 225px;
+    --wallet-back-height: 310px;
+    --wallet-back-radius: 30px 30px 85px 85px;
     --wallet-step2-bg: linear-gradient(135deg, #f0e9df 0%, #e3d5c5 100%);
     --wallet-focus-shadow: 0 16px 36px rgba(0, 0, 0, 0.28), 0 0 0 1.5px rgba(255, 255, 255, 0.45);
     --wallet-focus-shadow-tablet: 0 20px 45px rgba(0, 0, 0, 0.28), 0 0 0 2px rgba(255, 255, 255, 0.6);
     --wallet-focus-shadow-mobile: 0 14px 32px rgba(0, 0, 0, 0.3), 0 0 0 1.5px rgba(255, 255, 255, 0.6);
     
-    /* 3.4 Calculators Accordion / Hesaplayıcı Akordiyonu */
+    /* 3.4 Calculators Accordion / 5'li Hesaplayıcı Akordiyonu */
     --accordion-height: 500px;
     --accordion-tablet-height: 440px;
+    --accordion-mobile-card-height: 180px;
+
+    /* 3.5 FAQ Accordion / SSS Akordiyonu */
+    --faq-radius: 16px;
+    --faq-border: var(--color-gray-600);
 }
 
 /* ==========================================================================
-   4. HESAPLA.HTML - HESAPLAMA SAYFASI DEĞİŞKENLERİ / CALCULATOR TOOL VARIABLES
+   PART 4: HESAPLA.HTML (CALCULATOR SPA) TOKENS / HESAPLAMA SAYFASI JETONLARI
    ========================================================================== */
 :root {
+    /* 4.1 Layout & Navigation / Düzen ve Gezinti */
     --calc-page-bg: var(--color-gray-200);
+    --calc-sidebar-width: 250px;
+    --calc-container-gap: var(--spacing-12-5);
+    --calc-nav-btn-radius: var(--pill-radius);
+
+    /* 4.2 Mode Switcher / Hesaplama Modu Değiştirici */
+    --calc-mode-switch-width: 240px;
+    --calc-mode-switch-height: 40px;
+    --calc-mode-switch-radius: var(--radius-xl);
+    --calc-mode-thumb-radius: var(--radius-lg);
+
+    /* 4.3 Form Inputs & Sliders / Form Girdileri ve Kaydırıcılar */
     --calc-form-bg: var(--bg-surface);
-    --calc-input-radius: var(--radius-md);
-    --calc-card-glass: rgba(255, 255, 255, 0.7);
+    --calc-input-radius: var(--radius-lg);
+    --calc-range-height: 48px;
+    --calc-range-track-height: 6px;
+    --calc-range-thumb-size: 20px;
+
+    /* 4.4 Result & Summary Cards / Sonuç ve Özet Kartları */
+    --calc-card-glass: rgba(255, 255, 255, 0.85);
+    --calc-card-radius: var(--radius-xl);
+    --calc-mobile-dropdown-height: 54px;
+    --calc-sheet-max-height: 80vh;
+    --calc-sheet-padding-bottom: 40px;
 }
 
 /* ==========================================================================
-   5. USTA-HESABI.HTML - USTA VE ŞANTİYE REHBERİ DEĞİŞKENLERİ / USTA GUIDE VARIABLES
+   PART 5: USTA-HESABI.HTML (PRO ESTIMATOR) TOKENS / USTA HESABI JETONLARI
    ========================================================================== */
 :root {
+    /* 5.1 Estimator Cards & Badges / Tahmin Kartları ve Rozetler */
     --usta-card-radius: var(--card-radius);
+    --usta-card-glass: rgba(255, 255, 255, 0.88);
+    --usta-card-border: var(--overlay-black-07);
+    --usta-card-border-hover: var(--overlay-black-12);
     --usta-badge-bg: var(--accent-solid-light);
     --usta-badge-color: var(--accent-solid);
-    --usta-formula-bg: var(--color-gray-100);
-    --usta-glass-badge: var(--overlay-white-60);
-    --usta-glass-formula: var(--overlay-white-50);
-}
 
+    /* 5.2 Formula & Highlight Boxes / Formül ve Vurgu Kutuları */
+    --usta-formula-bg: var(--overlay-black-03);
+    --usta-formula-border: var(--overlay-black-06);
+    --usta-formula-accent: var(--accent-solid);
+
+    /* 5.3 On-Site Example Tables / Şantiye Örnek Tabloları */
+    --usta-table-bg: rgba(255, 255, 255, 0.60);
+    --usta-table-border: var(--overlay-black-08);
+    --usta-table-header-bg: var(--overlay-black-04);
+    --usta-table-row-border: var(--overlay-black-04);
+    --usta-table-highlight-bg: var(--accent-solid-light);
+
+    /* 5.4 Pro Tips & Badges / Usta Tavsiyeleri ve Rozetler */
+    --usta-tip-bg: var(--accent-solid-ghost);
+    --usta-tip-border: var(--accent-solid);
+    --usta-icon-size: 52px;
+    --usta-icon-size-tablet: 48px;
+    --usta-icon-size-mobile: 44px;
+}

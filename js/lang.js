@@ -30,6 +30,7 @@ function setLanguage(lang) {
 
     // Save to local storage / Tercihi tarayıcı hafızasına kaydet
     localStorage.setItem('materialcalc_lang', lang);
+    document.documentElement.lang = lang;
 
     // Update text elements / Metin elemanlarını güncelle
     const elements = document.querySelectorAll('[data-i18n]');
@@ -59,7 +60,16 @@ function setLanguage(lang) {
         const key = el.getAttribute('data-i18n-tooltip');
         if (translations[lang][key]) {
             el.setAttribute('data-tooltip', translations[lang][key]);
-            el.setAttribute('aria-label', translations[lang][key] + ' Hesaplama');
+            el.setAttribute('aria-label', translations[lang][key] + (lang === 'en' ? ' Calculator' : ' Hesaplama'));
+        }
+    });
+
+    // Update aria labels / Erişilebilirlik etiketlerini güncelle
+    const elementsWithAria = document.querySelectorAll('[data-i18n-aria]');
+    elementsWithAria.forEach(el => {
+        const key = el.getAttribute('data-i18n-aria');
+        if (translations[lang][key]) {
+            el.setAttribute('aria-label', translations[lang][key]);
         }
     });
 

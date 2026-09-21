@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
             touchMultiplier: 2,
             infinite: false,
         });
+        window.lenis = lenis;
 
         function raf(time) {
             lenis.raf(time);
@@ -146,6 +147,20 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Sayfa bir hash (#) ile açıldığında (örn: dış sayfadan index.html#calculatorGrid ile gelindiğinde) pürüzsüz kaydır
+    if (window.location.hash) {
+        const hashTarget = document.querySelector(window.location.hash);
+        if (hashTarget) {
+            setTimeout(() => {
+                if (lenis) {
+                    lenis.scrollTo(hashTarget, { offset: -90 });
+                } else {
+                    hashTarget.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 200);
+        }
+    }
 
     /* ==========================================================================
        6. ACCORDION CALCULATORS (INDEX.HTML) / HESAPLAYICILAR AKORDİYON SİSTEMİ
@@ -273,18 +288,24 @@ document.addEventListener('DOMContentLoaded', () => {
        ========================================================================== */
     const backToTopBtn = document.getElementById('backToTop');
     if (backToTopBtn) {
-        window.addEventListener('scroll', () => {
+        const handleBackToTopScroll = () => {
             const scrollY = window.scrollY || document.documentElement.scrollTop;
             if (scrollY > 400) {
                 backToTopBtn.classList.add('visible');
             } else {
                 backToTopBtn.classList.remove('visible');
             }
-        }, { passive: true });
+        };
+
+        window.addEventListener('scroll', handleBackToTopScroll, { passive: true });
+        if (lenis) {
+            lenis.on('scroll', handleBackToTopScroll);
+        }
+        handleBackToTopScroll();
 
         backToTopBtn.addEventListener('click', () => {
             if (lenis) {
-                lenis.scrollTo(0, { duration: 1.5 });
+                lenis.scrollTo(0, { duration: 1.2 });
             } else {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
@@ -813,7 +834,50 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, { passive: true });
 
+    /* ==========================================================================
+       13. MOBILE VIRTUAL KEYBOARD DETECTION / SANAL KLAVYE AÇILMA TESPİTİ
+       ========================================================================== */
+    const handleInputFocusIn = (e) => {
+        if (window.innerWidth <= 1024 && ['INPUT', 'SELECT', 'TEXTAREA'].includes(e.target.tagName)) {
+            document.body.classList.add('keyboard-open');
+        }
+    };
+
+    const handleInputFocusOut = (e) => {
+        if (['INPUT', 'SELECT', 'TEXTAREA'].includes(e.target.tagName)) {
+            // Küçük bir gecikmeyle başka bir inputa geçildiyse sınıfı gereksiz yere kaldırmayı önle
+            setTimeout(() => {
+                const activeEl = document.activeElement;
+                if (!activeEl || !['INPUT', 'SELECT', 'TEXTAREA'].includes(activeEl.tagName)) {
+                    document.body.classList.remove('keyboard-open');
+                }
+            }, 120);
+        }
+    };
+
+    document.addEventListener('focusin', handleInputFocusIn, { passive: true });
+    document.addEventListener('focusout', handleInputFocusOut, { passive: true });
+
+    // Modern Visual Viewport API ile klavye küçülmesini ek kontrol olarak dinle
+    if (window.visualViewport) {
+        let initialHeight = window.visualViewport.height;
+        window.visualViewport.addEventListener('resize', () => {
+            if (window.innerWidth <= 1024) {
+                // Eğer ekran yüksekliği 150px'den fazla daraldıysa klavye açık demektir
+                if (initialHeight - window.visualViewport.height > 150) {
+                    document.body.classList.add('keyboard-open');
+                } else {
+                    const activeEl = document.activeElement;
+                    if (!activeEl || !['INPUT', 'SELECT', 'TEXTAREA'].includes(activeEl.tagName)) {
+                        document.body.classList.remove('keyboard-open');
+                    }
+                }
+            }
+        });
+    }
+
 });
+
 
 
 

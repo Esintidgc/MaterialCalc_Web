@@ -1,19 +1,45 @@
 # ==============================================================================
-# Cloudflare Pages Security & Cache Headers / Güvenlik ve Önbellek Başlıkları
+# MaterialCalc - Cloudflare Pages Enterprise Security & Cache Armor (_headers)
+# Sitemizin Çelik Yelek Güvenlik ve Önbellek Başlıkları (Military-Grade Security)
 # ==============================================================================
 
 /*
-  # Clickjacking Koruması (Siteyi iframe içine gömmeyi kısıtlar)
+  # 1. CONTENT SECURITY POLICY (CSP) - Zararlı Kod & XSS Enjeksiyon Kalkanı
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; connect-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests;
+
+  # 2. HTTP STRICT TRANSPORT SECURITY (HSTS) - Zorunlu & Kırılamaz HTTPS Kalkanı
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # 3. CLICKJACKING KORUMASI (Siteyi sahte iframe içine gömmeyi engeller)
   X-Frame-Options: SAMEORIGIN
   
-  # MIME-Type Sniffing Koruması (Dosya türü sahteciliğini engeller)
+  # 4. MIME-TYPE SNIFFING KORUMASI (Dosya türü sahteciliğini engeller)
   X-Content-Type-Options: nosniff
   
-  # XSS Filtresi (Eski tarayıcılar için aktif koruma)
+  # 5. XSS FİLTRESİ (Zararlı betik çalıştırma engeli)
   X-XSS-Protection: 1; mode=block
   
-  # Gizlilik ve Yönlendirme Politikası
+  # 6. GİZLİLİK VE YÖNLENDİRME POLİTİKASI (URL sızıntılarını önler)
   Referrer-Policy: strict-origin-when-cross-origin
   
-  # İzin Politikası (Kamera, mikrofon, konum gibi gereksiz API'leri kapatır)
-  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  # 7. İZİN POLİTİKASI (Kamera, mikrofon, konum, ödeme gibi hassas donanımları kilitler)
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), vr=()
+
+# ==============================================================================
+# STATİK VARLIKLAR İÇİN ÖNBELLEK VE HIZ OPTİMİZASYONU (CACHE ARMOR)
+# ==============================================================================
+
+/favicon.svg
+  Cache-Control: public, max-age=31536000, immutable
+
+/site.webmanifest
+  Cache-Control: public, max-age=86400
+
+/Images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/css/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/js/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800

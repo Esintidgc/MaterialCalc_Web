@@ -1392,34 +1392,321 @@
 
 
     /* ==========================================================================
-       PART 3: CALCULATOR PAGE (HESAPLA.HTML) / HESAPLAYICILAR SPA SAYFASI
+       PART 3: CALCULATOR PAGE (HESAPLA.HTML) / HESAPLAYICILAR SPA SAYFASI TABLET
+       TABLET SPA PAGE STYLES (768px - 1200px)
        ========================================================================== */
 
-    /* --- 3.1 Layout & Sidebar / Sayfa Yerleşimi ve Yan Menü --- */
+    /* --- 3.1 Main Container & Spacing / Ana Kapsayıcı ve Düzen --- */
     body.calc-page .calc-main-wrapper {
-        padding-top: 110px;
-        padding-bottom: 80px;
+        padding-top: var(--tablet-header-clearance, 100px); /* Tablet Header Clearance: 32px Net Gap (20px top + 48px header + 32px) / Header altından Kapsül Bara tam 32px net boşluk */
+        padding-bottom: var(--tablet-bottom-clearance, 64px); /* Symmetrical Closure / Sonuç kartlarından Footer çizgisine 64px dengeli kapanış */
+        width: 100%;
+        box-sizing: border-box;
     }
 
     body.calc-page .calc-spa-container {
-        padding: 0 var(--spacing-6);
-        gap: var(--spacing-8);
+        flex-direction: column; /* Dikey tek sütunlu sayfa akışı */
+        align-items: center;
+        width: 100%;
+        max-width: var(--container-width); /* Index sayfasıyla 1:1 aynı tam genişlik standardı */
+        margin: 0 auto;
+        padding: 0 var(--spacing-6); /* Tüm tablet boyutlarında sabit 24px sağ/sol kenar boşluğu */
+        gap: var(--spacing-10); /* 40px Ferah Makro Geçiş: Üst Kapsül Menü ➔ Hesaplama Alanı */
+        box-sizing: border-box;
     }
 
+    /* --- 3.2 Apple-Style Horizontal Segmented Capsule Bar / Yatay Kapsül Menü --- */
     body.calc-page .calc-sidebar {
         width: 100%;
-        max-width: 240px;
+        max-width: 100%;
+        position: relative;
+        z-index: 10;
+        margin: 0;
+        box-sizing: border-box;
     }
 
-    /* --- 3.2 Form Grid & Inputs / Form Izgarası ve Girdi Alanları --- */
+    body.calc-page .calc-sidebar h2 {
+        display: none; /* Segmented bar üzerinde başlık gizlenir, tertemiz hap görünüm */
+    }
+
+    body.calc-page .calc-mobile-dropdown-btn,
+    body.calc-page .calc-bottom-sheet-backdrop,
+    body.calc-page .calc-sheet-drag-handle,
+    body.calc-page .calc-sheet-header {
+        display: none !important; /* Mobilden kalan dropdown ve sheet tablet boyutunda tamamen devre dışı */
+    }
+
+    body.calc-page .calc-nav-list {
+        display: flex !important;
+        width: 100% !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        position: static !important;
+        transform: none !important;
+        padding: 0 !important;
+    }
+
+    body.calc-page .calc-sheet-items {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.04);
+        padding: 8px;
+        border-radius: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-sizing: border-box;
+    }
+
+    body.calc-page .calc-nav-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 50px;
+        border-radius: 14px;
+        background: transparent;
+        border: none;
+        padding: 0 10px;
+        cursor: pointer;
+        outline: none;
+        animation: none !important;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        box-sizing: border-box;
+        text-decoration: none;
+        color: var(--text-muted);
+    }
+
+    body.calc-page .calc-nav-btn:hover {
+        background: rgba(255, 255, 255, 0.7);
+        color: var(--color-dark);
+        transform: translateY(-1px);
+    }
+
+    body.calc-page .calc-nav-btn.active {
+        background: var(--color-dark) !important;
+        color: var(--color-white) !important;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+        transform: translateY(0);
+    }
+
+    body.calc-page .calc-nav-btn .calc-btn-left {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    body.calc-page .calc-nav-btn .calc-btn-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+    }
+
+    body.calc-page .calc-nav-btn .calc-btn-icon svg {
+        width: 17px;
+        height: 17px;
+    }
+
+    body.calc-page .calc-nav-btn span[data-i18n] {
+        font-size: 0.90rem;
+        font-weight: 600;
+        white-space: nowrap;
+        letter-spacing: -0.2px;
+    }
+
+    body.calc-page .calc-nav-btn.active span[data-i18n] {
+        color: var(--color-white) !important;
+    }
+
+    body.calc-page .calc-active-check {
+        display: none !important;
+    }
+
+    /* --- 3.3 Calculator Content Area & Header / Başlık ve İçerik Alanı --- */
+    body.calc-page .calc-content-area {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    body.calc-page .calc-panel {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    body.calc-page .calc-header-block {
+        margin-bottom: var(--spacing-9); /* 36px - Başlık Bloğu ➔ Form / Switch Arası Ferah Nefes */
+    }
+
+    body.calc-page .calc-header-block h1 {
+        font-size: 2.25rem; /* 36px - Tablet tok başlık */
+        font-weight: 800;
+        letter-spacing: -0.6px;
+        line-height: 1.2;
+        margin-bottom: var(--spacing-3-5); /* 14px Mikro Başlık-Açıklama Boşluğu */
+        color: var(--text-primary);
+    }
+
+    body.calc-page .calc-header-block p {
+        font-size: 1.02rem; /* 16.3px */
+        line-height: 1.65;
+        color: var(--text-secondary);
+        margin: 0;
+    }
+
+    /* --- 3.4 Mode Toggle Switch / Hesaplama Modu Seçici Switch --- */
+    body.calc-page .calc-mode-switch-wrapper {
+        margin-bottom: var(--spacing-9); /* 36px - Mod Switch ➔ Form Izgarası */
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    body.calc-page .calc-mode-slider {
+        width: 256px;
+        height: 46px;
+        border-radius: var(--pill-radius);
+    }
+
+    /* --- 3.5 2-Column Minimal Inputs Grid / 2 Sütunlu Form Girdi Izgarası --- */
+    body.calc-page .minimal-calc-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+
     body.calc-page .minimal-inputs {
-        grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-5);
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: var(--spacing-8) var(--spacing-8) !important; /* 32px Dikey, 32px Yatay Ultra Ferah Izgara */
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        box-sizing: border-box;
     }
 
-    /* --- 3.3 Dynamic Result Cards / Dinamik Sonuç Kartları --- */
+    body.calc-page .force-new-line {
+        grid-column: 1 / 2 !important;
+    }
+
+    body.calc-page .dim-input,
+    body.calc-page .parq-dim-input,
+    body.calc-page .paint-dim-input,
+    body.calc-page .base-dim-input {
+        grid-column: auto !important;
+    }
+
+    body.calc-page .area-input,
+    body.calc-page .parq-area-input,
+    body.calc-page .paint-area-input,
+    body.calc-page .base-area-input {
+        grid-column: 1 / -1 !important;
+    }
+
+    body.calc-page .min-form-group {
+        gap: var(--spacing-3); /* 12px - Etiket ➔ Input Kutusu Boşluğu */
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    body.calc-page .min-form-group label {
+        font-size: 0.85rem; /* 13.6px */
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--text-muted);
+    }
+
+    body.calc-page .min-input-wrapper {
+        width: 100%;
+    }
+
+    body.calc-page .min-input-wrapper input[type="number"] {
+        height: 56px; /* 56px Lüks Dokunmatik Yükseklik */
+        padding: 0 20px;
+        font-size: 1.25rem; /* 20px */
+        font-weight: 600;
+        border-radius: 16px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    body.calc-page .min-label-row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0;
+    }
+
+    body.calc-page .min-label-row label {
+        font-size: 0.85rem;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: var(--text-muted);
+    }
+
+    body.calc-page .min-waste-badge {
+        font-size: 0.85rem;
+        font-weight: 700;
+        padding: 3px 12px;
+        border-radius: var(--pill-radius);
+    }
+
+    body.calc-page .min-range-container {
+        height: 56px; /* Inputlarla 1:1 eşit 56px yükseklik */
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        border-radius: 16px;
+    }
+
+    /* --- 3.6 2-Column Result Cards / 2 Sütunlu Yan Yana Sonuç Kartları --- */
     body.calc-page .calc-results-wrapper {
-        gap: var(--spacing-5);
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: var(--spacing-7) !important; /* 28px Kartlar Arası Yatay Boşluk */
+        margin-top: var(--spacing-15) !important; /* 60px Form ➔ Sonuç Kartları Büyük Prestij Ayrımı */
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    body.calc-page .min-info-card {
+        width: 100%;
+        min-width: 0;
+        padding: var(--spacing-8) var(--spacing-7); /* 32px 28px Ferah ve Dolgun İç Dolgu */
+        border-radius: 22px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    body.calc-page .min-final-card {
+        width: 100%;
+        min-width: 0;
+        padding: var(--spacing-8) var(--spacing-7); /* 32px 28px Ferah ve Dolgun İç Dolgu */
+        border-radius: 22px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    body.calc-page .min-final-card .min-res-value {
+        font-size: 3.10rem; /* 49.6px */
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -1px;
+        color: var(--color-white);
     }
 
 
@@ -1427,18 +1714,29 @@
        PART 4: PRO ESTIMATOR PAGE (USTA-HESABI.HTML) / USTA HESABI SAYFASI
        ========================================================================== */
 
-    /* --- 4.1 Layout & Forms / Sayfa Yerleşimi ve Form Alanları --- */
+    /* --- 4.1 Layout & Containers / Sayfa Yerleşimi ve Kapsayıcılar --- */
     body.usta-page .usta-main-wrapper {
-        padding-top: 110px;
-        padding-bottom: 80px;
+        padding-top: var(--tablet-header-clearance, 100px); /* Tablet Header Clearance: 32px Net Gap (20px top + 48px header + 32px) / Header altından başlığa 32px net boşluk */
+        padding-bottom: var(--tablet-bottom-clearance, 64px); /* Symmetrical Closure / 64px dengeli kapanış */
     }
 
     body.usta-page .usta-container {
         padding: 0 var(--spacing-6);
+        max-width: var(--container-width);
     }
 
-    /* --- 4.2 Material Summary Tables / Malzeme Özet Tabloları --- */
-    body.usta-page .usta-summary-card {
+    /* --- 4.2 Typography & Grid / Tipografi ve Izgara Düzeni --- */
+    body.usta-page .usta-title {
+        font-size: 2.25rem;
+    }
+
+    body.usta-page .usta-grid {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-6);
+    }
+
+    body.usta-page .usta-card {
         padding: var(--spacing-7) var(--spacing-6);
         border-radius: 20px;
     }

@@ -3,10 +3,20 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
     <title>MaterialCalc - Kesin Malzeme Hesaplama</title>
     <meta name="description"
         content="Mimarlar ve ustalar için profesyonel malzeme hesaplama aracı. Seramik, parke, boya ihtiyaçlarınızı doğru ve hızlı şekilde hesaplayın.">
+
+    <meta name="theme-color" content="#141113">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="apple-touch-icon" href="favicon.svg">
+    <link rel="manifest" href="site.webmanifest">
+
+    <meta name="keywords"
+        content="malzeme hesaplama, seramik hesaplama, parke hesaplama, boya hesaplama, duvar kağıdı hesaplama, süpürgelik hesaplama, inşaat malzeme hesabı, kalekim sarfiyatı, fire oranı hesabı, material calculation, tile calculator, parquet calculator, paint calculator">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="author" content="MaterialCalc">
 
     <!-- OPEN GRAPH (OG) TAGS / SOSYAL MEDYA PAYLAŞIM ETİKETLERİ -->
     <meta property="og:type" content="website">
@@ -16,8 +26,99 @@
         content="Mimarlar ve ustalar için profesyonel malzeme hesaplama aracı. Seramik, parke, boya ihtiyaçlarınızı doğru ve hızlı şekilde hesaplayın.">
     <meta property="og:image" content="https://seninsiten.com/assets/Images/livingroom_2.webp">
 
-    <!-- CANONICAL URL (KOPYA İÇERİK ÖNLEME) -->
-    <link rel="canonical" href="https://seninsiten.com/" />
+    <!-- CANONICAL & MULTILINGUAL HREFLANG / KOPYA İÇERİK ÖNLEME VE DİL SEO'SU -->
+    <link rel="canonical" href="https://materialcalc.pages.dev/" />
+    <link rel="alternate" hreflang="tr" href="https://materialcalc.pages.dev/" />
+    <link rel="alternate" hreflang="en" href="https://materialcalc.pages.dev/" />
+    <link rel="alternate" hreflang="x-default" href="https://materialcalc.pages.dev/" />
+
+    <!-- JSON-LD STRUCTURED DATA / GOOGLE ZENGİN ARAMA SONUÇLARI (SCHEMA.ORG) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://materialcalc.pages.dev/#webapp",
+          "name": "MaterialCalc",
+          "url": "https://materialcalc.pages.dev/",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "All",
+          "inLanguage": ["tr", "en"],
+          "description": "Mimarlar, ustalar ve ev yenileyenler için profesyonel seramik, parke, boya, duvar kağıdı ve süpürgelik malzeme hesaplama platformu.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://materialcalc.pages.dev/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "MaterialCalc uygulamasını kullanmak tamamen ücretsiz mi?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Evet, MaterialCalc'in tüm temel hesaplama özellikleri tamamen ücretsizdir. Projeleriniz için ihtiyacınız olan malzeme miktarını anında, hiçbir ücret ödemeden hesaplayabilirsiniz."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Hesaplamalar ne kadar doğru sonuç veriyor?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Uygulamamız endüstri standartlarına uygun algoritmalar kullanır. Girdiğiniz alan (en/boy) ölçülerine ve paket içi miktarlarına göre %100 net sonuç çıkarır."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Kendi fire oranımı (%) manuel olarak belirleyebilir miyim?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Kesinlikle! Her projenin zorluk derecesine göre farklı fire payı gerekebilir. Hesaplama ekranında fire oranını %5, %10 veya istediğiniz herhangi bir değere çekebilirsiniz."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Hesaplama sonuçlarını kaydedebilir miyim?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Şu an için sonuçların ekran görüntüsünü alabilirsiniz. Çok yakında PDF olarak indirme ve profilinize proje kaydetme özelliklerini aktif edeceğiz!"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "HowTo",
+          "@id": "https://materialcalc.pages.dev/#howto",
+          "name": "3 Adımda Kolay Malzeme Hesaplama",
+          "description": "Projenize uygun malzemeyi seçip, ölçülerinizi girerek anında net malzeme ihtiyacınızı öğrenin.",
+          "step": [
+            {
+              "@type": "HowToStep",
+              "position": 1,
+              "name": "Malzemeni Seç",
+              "text": "Seramik, parke, boya, duvar kağıdı veya süpürgelik kategorilerinden projenize uygun olanı seçin."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 2,
+              "name": "Ölçüleri Gir",
+              "text": "Uygulama yapılacak alanın en, boy, duvar veya oda çevre ölçülerini girin."
+            },
+            {
+              "@type": "HowToStep",
+              "position": 3,
+              "name": "Anında Sonuç Al",
+              "text": "Fire payı dahil gerekli kutu, paket, litre veya rulo miktarını anında görün."
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 
     <!-- GOOGLE FONTS: POPPINS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,11 +130,11 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <!-- CSS FILES / CSS DOSYALARIMIZ (Modüler & Ayrı) -->
-    <link rel="stylesheet" href="css/variables.css?v=154.0">
-    <link rel="stylesheet" href="css/style.css?v=154.0">
-    <link rel="stylesheet" href="css/components.css?v=154.0">
-    <link rel="stylesheet" href="css/mobile.css?v=154.0">
-    <link rel="stylesheet" href="css/tablet.css?v=154.0">
+    <link rel="stylesheet" href="css/variables.css?v=1.0.0">
+    <link rel="stylesheet" href="css/style.css?v=1.0.0">
+    <link rel="stylesheet" href="css/components.css?v=1.0.0">
+    <link rel="stylesheet" href="css/mobile.css?v=1.0.0">
+    <link rel="stylesheet" href="css/tablet.css?v=1.0.0">
 </head>
 
 <body class="home-page">
@@ -628,9 +729,9 @@
     <!-- 9. JAVASCRIPT FILES / JAVASCRIPT DOSYALARIMIZ (Modüler & Ayrı) -->
     <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/translations.js?v=152.0"></script>
-    <script src="js/lang.js?v=152.0"></script>
-    <script src="js/app.js?v=152.0"></script>
+    <script src="js/translations.js?v=1.0.0"></script>
+    <script src="js/lang.js?v=1.0.0"></script>
+    <script src="js/app.js?v=1.0.0"></script>
 </body>
 
 </html>
