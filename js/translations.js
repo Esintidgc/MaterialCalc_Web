@@ -349,7 +349,7 @@ const translations = {
         "dock.ariaLabel": "Hızlı Hesaplama Araçları",
 
         // 12. Dynamic Page Titles / Sayfa Sekme Başlıkları
-        "page.title.home": "MaterialCalc - Kesin Malzeme Hesaplama",
+        "page.title.home": "MaterialCalc",
         "page.title.calc": "Hesaplayıcılar | MaterialCalc",
         "page.title.usta": "Usta Hesabı & Pratik Formüller | MaterialCalc",
         "page.title.404": "404 - Sayfa Bulunamadı | MaterialCalc"
@@ -699,7 +699,7 @@ const translations = {
         "dock.ariaLabel": "Quick Calculation Tools",
 
         // 12. Dynamic Page Titles / Sayfa Sekme Başlıkları
-        "page.title.home": "MaterialCalc - Precise Material Calculation",
+        "page.title.home": "MaterialCalc",
         "page.title.calc": "Calculators | MaterialCalc",
         "page.title.usta": "Pro Estimator & Jobsite Formulas | MaterialCalc",
         "page.title.404": "404 - Page Not Found | MaterialCalc"

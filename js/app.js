@@ -193,8 +193,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
 
-            // Tablet ve dokunmatik cihazlar için dokunma / tıklama (tap/click toggle)
+            // Tablet ve dokunmatik cihazlar için dokunma / tıklama (tap/click toggle - Tablet için)
             card.addEventListener('click', (e) => {
+                // Mobilde tüm kartlar dikey olarak açık listelendiğinden aktiflik değiştirilmez / No toggle needed on mobile
+                if (window.innerWidth <= 768) {
+                    return;
+                }
+
                 // Eğer doğrudan "Hesapla" link/butonuna tıklandıysa sayfa geçişine izin ver
                 if (e.target.closest('.btn-pill-primary') || e.target.closest('a') || e.target.closest('button')) {
                     return;

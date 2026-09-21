@@ -1177,7 +1177,10 @@
         counter-reset: accordion-count;
     }
 
-    body .calc-accordion-card {
+    body .calc-accordion-card,
+    body .calc-accordion-card:hover,
+    body .calc-accordion-card:focus,
+    body .calc-accordion-card.active {
         flex: none;
         width: 100%;
         height: 180px;
@@ -1189,14 +1192,13 @@
         border: 1px solid var(--overlay-black-05, rgba(0, 0, 0, 0.05));
         text-decoration: none;
         counter-increment: accordion-count;
+        transform: none !important;
     }
 
-    body .calc-accordion-card:hover {
-        flex: none;
-        box-shadow: none !important;
-    }
-
-    body .calc-accordion-bg {
+    body .calc-accordion-bg,
+    body .calc-accordion-card:hover .calc-accordion-bg,
+    body .calc-accordion-card:focus .calc-accordion-bg,
+    body .calc-accordion-card.active .calc-accordion-bg {
         position: absolute;
         top: 0;
         left: 0;
@@ -1204,33 +1206,14 @@
         height: 100%;
         background-size: cover;
         background-position: center;
-        transform: none;
+        transform: none !important;
+        filter: none !important;
+        transition: none !important;
     }
 
+    /* Collapsed Title & Numbers Hidden on Mobile / Mobilde Gizlenen Başlık & Numaralandırma */
     body .calc-accordion-collapsed-title {
-        position: absolute;
-        top: var(--spacing-3-5, 14px);
-        right: var(--spacing-4-5, 18px);
-        left: auto;
-        bottom: auto;
-        z-index: 3;
-        display: block;
-        opacity: 1;
-    }
-
-    body .calc-accordion-collapsed-title span {
-        display: none;
-    }
-
-    body .calc-accordion-collapsed-title::before {
-        content: "0" counter(accordion-count);
-        font-size: 2.4rem;
-        font-weight: 800;
-        color: var(--color-white, #ffffff);
-        opacity: 0.35;
-        line-height: 1;
-        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-        transition: opacity 0.3s ease;
+        display: none !important;
     }
 
     body .calc-accordion-expanded-content {
