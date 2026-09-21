@@ -1284,6 +1284,22 @@
         display: inline-flex;
         align-items: center;
         text-decoration: none;
+        box-shadow: var(--shadow-sm, 0 2px 8px rgba(0, 0, 0, 0.15));
+        transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    body .calc-accordion-expanded-content .btn-pill-primary:hover,
+    body .calc-accordion-expanded-content .btn-pill-primary:focus {
+        background: var(--color-white, #ffffff);
+        color: var(--color-dark, #121212);
+        box-shadow: var(--shadow-md, 0 4px 12px rgba(0, 0, 0, 0.2));
+    }
+
+    body .calc-accordion-expanded-content .btn-pill-primary:active {
+        background: rgba(255, 255, 255, 0.92);
+        color: var(--color-dark, #121212);
+        transform: scale(0.96);
     }
 
     /* --- 2.5 FAQ Section / Sıkça Sorulan Sorular (S.S.S) --- */
