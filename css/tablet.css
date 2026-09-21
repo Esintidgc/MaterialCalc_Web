@@ -296,22 +296,54 @@
 
     /* Disable desktop hover tooltips on tablet touch screens */
     body .dock-item::before,
-    body .dock-item::after {
+    body .dock-item::after,
+    body .dock-item:hover::before,
+    body .dock-item:hover::after,
+    body .dock-item:focus::before,
+    body .dock-item:focus::after,
+    body .dock-item:active::before,
+    body .dock-item:active::after,
+    body .quick-back-btn::before,
+    body .quick-back-btn::after,
+    body .quick-back-btn:hover::before,
+    body .quick-back-btn:hover::after,
+    body .quick-back-btn:focus::before,
+    body .quick-back-btn:focus::after,
+    body .quick-back-btn:active::before,
+    body .quick-back-btn:active::after,
+    body .back-to-top::before,
+    body .back-to-top::after,
+    body .back-to-top:hover::before,
+    body .back-to-top:hover::after,
+    body .back-to-top:focus::before,
+    body .back-to-top:focus::after,
+    body .back-to-top:active::before,
+    body .back-to-top:active::after {
         display: none !important;
         content: none !important;
         opacity: 0 !important;
         visibility: hidden !important;
+        pointer-events: none !important;
     }
 
-    /* --- 1.3 Tablet Back to Top Button / Tablet Sayfa Başına Dön Butonu --- */
+    /* --- 1.3 Tablet Quick Back & Back to Top Buttons / Tablet Hızlı Geri ve Sayfa Başına Dön Butonları --- */
+    body .quick-back-btn,
     body .back-to-top {
         width: 56px;
         height: 56px;
         bottom: 74px;
-        right: var(--spacing-7-5);
         box-shadow: var(--shadow-md);
     }
 
+    body .quick-back-btn {
+        left: var(--spacing-7-5);
+    }
+
+    body .back-to-top {
+        right: var(--spacing-7-5);
+    }
+
+    body .quick-back-btn svg,
     body .back-to-top svg {
         width: 26px;
         height: 26px;
@@ -331,10 +363,15 @@
         transition: opacity 0.25s ease, transform 0.25s ease, visibility 0.25s ease !important;
     }
 
+    body.calc-sheet-open .quick-back-btn,
     body.calc-sheet-open .back-to-top,
+    body.mobile-menu-open .quick-back-btn,
     body.mobile-menu-open .back-to-top,
+    body.keyboard-open .quick-back-btn,
     body.keyboard-open .back-to-top,
+    body:has(.calc-nav-list.open) .quick-back-btn,
     body:has(.calc-nav-list.open) .back-to-top,
+    body:has(.mobile-menu-overlay.active) .quick-back-btn,
     body:has(.mobile-menu-overlay.active) .back-to-top {
         opacity: 0 !important;
         visibility: hidden !important;

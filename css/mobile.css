@@ -367,19 +367,42 @@
 
     /* Disable desktop hover tooltips on mobile touch devices / Mobilde taşan ipucu yazılarını tamamen kapat */
     body .dock-item::before,
-    body .dock-item::after {
+    body .dock-item::after,
+    body .dock-item:hover::before,
+    body .dock-item:hover::after,
+    body .dock-item:focus::before,
+    body .dock-item:focus::after,
+    body .dock-item:active::before,
+    body .dock-item:active::after,
+    body .quick-back-btn::before,
+    body .quick-back-btn::after,
+    body .quick-back-btn:hover::before,
+    body .quick-back-btn:hover::after,
+    body .quick-back-btn:focus::before,
+    body .quick-back-btn:focus::after,
+    body .quick-back-btn:active::before,
+    body .quick-back-btn:active::after,
+    body .back-to-top::before,
+    body .back-to-top::after,
+    body .back-to-top:hover::before,
+    body .back-to-top:hover::after,
+    body .back-to-top:focus::before,
+    body .back-to-top:focus::after,
+    body .back-to-top:active::before,
+    body .back-to-top:active::after {
         display: none !important;
         content: none !important;
         opacity: 0 !important;
         visibility: hidden !important;
+        pointer-events: none !important;
     }
 
-    /* --- 1.5 Back to Top Button / Sayfa Başına Dön Butonu --- */
+    /* --- 1.5 Quick Back & Back to Top Buttons / Hızlı Geri ve Sayfa Başına Dön Butonları --- */
+    body .quick-back-btn,
     body .back-to-top {
         width: 42px;
         height: 42px;
         bottom: 74px;
-        right: 16px;
         border-radius: 50%;
         box-shadow: var(--shadow-md, 0 4px 16px rgba(0, 0, 0, 0.15));
         transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1),
@@ -390,6 +413,15 @@
         will-change: transform, opacity;
     }
 
+    body .quick-back-btn {
+        left: 16px;
+    }
+
+    body .back-to-top {
+        right: 16px;
+    }
+
+    body .quick-back-btn svg,
     body .back-to-top svg {
         width: 20px;
         height: 20px;
@@ -411,10 +443,15 @@
                     visibility 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
     }
 
+    body.calc-sheet-open .quick-back-btn,
     body.calc-sheet-open .back-to-top,
+    body.mobile-menu-open .quick-back-btn,
     body.mobile-menu-open .back-to-top,
+    body.keyboard-open .quick-back-btn,
     body.keyboard-open .back-to-top,
+    body:has(.calc-nav-list.open) .quick-back-btn,
     body:has(.calc-nav-list.open) .back-to-top,
+    body:has(.mobile-menu-overlay.active) .quick-back-btn,
     body:has(.mobile-menu-overlay.active) .back-to-top {
         opacity: 0 !important;
         visibility: hidden !important;

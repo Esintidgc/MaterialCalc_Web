@@ -286,8 +286,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     /* ==========================================================================
-       8. BACK TO TOP BUTTON / YUKARI ÇIK BUTONU
+       8. QUICK BACK & BACK TO TOP BUTTONS / HIZLI GERİ DÖN VE YUKARI ÇIK
        ========================================================================== */
+    const quickBackBtn = document.getElementById('quickBack');
+    if (quickBackBtn) {
+        quickBackBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // Eğer aynı siteden önceki sayfa geçmişi varsa geri dön, aksi halde ana sayfaya yönlendir
+            if (window.history.length > 1 && document.referrer && document.referrer.includes(window.location.host)) {
+                window.history.back();
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+    }
+
     const backToTopBtn = document.getElementById('backToTop');
     if (backToTopBtn) {
         const handleBackToTopScroll = () => {

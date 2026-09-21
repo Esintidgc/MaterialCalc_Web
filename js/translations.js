@@ -336,7 +336,13 @@ const translations = {
         "error.404.title": "Aradığınız Sayfa Bulunamadı",
         "error.404.desc": "Görünüşe göre taşınmış, silinmiş veya yanlış yazılmış bir sayfaya ulaşmaya çalışıyorsunuz.",
         "error.404.btnHome": "Ana Sayfaya Dön",
-        "error.404.btnCalc": "Hesaplayıcılara Git"
+        "error.404.btnCalc": "Hesaplayıcılara Git",
+
+        // 11. Common Floating Navigation / Ortak Yüzen Navigasyon Butonları
+        "common.back": "Geri Dön",
+        "common.backAria": "Önceki sayfaya dön",
+        "common.backToTop": "Sayfa Başına Çık",
+        "common.backToTopAria": "Sayfanın en üstüne çık"
     },
     en: {
         // 1. Floating Navbar / Gezinme Çubuğu
@@ -670,6 +676,12 @@ const translations = {
         "error.404.title": "Page Not Found",
         "error.404.desc": "It seems you are trying to reach a page that has been moved, deleted, or mistyped.",
         "error.404.btnHome": "Back to Home",
-        "error.404.btnCalc": "Go to Calculators"
+        "error.404.btnCalc": "Go to Calculators",
+
+        // 11. Common Floating Navigation / Ortak Yüzen Navigasyon Butonları
+        "common.back": "Go Back",
+        "common.backAria": "Go back to previous page",
+        "common.backToTop": "Back to Top",
+        "common.backToTopAria": "Scroll to top of page"
     }
 };

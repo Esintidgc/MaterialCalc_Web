@@ -475,58 +475,60 @@
     color: var(--color-white);
 }
 
-/* Tooltip on hover / Hover yapıldığında ipucu (Tooltip) */
-.dock-item::before {
-    content: attr(data-tooltip);
-    position: absolute;
-    right: calc(100% + 20px);
-    top: 50%;
-    transform: translateY(-50%) translateX(20px) scale(0.8);
-    background: var(--color-dark);
-    color: var(--color-white);
-    padding: var(--spacing-1-5) var(--spacing-3);
-    border-radius: var(--radius-sm);
-    font-size: var(--font-size-sm);
-    font-weight: 600;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    box-shadow: var(--shadow-md);
-    pointer-events: none;
-    border: 1px solid var(--overlay-white-10);
-}
+/* Tooltip on hover (Desktop only) / Hover yapıldığında ipucu (Sadece Masaüstü) */
+@media (hover: hover) and (min-width: 1025px) {
+    .dock-item::before {
+        content: attr(data-tooltip);
+        position: absolute;
+        right: calc(100% + 20px);
+        top: 50%;
+        transform: translateY(-50%) translateX(20px) scale(0.8);
+        background: var(--color-dark);
+        color: var(--color-white);
+        padding: var(--spacing-1-5) var(--spacing-3);
+        border-radius: var(--radius-sm);
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        box-shadow: var(--shadow-md);
+        pointer-events: none;
+        border: 1px solid var(--overlay-white-10);
+    }
 
-/* Tooltip Arrow / İpucu oku */
-.dock-item::after {
-    content: '';
-    position: absolute;
-    right: calc(100% + 15px);
-    top: 50%;
-    transform: translateY(-50%) translateX(20px) scale(0.8);
-    border-width: var(--spacing-1-5);
-    border-style: solid;
-    border-color: transparent transparent transparent var(--color-dark);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    pointer-events: none;
-}
+    /* Tooltip Arrow / İpucu oku */
+    .dock-item::after {
+        content: '';
+        position: absolute;
+        right: calc(100% + 15px);
+        top: 50%;
+        transform: translateY(-50%) translateX(20px) scale(0.8);
+        border-width: var(--spacing-1-5);
+        border-style: solid;
+        border-color: transparent transparent transparent var(--color-dark);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        pointer-events: none;
+    }
 
-.dock-item:hover::before,
-.dock-item:hover::after {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(-50%) translateX(0) scale(1);
+    .dock-item:hover::before,
+    .dock-item:hover::after {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-50%) translateX(0) scale(1);
+    }
 }
 
 /* ==========================================================================
-   5. BACK TO TOP BUTTON / SAYFA BAŞINA DÖN BUTONU
+   5. QUICK BACK BUTTON & BACK TO TOP BUTTON / HIZLI GERİ DÖN VE YUKARI ÇIK
    ========================================================================== */
+.quick-back-btn,
 .back-to-top {
     position: fixed;
     bottom: var(--back-to-top-bottom);
-    right: var(--back-to-top-right);
     width: var(--back-to-top-size);
     height: var(--back-to-top-size);
     border-radius: var(--radius-round);
@@ -538,11 +540,27 @@
     border: none;
     cursor: pointer;
     box-shadow: var(--shadow-md);
+    z-index: var(--z-dock);
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Quick Back - Left Alignment / Hızlı Geri Dön - Sol Hizalama */
+.quick-back-btn {
+    left: var(--quick-back-left, 30px);
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Back to Top - Right Alignment / Sayfa Başına Dön - Sağ Hizalama */
+.back-to-top {
+    right: var(--back-to-top-right);
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    z-index: var(--z-dock);
 }
 
 .back-to-top.visible {
@@ -551,16 +569,19 @@
     transform: translateY(0);
 }
 
+.quick-back-btn:hover,
 .back-to-top:hover {
     background: var(--accent-solid);
     transform: translateY(-5px);
     box-shadow: 0 15px 30px var(--accent-solid-shadow);
 }
 
+.quick-back-btn:active,
 .back-to-top:active {
     transform: scale(0.92);
 }
 
+.quick-back-btn svg,
 .back-to-top svg {
     width: var(--spacing-6-5);
     height: var(--spacing-6-5);
@@ -570,6 +591,105 @@
     transition: transform 0.3s ease;
 }
 
+.quick-back-btn:hover svg {
+    transform: translateX(-3px);
+}
+
 .back-to-top:hover svg {
     transform: translateY(-3px);
+}
+
+/* Tooltips on Hover (Desktop only) / Buton İpuçları (Sadece Masaüstü) */
+@media (hover: hover) and (min-width: 1025px) {
+    /* Quick Back Tooltip on Hover (Right Side) / Hızlı Geri İpucu (Sağ Tarafta) */
+    .quick-back-btn::before {
+        content: attr(data-tooltip);
+        position: absolute;
+        left: calc(100% + 15px);
+        top: 50%;
+        transform: translateY(-50%) translateX(-15px) scale(0.85);
+        background: var(--color-dark);
+        color: var(--color-white);
+        padding: var(--spacing-1-5) var(--spacing-3);
+        border-radius: var(--radius-sm);
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: var(--shadow-md);
+        pointer-events: none;
+        border: 1px solid var(--overlay-white-10);
+        z-index: 100;
+    }
+
+    .quick-back-btn::after {
+        content: '';
+        position: absolute;
+        left: calc(100% + 9px);
+        top: 50%;
+        transform: translateY(-50%) translateX(-15px) scale(0.85);
+        border-width: var(--spacing-1-5);
+        border-style: solid;
+        border-color: transparent var(--color-dark) transparent transparent;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        pointer-events: none;
+        z-index: 100;
+    }
+
+    .quick-back-btn:hover::before,
+    .quick-back-btn:hover::after {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-50%) translateX(0) scale(1);
+    }
+
+    /* Back to Top Tooltip on Hover (Left Side) / Yukarı Çık İpucu (Sol Tarafta) */
+    .back-to-top::before {
+        content: attr(data-tooltip);
+        position: absolute;
+        right: calc(100% + 15px);
+        top: 50%;
+        transform: translateY(-50%) translateX(15px) scale(0.85);
+        background: var(--color-dark);
+        color: var(--color-white);
+        padding: var(--spacing-1-5) var(--spacing-3);
+        border-radius: var(--radius-sm);
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: var(--shadow-md);
+        pointer-events: none;
+        border: 1px solid var(--overlay-white-10);
+        z-index: 100;
+    }
+
+    .back-to-top::after {
+        content: '';
+        position: absolute;
+        right: calc(100% + 9px);
+        top: 50%;
+        transform: translateY(-50%) translateX(15px) scale(0.85);
+        border-width: var(--spacing-1-5);
+        border-style: solid;
+        border-color: transparent transparent transparent var(--color-dark);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        pointer-events: none;
+        z-index: 100;
+    }
+
+    .back-to-top:hover::before,
+    .back-to-top:hover::after {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-50%) translateX(0) scale(1);
+    }
 }
