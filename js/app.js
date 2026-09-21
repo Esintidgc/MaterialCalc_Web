@@ -104,12 +104,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 mobileMenuOverlay.classList.add('active');
                 mobileMenuToggle.classList.add('active');
                 mobileMenuToggle.setAttribute('aria-expanded', 'true');
+                document.body.classList.add('mobile-menu-open');
                 document.body.style.overflow = 'hidden';
                 if (lenis) lenis.stop();
             } else {
                 mobileMenuOverlay.classList.remove('active');
                 mobileMenuToggle.classList.remove('active');
                 mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                document.body.classList.remove('mobile-menu-open');
                 document.body.style.overflow = '';
                 if (lenis) lenis.start();
             }

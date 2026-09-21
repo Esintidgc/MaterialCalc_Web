@@ -10,6 +10,20 @@
        PART 1: COMMON & GLOBAL COMPONENTS / GENEL & ORTAK BİLEŞENLER
        ========================================================================== */
 
+    /* --- 1.0 Mobile Tap Highlight & Selection Reset / Mobil Tıklama Mavi Parlamasını Kapatma --- */
+    *,
+    *::before,
+    *::after,
+    a,
+    button,
+    input,
+    select,
+    textarea,
+    label,
+    div {
+        -webkit-tap-highlight-color: transparent !important;
+    }
+
     /* --- 1.1 Base Structure & Container / Temel Yapı ve Konteyner --- */
     .container {
         padding: 0 var(--spacing-4, 16px);
@@ -291,7 +305,15 @@
         box-shadow: var(--shadow-lg, 0 8px 30px rgba(0, 0, 0, 0.25));
         z-index: 1000;
         box-sizing: border-box;
-        transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                    visibility 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                    background 0.3s ease,
+                    border-color 0.3s ease,
+                    box-shadow 0.3s ease;
+        will-change: transform, opacity;
     }
 
     body .floating-dock.scrolled {
@@ -328,8 +350,8 @@
     body .dock-item:active {
         background: var(--accent-solid, #7E7160);
         color: var(--color-white, #ffffff);
-        transform: scale(1.12);
-        box-shadow: 0 0 16px var(--accent-solid-shadow-hover, rgba(126, 113, 96, 0.4));
+        transform: scale(0.95);
+        box-shadow: none;
     }
 
     body .floating-dock.scrolled .dock-item {
@@ -340,7 +362,16 @@
     body .floating-dock.scrolled .dock-item:active {
         background: var(--accent-solid, #7E7160);
         color: var(--color-white, #ffffff);
-        transform: scale(1.12);
+        transform: scale(0.95);
+    }
+
+    /* Disable desktop hover tooltips on mobile touch devices / Mobilde taşan ipucu yazılarını tamamen kapat */
+    body .dock-item::before,
+    body .dock-item::after {
+        display: none !important;
+        content: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
     }
 
     /* --- 1.5 Back to Top Button / Sayfa Başına Dön Butonu --- */
@@ -351,6 +382,12 @@
         right: 16px;
         border-radius: 50%;
         box-shadow: var(--shadow-md, 0 4px 16px rgba(0, 0, 0, 0.15));
+        transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                    transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                    visibility 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+                    background-color 0.3s ease,
+                    box-shadow 0.3s ease;
+        will-change: transform, opacity;
     }
 
     body .back-to-top svg {
@@ -359,21 +396,33 @@
         stroke-width: 2.5px;
     }
 
-    /* --- 1.5.1 Virtual Keyboard Protection / Sanal Klavye Açıldığında Yüzen Elemanları Gizleme --- */
-    body.keyboard-open .floating-dock {
+    /* --- 1.5.1 Modal, Drawer, Bottom Sheet & Keyboard Protection / Menü, Çekmece ve Klavye Açıldığında Yüzen Elemanları Pürüzsüz Gizleme --- */
+    body.calc-sheet-open .floating-dock,
+    body.mobile-menu-open .floating-dock,
+    body.keyboard-open .floating-dock,
+    body:has(.calc-nav-list.open) .floating-dock,
+    body:has(.mobile-menu-overlay.active) .floating-dock {
         opacity: 0 !important;
         visibility: hidden !important;
         pointer-events: none !important;
-        transform: translate(-50%, 25px) scale(0.9) !important;
-        transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease !important;
+        transform: translate(-50%, 30px) scale(0.92) !important;
+        transition: opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+                    visibility 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
     }
 
-    body.keyboard-open .back-to-top {
+    body.calc-sheet-open .back-to-top,
+    body.mobile-menu-open .back-to-top,
+    body.keyboard-open .back-to-top,
+    body:has(.calc-nav-list.open) .back-to-top,
+    body:has(.mobile-menu-overlay.active) .back-to-top {
         opacity: 0 !important;
         visibility: hidden !important;
         pointer-events: none !important;
-        transform: translateY(25px) scale(0.9) !important;
-        transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease !important;
+        transform: translateY(30px) scale(0.92) !important;
+        transition: opacity 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.28s cubic-bezier(0.4, 0, 0.2, 1),
+                    visibility 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
     }
 
     /* --- 1.6 Mega Footer (Apple Accordion) / Mega Alt Bilgi (Apple Akordeon) --- */
